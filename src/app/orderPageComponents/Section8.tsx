@@ -90,14 +90,14 @@ const Section8 = () => {
         cursor: 'pointer',
         textDecoration: 'none',
         transition: 'background-color 0.3s ease',
+    } as React.CSSProperties;
+
+    const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        e.currentTarget.style.background = '#805b35';
     };
 
-    const handleMouseEnter = (e) => {
-        e.target.style.background = '#805b35';
-    };
-
-    const handleMouseLeave = (e) => {
-        e.target.style.background = '#b07f4c';
+    const handleMouseLeave = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        e.currentTarget.style.background = '#b07f4c';
     };
 
     return (
