@@ -10,48 +10,48 @@ const Section1 = () => {
     };
 
     checkWidth(); // Initial check
-    window.addEventListener('resize', checkWidth);
+    window.addEventListener(&apos;resize&apos;, checkWidth);
 
-    return () => window.removeEventListener('resize', checkWidth);
+    return () => window.removeEventListener(&apos;resize&apos;, checkWidth);
   }, []);
 
   const containerStyle: React.CSSProperties = {
-    width: '100%',
-    position: 'relative',
-    overflow: 'hidden',
-    padding: '2rem 1rem',
+    width: &apos;100%&apos;,
+    position: &apos;relative&apos;,
+    overflow: &apos;hidden&apos;,
+    padding: &apos;2rem 1rem&apos;,
   };
 
   const herosecContentStyle: React.CSSProperties = {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: '2rem',
-    flexDirection: isMobile ? 'column' : 'row',
-    textAlign: isMobile ? 'center' : 'left',
-    padding: '40px',
+    maxWidth: &apos;1200px&apos;,
+    margin: &apos;0 auto&apos;,
+    display: &apos;flex&apos;,
+    alignItems: &apos;center&apos;,
+    justifyContent: &apos;space-between&apos;,
+    gap: &apos;2rem&apos;,
+    flexDirection: isMobile ? &apos;column&apos; : &apos;row&apos;,
+    textAlign: isMobile ? &apos;center&apos; : &apos;left&apos;,
+    padding: &apos;40px&apos;,
   };
 
   const textStyle: React.CSSProperties = {
     flex: 1,
-    fontSize: 'clamp(0.9rem, 2vw, 1.2rem)',
+    fontSize: &apos;clamp(0.9rem, 2vw, 1.2rem)&apos;,
     lineHeight: 1.6,
-    color: '#333',
+    color: &apos;#333&apos;,
   };
 
   const imageContainerStyle: React.CSSProperties = {
     flex: 1,
-    maxWidth: isMobile ? '100%' : '600px',
-    height: 'auto',
+    maxWidth: isMobile ? &apos;100%&apos; : &apos;600px&apos;,
+    height: &apos;auto&apos;,
   };
 
   const imageStyle: React.CSSProperties = {
-    width: '100%',
-    height: 'auto',
-    objectFit: 'cover',
-    borderRadius: '10px',
+    width: &apos;100%&apos;,
+    height: &apos;auto&apos;,
+    objectFit: &apos;cover&apos;,
+    borderRadius: &apos;10px&apos;,
   };
 
   return (
@@ -59,12 +59,12 @@ const Section1 = () => {
       <div style={herosecContentStyle}>
         <div style={textStyle}>
           <p>
-            Modello by Millboard is redefining what's possible in outdoor design.
-            As the world's first patterned composite decking, it brings together
+            Modello by Millboard is redefining what&apos;s possible in outdoor design.
+            As the world&apos;s first patterned composite decking, it brings together
             cutting-edge innovation, striking aesthetics, and exceptional durability.
             With two distinct styles—Linear and Contour—and a thoughtfully curated
             colour palette, Modello offers a new level of customisation for homeowners
-            and design professionals alike. Whether you're envisioning bold geometric
+            and design professionals alike. Whether you&apos;re envisioning bold geometric
             layouts or more fluid, organic expressions, Modello delivers a premium
             resin mineral composite decking as creative and unique as your imagination.
           </p>

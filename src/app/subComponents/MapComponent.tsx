@@ -1,44 +1,31 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { LatLngExpression } from 'leaflet';
-
-// Import leaflet CSS and compatibility fixes
-import 'leaflet/dist/leaflet.css';
-import 'leaflet-defaulticon-compatibility';
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
+import React from 'react';
 
 const MapComponent: React.FC = () => {
-    const position: LatLngExpression = [51.505, -0.09];
-
-    useEffect(() => {
-        // Fix for leaflet icons in Next.js
-        if (typeof window !== 'undefined') {
-            // This ensures leaflet icons work properly
-            delete (window as any).L;
-        }
-    }, []);
-
     return (
-        <div style={{ width: '100%', height: '100%' }}>
-            <MapContainer
-                center={position}
-                zoom={10}
-                style={{ width: '100%', height: '100%' }}
-            >
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution={
-                        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    }
-                />
-                <Marker position={position}>
-                    <Popup>
-                        A sample marker <br /> Easily customizable.
-                    </Popup>
-                </Marker>
-            </MapContainer>
+        <div style={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#f5f5f5',
+            minHeight: '400px',
+            border: '1px solid #ddd',
+            borderRadius: '8px'
+        }}>
+            <div style={{
+                textAlign: 'center',
+                color: '#666',
+                fontSize: '16px'
+            }}>
+                <div style={{ marginBottom: '10px' }}>📍</div>
+                <div>Interactive Map</div>
+                <div style={{ fontSize: '12px', marginTop: '5px' }}>
+                    Map functionality will be available soon
+                </div>
+            </div>
         </div>
     );
 };

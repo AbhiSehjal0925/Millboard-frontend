@@ -56,7 +56,7 @@ const Header = () => {
                         color: '#333333',
                     }}
                 >
-                    We've got your order
+                    We&apos;ve got your order
                 </div>
                 <div
                     style={{
@@ -86,7 +86,7 @@ const Header = () => {
                         color: '#333333',
                     }}
                 >
-                    If you need to speak to us before then simply drop us an email, give us a call or use our contact form - we're always happy to help.
+                    If you need to speak to us before then simply drop us an email, give us a call or use our contact form - we&apos;re always happy to help.
                 </div>
             </div>
         </header>

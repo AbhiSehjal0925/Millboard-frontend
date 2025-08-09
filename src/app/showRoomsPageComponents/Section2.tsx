@@ -3,7 +3,7 @@ import MapForShowroomPage from '../subComponents/mapForShowroomPage';
 
 const Section2 = () => {
     const [screenSize, setScreenSize] = useState<'large' | 'medium' | 'small'>('large');
-    const [leftHeight, setLeftHeight] = useState<number>(typeof window !== 'undefined' ? 70 * window.innerHeight / 100 : 500); // Default to 70vh
+    const [, setLeftHeight] = useState<number>(typeof window !== 'undefined' ? 70 * window.innerHeight / 100 : 500); // Default to 70vh
     const leftSideRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

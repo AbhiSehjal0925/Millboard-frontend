@@ -33,7 +33,7 @@ const Section1 = () => {
     }, []);
 
     const handleCardClick = (wood: { name: string; image: string }) => {
-        const item = { ...wood, type: 'Decking' as 'Decking' };
+        const item = { ...wood, type: 'Decking' as const };
         if (!deckingItems.some(item => item.name === wood.name)) {
             addToCart(item);
         } else {

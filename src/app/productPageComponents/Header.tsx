@@ -110,7 +110,7 @@ const Header = () => {
                             fontSize: 14,
                             lineHeight: '20px'
                         }}>
-                            Moulded from timbers that are selected from oak boards for a textured look and feel, the Enhanced Grain collection's contemporary design accurately recreates the subtle nuances of natural wood. Each of the shades are slip-resistant and showcase their organic patinas beautifully.
+                            Moulded from timbers that are selected from oak boards for a textured look and feel, the Enhanced Grain collection&apos;s contemporary design accurately recreates the subtle nuances of natural wood. Each of the shades are slip-resistant and showcase their organic patinas beautifully.
                         </div>
                         <div style={{
                             fontFamily: 'Shega',

@@ -42,7 +42,7 @@ const Section4 = () => {
   };
 
   const handleCardClick = (wood: { name: string; image: string }) => {
-    const item = { ...wood, type: 'Cladding' as 'Cladding' };
+    const item = { ...wood, type: 'Cladding' as const };
     if (!claddingItems.some(item => item.name === wood.name)) {
       addToCart(item);
     } else {

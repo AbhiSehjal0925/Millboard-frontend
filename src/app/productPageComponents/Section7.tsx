@@ -93,7 +93,7 @@ const Section7 = () => {
         responsiveAdjustments();
         window.addEventListener('resize', responsiveAdjustments);
         return () => window.removeEventListener('resize', responsiveAdjustments);
-    }, []);
+    }, [responsiveAdjustments]);
 
     return (
         <section style={sectionStyle}>
