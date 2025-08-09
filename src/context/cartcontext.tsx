@@ -12,6 +12,7 @@ interface CartContextType {
     isCartVisible: boolean;
     toggleCartVisibility: () => void;
     removeFromCart: (index: number, type: 'Decking' | 'Cladding') => void;
+    addToCart: (item: CartItem, type: 'Decking' | 'Cladding') => void; // <-- ADD THIS
     onNavigate?: (page: string) => void;
 }
 
@@ -32,7 +33,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         }
     };
 
-    // Dummy navigation handler
+    // ADD THIS FUNCTION
+    const addToCart = (item: CartItem, type: 'Decking' | 'Cladding') => {
+        if (type === 'Decking') {
+            setDeckingItems((items) => [...items, item]);
+        } else {
+            setCladdingItems((items) => [...items, item]);
+        }
+    };
+
     const onNavigate = (page: string) => {
         // Implement navigation logic if needed
     };
@@ -45,6 +54,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
                 isCartVisible,
                 toggleCartVisibility,
                 removeFromCart,
+                addToCart, // <-- ADD THIS
                 onNavigate,
             }}
         >
