@@ -1,29 +1,32 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-const Section5 = () => {
-  const services = [
-    'Why choose Millboard decking_ icon 1.png',
-    'Why choose Millboard decking_ icon 2.png',
-    'Why choose Millboard decking_ icon 3.png',
-    'Why choose Millboard decking_ icon 4.png',
-    'Why choose Millboard decking_ icon 5.png',
-    'Why choose Millboard decking_ icon 6.png',
-    'Why choose Millboard decking_ icon 7.png',
-    'Why choose Millboard decking_ icon 8.png',
-    'Why choose Millboard decking_ icon 9.png',
-    'Why choose Millboard decking_ icon 10.png',
-    'Why choose Millboard decking_ icon 11.png',
-    'Why choose Millboard decking_ icon 12.png',
-  ];
+const services = [
+  'Why choose Millboard decking_ icon 1.png',
+  'Why choose Millboard decking_ icon 2.png',
+  'Why choose Millboard decking_ icon 3.png',
+  'Why choose Millboard decking_ icon 4.png',
+  'Why choose Millboard decking_ icon 5.png',
+  'Why choose Millboard decking_ icon 6.png',
+  'Why choose Millboard decking_ icon 7.png',
+  'Why choose Millboard decking_ icon 8.png',
+  'Why choose Millboard decking_ icon 9.png',
+  'Why choose Millboard decking_ icon 10.png',
+  'Why choose Millboard decking_ icon 11.png',
+  'Why choose Millboard decking_ icon 12.png',
+];
 
-  const [windowWidth, setWindowWidth] = useState(0);
+const Section5: React.FC = () => {
+  const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    // Only run on client
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth);
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
   const getBoxStyle = () => {
@@ -51,21 +54,21 @@ const Section5 = () => {
       boxSizing: 'border-box',
       transition: 'transform 0.3s ease',
       cursor: 'pointer',
-      backgroundColor: '#fff', // optional
-    };
+      backgroundColor: '#fff',
+    } as React.CSSProperties;
   };
 
   const getImgWrapperStyle = () => {
     const isMobile = windowWidth < 768;
     return {
-      position: 'relative', // required for Next.js Image fill
+      position: 'relative',
       flexShrink: 0,
       width: isMobile ? 'clamp(5rem, 15vw, 7rem)' : 'clamp(4rem, 10vw, 6rem)',
       height: isMobile ? 'clamp(5rem, 15vw, 7rem)' : 'clamp(4rem, 10vw, 6rem)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-    };
+    } as React.CSSProperties;
   };
 
   return (
@@ -110,16 +113,21 @@ const Section5 = () => {
           <div
             key={index}
             style={getBoxStyle()}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-0.25rem)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-0.25rem)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
+            }}
           >
             <div style={getImgWrapperStyle()}>
               <Image
                 src={`/png/pngsForOrderPage/${img}`}
-                alt={`service-${index + 1}`}
+                alt={`Millboard decking feature icon ${index + 1}`}
                 fill
                 style={{ objectFit: 'contain' }}
                 sizes={windowWidth < 768 ? '15vw' : '10vw'}
+                priority={index < 3}
               />
             </div>
             <div

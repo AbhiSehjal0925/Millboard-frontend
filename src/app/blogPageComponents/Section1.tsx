@@ -10,48 +10,47 @@ const Section1 = () => {
     };
 
     checkWidth(); // Initial check
-    window.addEventListener(&apos;resize&apos;, checkWidth);
-
-    return () => window.removeEventListener(&apos;resize&apos;, checkWidth);
+    window.addEventListener('resize', checkWidth);
+    return () => window.removeEventListener('resize', checkWidth);
   }, []);
 
   const containerStyle: React.CSSProperties = {
-    width: &apos;100%&apos;,
-    position: &apos;relative&apos;,
-    overflow: &apos;hidden&apos;,
-    padding: &apos;2rem 1rem&apos;,
+    width: '100%',
+    position: 'relative',
+    overflow: 'hidden',
+    padding: '2rem 1rem',
   };
 
   const herosecContentStyle: React.CSSProperties = {
-    maxWidth: &apos;1200px&apos;,
-    margin: &apos;0 auto&apos;,
-    display: &apos;flex&apos;,
-    alignItems: &apos;center&apos;,
-    justifyContent: &apos;space-between&apos;,
-    gap: &apos;2rem&apos;,
-    flexDirection: isMobile ? &apos;column&apos; : &apos;row&apos;,
-    textAlign: isMobile ? &apos;center&apos; : &apos;left&apos;,
-    padding: &apos;40px&apos;,
+    maxWidth: '1200px',
+    margin: '0 auto',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '2rem',
+    flexDirection: isMobile ? 'column' : 'row',
+    textAlign: isMobile ? 'center' : 'left',
+    padding: '40px',
   };
 
   const textStyle: React.CSSProperties = {
     flex: 1,
-    fontSize: &apos;clamp(0.9rem, 2vw, 1.2rem)&apos;,
+    fontSize: 'clamp(0.9rem, 2vw, 1.2rem)',
     lineHeight: 1.6,
-    color: &apos;#333&apos;,
+    color: '#333',
   };
 
   const imageContainerStyle: React.CSSProperties = {
     flex: 1,
-    maxWidth: isMobile ? &apos;100%&apos; : &apos;600px&apos;,
-    height: &apos;auto&apos;,
+    maxWidth: isMobile ? '100%' : '600px',
+    height: 'auto',
   };
 
   const imageStyle: React.CSSProperties = {
-    width: &apos;100%&apos;,
-    height: &apos;auto&apos;,
-    objectFit: &apos;cover&apos;,
-    borderRadius: &apos;10px&apos;,
+    width: '100%',
+    height: 'auto',
+    objectFit: 'cover',
+    borderRadius: '10px',
   };
 
   return (
