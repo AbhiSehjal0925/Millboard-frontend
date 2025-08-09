@@ -18,7 +18,13 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
+export const CartProvider = ({
+    children,
+    onNavigate,
+}: {
+    children: React.ReactNode;
+    onNavigate?: (page: string) => void;
+}) => {
     const [deckingItems, setDeckingItems] = useState<CartItem[]>([]);
     const [claddingItems, setCladdingItems] = useState<CartItem[]>([]);
     const [isCartVisible, setIsCartVisible] = useState(false);
@@ -42,10 +48,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         }
     };
 
-    const onNavigate = (page: string) => {
-        // Implement navigation logic if needed
-    };
-
     return (
         <CartContext.Provider
             value={{
@@ -55,7 +57,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
                 toggleCartVisibility,
                 removeFromCart,
                 addToCart, // <-- ADD THIS
-                onNavigate,
+                onNavigate, // use the prop
             }}
         >
             {children}
