@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 const Section5 = () => {
@@ -50,27 +51,20 @@ const Section5 = () => {
       boxSizing: 'border-box',
       transition: 'transform 0.3s ease',
       cursor: 'pointer',
+      backgroundColor: '#fff', // optional
     };
   };
 
   const getImgWrapperStyle = () => {
     const isMobile = windowWidth < 768;
     return {
+      position: 'relative', // required for Next.js Image fill
       flexShrink: 0,
       width: isMobile ? 'clamp(5rem, 15vw, 7rem)' : 'clamp(4rem, 10vw, 6rem)',
       height: isMobile ? 'clamp(5rem, 15vw, 7rem)' : 'clamp(4rem, 10vw, 6rem)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-    };
-  };
-
-  const getImgStyle = () => {
-    const isMobile = windowWidth < 768;
-    return {
-      width: isMobile ? 'clamp(3rem, 10vw, 4rem)' : 'clamp(2.5rem, 6vw, 3.5rem)',
-      height: isMobile ? 'clamp(3rem, 10vw, 4rem)' : 'clamp(2.5rem, 6vw, 3.5rem)',
-      objectFit: 'contain',
     };
   };
 
@@ -120,10 +114,12 @@ const Section5 = () => {
             onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
           >
             <div style={getImgWrapperStyle()}>
-              <img
+              <Image
                 src={`/png/pngsForOrderPage/${img}`}
                 alt={`service-${index + 1}`}
-                style={getImgStyle()}
+                fill
+                style={{ objectFit: 'contain' }}
+                sizes={windowWidth < 768 ? '15vw' : '10vw'}
               />
             </div>
             <div

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Header = () => {
@@ -54,9 +55,11 @@ const Header = () => {
                                 overflow: 'hidden',
                                 margin: '5px 0'
                             }}>
-                                <img
+                                <Image
                                     src="/imagesForProductPage/headerImg1.jpg"
                                     alt={`Product ${i + 1}`}
+                                    width={400}
+                                    height={300}
                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                 />
                             </div>

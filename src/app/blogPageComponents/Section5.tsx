@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Section5 = () => {
@@ -42,20 +43,11 @@ const Section5 = () => {
     color: '#4B5563',
     marginBottom: '16px',
     listStyleType: 'none',
-    // marginLeft: '20px',
   };
 
   const imageContainerStyle: React.CSSProperties = {
     flex: '1 1 400px',
     textAlign: 'center',
-  };
-
-  const imageStyle: React.CSSProperties = {
-    width: '100%',
-    maxWidth: '600px',
-    height: 'auto',
-    borderRadius: '16px',
-    objectFit: 'cover',
   };
 
   return (
@@ -98,11 +90,15 @@ const Section5 = () => {
           </div>
         </div>
         <div style={imageContainerStyle}>
-          <img
-            src="/imagesForBlogPage/Union (3).png"
-            alt="modello image"
-            style={imageStyle}
-          />
+          <div style={{ borderRadius: '16px', overflow: 'hidden' }}>
+            <Image
+              src="/imagesForBlogPage/Union (3).png"
+              alt="modello image"
+              width={600}
+              height={400}
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
         </div>
       </div>
     </section>

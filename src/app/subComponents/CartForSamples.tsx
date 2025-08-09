@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '@/context/cartcontext';
+import Image from 'next/image';
 
 const CartForSamples = () => {
     const {
@@ -151,9 +152,11 @@ const CartForSamples = () => {
                                             display: 'flex',
                                         }}
                                     >
-                                        <img
+                                        <Image
                                             src={item.image}
                                             alt={item.name}
+                                            width={200}
+                                            height={150}
                                             style={{
                                                 width: '100%',
                                                 height: '100%',

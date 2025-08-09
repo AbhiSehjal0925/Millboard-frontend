@@ -3,13 +3,12 @@ import React, { useEffect, useState } from "react";
 export default function ContactSection() {
   const [isMobile, setIsMobile] = useState(false);
 
+  // Handle screen resizing for responsive layout
   useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize);
-    return () => window.removeEventListener("resize", checkScreenSize);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const sharedInputStyle = {
@@ -24,8 +23,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section style={{ padding: isMobile ? "32px 16px" : "48px 24px", backgroundColor: "#FFFFFF" }}>
+    <section
+      style={{
+        padding: isMobile ? "32px 16px" : "48px 24px",
+        backgroundColor: "#FFFFFF",
+      }}
+    >
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+        {/* Title */}
         <h2
           style={{
             fontSize: isMobile ? "24px" : "30px",
@@ -48,29 +53,22 @@ export default function ContactSection() {
           {/* Left Text Block */}
           <div
             style={{
-              width: isMobile ? "100%" : "50%",
+              flex: "1 1 50%",
               color: "#1F2937",
               display: "flex",
               flexDirection: "column",
               gap: "16px",
             }}
           >
-            <p style={{ fontSize: "16px" }}>
-              At Millboard, we believe that every detail matters when creating
-              your dream outdoor feature...
-            </p>
-            <p style={{ fontSize: "16px" }}>
-              Décor sides are various design-oriented vertical or diagonal slats...
-            </p>
-            <p style={{ fontSize: "16px" }}>
-              Décor cladding can be specified for just the finer visual areas...
-            </p>
+            <p>At Millboard, we believe that every detail matters when creating your dream outdoor feature...</p>
+            <p>Décor sides are various design-oriented vertical or diagonal slats...</p>
+            <p>Décor cladding can be specified for just the finer visual areas...</p>
           </div>
 
           {/* Right Form Block */}
           <form
             style={{
-              width: isMobile ? "100%" : "50%",
+              flex: "1 1 50%",
               padding: "24px",
               borderRadius: "8px",
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -81,7 +79,7 @@ export default function ContactSection() {
               boxSizing: "border-box" as const,
             }}
           >
-            {/* Name */}
+            {/* Name Fields */}
             <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "16px" }}>
               <input type="text" placeholder="First Name*" style={sharedInputStyle} />
               <input type="text" placeholder="Last Name*" style={sharedInputStyle} />
@@ -93,7 +91,7 @@ export default function ContactSection() {
               <input type="tel" placeholder="Phone number*" style={sharedInputStyle} />
             </div>
 
-            {/* Role */}
+            {/* Role Selector */}
             <div>
               <label
                 style={{
@@ -106,14 +104,14 @@ export default function ContactSection() {
               >
                 Are you a homeowner or professional?*
               </label>
-              <select style={{ ...sharedInputStyle }}>
+              <select style={sharedInputStyle}>
                 <option>Please Select</option>
                 <option>Homeowner</option>
                 <option>Professional</option>
               </select>
             </div>
 
-            {/* Checkbox */}
+            {/* Quote Checkbox */}
             <div>
               <label
                 style={{
@@ -127,29 +125,23 @@ export default function ContactSection() {
                 Please tick below if you’re interested in a Quote or BOQ
               </label>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <input
-                  type="checkbox"
-                  id="quote"
-                  style={{ width: "20px", height: "20px", cursor: "pointer" }}
-                />
+                <input type="checkbox" id="quote" style={{ width: "20px", height: "20px", cursor: "pointer" }} />
                 <label htmlFor="quote" style={{ fontSize: "14px", color: "#1F2937" }}>
                   I am interested in a Project Quote or BOQ
                 </label>
               </div>
             </div>
 
-            {/* Address */}
+            {/* Address Fields */}
             <input type="text" placeholder="Street Address*" style={sharedInputStyle} />
             <input type="text" placeholder="Post code*" style={sharedInputStyle} />
-
             <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "16px" }}>
               <input type="text" placeholder="City*" style={sharedInputStyle} />
               <input type="text" placeholder="Country/Region*" style={sharedInputStyle} />
             </div>
-
             <input type="text" placeholder="United Kingdom*" style={sharedInputStyle} />
 
-            {/* Submit */}
+            {/* Submit Button */}
             <div style={{ paddingTop: "16px" }}>
               <button
                 type="submit"

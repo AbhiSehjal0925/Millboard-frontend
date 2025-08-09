@@ -14,18 +14,17 @@ export default function BranchhillSe8() {
           maxWidth: "1280px",
           margin: "0 auto",
           display: "flex",
-          flexDirection: "row",
           flexWrap: "wrap",
           alignItems: "center",
           padding: "0 16px",
           gap: "16px",
         }}
       >
+        {/* Text Content */}
         <div
           style={{
-            width: "100%",
-            maxWidth: "600px",
             flex: "1 1 300px",
+            maxWidth: "600px",
             padding: "8px",
           }}
         >
@@ -54,11 +53,11 @@ export default function BranchhillSe8() {
           </p>
         </div>
 
+        {/* Image Section */}
         <div
           style={{
-            width: "100%",
-            maxWidth: "600px",
             flex: "1 1 300px",
+            maxWidth: "600px",
             padding: "8px",
             display: "flex",
             justifyContent: "flex-end",
@@ -70,11 +69,13 @@ export default function BranchhillSe8() {
               alt="Branch Hill Hampstead"
               width={600}
               height={450}
+              priority
               style={{
                 borderRadius: "20px",
                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                 width: "100%",
                 height: "auto",
+                objectFit: "cover",
               }}
             />
           </div>

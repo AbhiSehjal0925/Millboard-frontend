@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-const Section3 = () => {
+const Section3: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -10,24 +11,24 @@ const Section3 = () => {
     return () => window.removeEventListener('resize', checkWidth);
   }, []);
 
-  const sectionStyle = {
+  const sectionStyle: React.CSSProperties = {
     width: '100%',
     minHeight: '803px',
-    position: 'relative' as const,
+    position: 'relative',
     display: 'flex',
     justifyContent: 'center',
     overflow: 'hidden',
     padding: '2rem 1rem',
   };
 
-  const containerStyle = {
+  const containerStyle: React.CSSProperties = {
     width: '100%',
     maxWidth: '1200px',
     margin: '0 auto',
-    padding:'40px'
+    padding: '40px',
   };
 
-  const eleganceMainStyle = {
+  const eleganceMainStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: isMobile ? 'column' : 'row',
     gap: '49px',
@@ -35,44 +36,45 @@ const Section3 = () => {
     justifyContent: 'center',
   };
 
-  const contentStyle = {
+  const contentStyle: React.CSSProperties = {
     width: isMobile ? '100%' : '50%',
     color: 'black',
   };
 
-  const headingStyle = {
+  const headingStyle: React.CSSProperties = {
     fontSize: 'clamp(1.8rem, 5vw, 2.3rem)',
     fontWeight: 700,
     color: 'black',
   };
 
-  const paragraphStyle = {
+  const paragraphStyle: React.CSSProperties = {
     marginTop: '23px',
     lineHeight: 1.8,
     color: 'black',
     fontSize: 'clamp(1rem, 2vw, 1.2rem)',
   };
 
-  const buttonStyle = {
+  const buttonStyle: React.CSSProperties = {
     background: '#D3A069',
     color: 'white',
     borderRadius: '20px',
-    padding: '4px 14px',
+    padding: '8px 16px',
     marginTop: '40px',
     border: 'none',
     cursor: 'pointer',
     fontSize: 'clamp(1rem, 2vw, 1.1rem)',
+    transition: 'background 0.3s ease',
   };
 
-  const imageContainerStyle = {
+  const imageContainerStyle: React.CSSProperties = {
     width: isMobile ? '100%' : '50%',
   };
 
-  const imageStyle = {
+  const imageStyle: React.CSSProperties = {
     width: '100%',
     height: 'auto',
     borderRadius: '10px',
-    objectFit: 'cover' as const,
+    objectFit: 'cover',
   };
 
   return (
@@ -80,7 +82,7 @@ const Section3 = () => {
       <div style={containerStyle}>
         <div style={eleganceMainStyle}>
           <div style={contentStyle}>
-            <h1 style={headingStyle}>Linear The Geometry of Elegance</h1>
+            <h1 style={headingStyle}>Linear — The Geometry of Elegance</h1>
             <p style={paragraphStyle}>
               The Linear pattern in Modello captures the harmony of precise, clean lines, bringing a sleek and structured aesthetic to outdoor spaces.
               This design is ideal for contemporary settings, offering versatility across various applications. Whether used for full deck layouts to achieve
@@ -90,10 +92,16 @@ const Section3 = () => {
               slip resistant, and a core blend of natural minerals bonded with polymer resin, ensuring long-lasting performance. More than just decking, Linear is an
               architectural statement that merges practicality with aesthetic excellence.
             </p>
-            <button style={buttonStyle}>Explore Linear</button>
+            <button
+              style={buttonStyle}
+              onMouseEnter={(e) => (e.currentTarget.style.background = '#b9864d')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = '#D3A069')}
+            >
+              Explore Linear
+            </button>
           </div>
           <div style={imageContainerStyle}>
-            <img
+            <Image
               src="/imagesForBlogPage/Union (2).png"
               alt="Elegance Linear Setting"
               width={600}

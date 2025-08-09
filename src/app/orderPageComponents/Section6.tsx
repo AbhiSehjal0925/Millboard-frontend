@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Section6 = () => {
@@ -88,9 +89,11 @@ const Section6 = () => {
                 <div style={ratingTextStyle}>Independent Service Rating Based On 194 Verified Reviews.</div>
                 <hr />
                 <div style={logoContainerStyle}>
-                    <img
+                    <Image
                         src="/png/pngsForOrderPage/Feefo_idlyF8-NJ6_0.png"
                         alt="Feefo logo"
+                        width={120}
+                        height={40}
                         style={logoImgStyle}
                     />
                 </div>

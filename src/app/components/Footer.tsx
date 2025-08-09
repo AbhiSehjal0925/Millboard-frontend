@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Footer = () => {
@@ -96,7 +97,7 @@ const Footer = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
           <div style={{ filter: 'brightness(0) invert(1)', maxWidth: '120px' }}>
-            <img src="/images/mainlogo.png" alt="mainlogo" style={{ width: '100%', height: 'auto' }} />
+            <Image src="/images/mainlogo.png" alt="mainlogo" width={200} height={50} style={{ width: '100%', height: 'auto' }} />
           </div>
         </div>
 

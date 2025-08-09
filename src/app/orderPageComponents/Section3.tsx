@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '@/context/cartcontext';
 import CartForSamples from '../subComponents/CartForSamples';
+import Image from 'next/image';
 
 export const woods = [
     { name: 'Antique Oak', image: '/imagesForOrderPage/Cladding image 4.png' },
@@ -10,11 +11,15 @@ export const woods = [
 const Section3 = () => {
     const { deckingItems, claddingItems, addToCart, removeFromCart } = useCart();
     const [isHydrated, setIsHydrated] = useState(false);
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
     useEffect(() => {
         setIsHydrated(true);
-        const handleResize = () => setScreenWidth(window.innerWidth);
+        const handleResize = () => {
+            if (typeof window !== 'undefined') {
+                setScreenWidth(window.innerWidth);
+            }
+        };
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -97,9 +102,11 @@ const Section3 = () => {
                             onMouseEnter={e => !isDisabled && (e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.3) 0px 5px 15px')}
                             onMouseLeave={e => !isDisabled && (e.currentTarget.style.boxShadow = 'none')}
                         >
-                            <img
+                            <Image
                                 src={wood.image}
                                 alt={wood.name}
+                                width={400}
+                                height={300}
                                 style={{
                                     width: '100%',
                                     height: '80%',

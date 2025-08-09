@@ -12,7 +12,7 @@ const Section1st = () => {
             setIsMobile(window.innerWidth < 768);
         };
 
-        handleResize(); // check on mount
+        handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -44,12 +44,10 @@ const Section1st = () => {
         marginBottom: '1rem',
         overflow: 'hidden',
         width: '100%',
-        maxWidth: '100%',
-        height: 'auto',
+        aspectRatio: '1 / 1',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        aspectRatio: '1 / 1',
     };
 
     const textBoxStyle: React.CSSProperties = {
@@ -90,53 +88,38 @@ const Section1st = () => {
     return (
         <section style={sectionStyle}>
             <div style={containerStyle}>
-                {/* Card 1 */}
-                <div style={cardStyle}>
-                    <div style={imageContainerStyle}>
-                        <Image
-                            src="/images/section1stImg1.png"
-                            alt="Product Left"
-                            width={900}
-                            height={900}
-                            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                        />
+                {[
+                    {
+                        img: '/images/section1stImg1.png',
+                        title: 'Designed to go further and last longer',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                    },
+                    {
+                        img: '/images/section1stImg2.png',
+                        title: 'Crafted to enhance any outdoor space',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                    },
+                ].map((card, i) => (
+                    <div key={i} style={cardStyle}>
+                        <div style={imageContainerStyle}>
+                            <Image
+                                src={card.img}
+                                alt={card.title}
+                                width={900}
+                                height={900}
+                                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                                priority={i === 0} // First image prioritized
+                            />
+                        </div>
+                        <div style={textBoxStyle}>
+                            <h3 style={headingStyle}>{card.title}</h3>
+                            <p style={paragraphStyle}>{card.text}</p>
+                            <Link href="/explore-collection" style={buttonStyle}>
+                                Explore the collection
+                            </Link>
+                        </div>
                     </div>
-                    <div style={textBoxStyle}>
-                        <h3 style={headingStyle}>Designed to go further and last longer</h3>
-                        <p style={paragraphStyle}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <Link href="/explore-collection" style={buttonStyle}>
-                            Explore the collection
-                        </Link>
-                    </div>
-                </div>
-
-                {/* Card 2 */}
-                <div style={cardStyle}>
-                    <div style={imageContainerStyle}>
-                        <Image
-                            src="/images/section1stImg2.png"
-                            alt="Product Right"
-                            width={900}
-                            height={900}
-                            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                        />
-                    </div>
-                    <div style={textBoxStyle}>
-                        <h3 style={headingStyle}>Crafted to enhance any outdoor space</h3>
-                        <p style={paragraphStyle}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <Link href="/explore-collection" style={buttonStyle}>
-                            Explore the collection
-                        </Link>
-                    </div>
-                </div>
+                ))}
             </div>
         </section>
     );

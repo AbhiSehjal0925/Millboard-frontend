@@ -1,8 +1,10 @@
+import React from 'react';
+
 const Header = () => {
-  const bannerStyle = {
+  const bannerStyle: React.CSSProperties = {
     width: '100%',
     minHeight: '588px',
-    backgroundImage: "url('/imagesForBlogPage/Rectangle 6.png')",
+    backgroundImage: "url('/imagesForBlogPage/Rectangle%206.png')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -15,22 +17,22 @@ const Header = () => {
     padding: '2rem 1rem',
   };
 
-  const contentStyle = {
+  const contentStyle: React.CSSProperties = {
     zIndex: 1,
-    textAlign: 'center' as const,
+    textAlign: 'center',
     maxWidth: '1200px',
     width: '100%',
   };
 
-  const headingStyle = {
-    fontSize: 'clamp(1rem, 5vw, 2.5rem)', // Responsive
+  const headingStyle: React.CSSProperties = {
+    fontSize: 'clamp(1rem, 5vw, 2.5rem)',
     marginBottom: '0.5rem',
     fontWeight: 700,
     lineHeight: 1.2,
   };
 
-  const paragraphStyle = {
-    fontSize: 'clamp(0.8rem, 3vw, 1.2rem)', // Responsive
+  const paragraphStyle: React.CSSProperties = {
+    fontSize: 'clamp(0.8rem, 3vw, 1.2rem)',
     fontWeight: 400,
   };
 
@@ -40,7 +42,6 @@ const Header = () => {
         <h1 style={headingStyle}>Introducing Modello by Millboard</h1>
         <p style={paragraphStyle}>A Revolution in Composite Decking</p>
       </div>
-      {/* <div className="wave"></div> */}
     </header>
   );
 };

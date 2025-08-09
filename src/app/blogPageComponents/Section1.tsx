@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 const Section1 = () => {
@@ -14,14 +15,14 @@ const Section1 = () => {
     return () => window.removeEventListener('resize', checkWidth);
   }, []);
 
-  const containerStyle = {
+  const containerStyle: React.CSSProperties = {
     width: '100%',
-    position: 'relative' as const,
+    position: 'relative',
     overflow: 'hidden',
     padding: '2rem 1rem',
   };
 
-  const herosecContentStyle = {
+  const herosecContentStyle: React.CSSProperties = {
     maxWidth: '1200px',
     margin: '0 auto',
     display: 'flex',
@@ -29,27 +30,27 @@ const Section1 = () => {
     justifyContent: 'space-between',
     gap: '2rem',
     flexDirection: isMobile ? 'column' : 'row',
-    textAlign: isMobile ? 'center' as const : 'left' as const,
-    padding:'40px'
+    textAlign: isMobile ? 'center' : 'left',
+    padding: '40px',
   };
 
-  const textStyle = {
+  const textStyle: React.CSSProperties = {
     flex: 1,
     fontSize: 'clamp(0.9rem, 2vw, 1.2rem)',
     lineHeight: 1.6,
     color: '#333',
   };
 
-  const imageContainerStyle = {
+  const imageContainerStyle: React.CSSProperties = {
     flex: 1,
     maxWidth: isMobile ? '100%' : '600px',
     height: 'auto',
   };
 
-  const imageStyle = {
+  const imageStyle: React.CSSProperties = {
     width: '100%',
     height: 'auto',
-    objectFit: 'cover' as const,
+    objectFit: 'cover',
     borderRadius: '10px',
   };
 
@@ -69,8 +70,8 @@ const Section1 = () => {
           </p>
         </div>
         <div style={imageContainerStyle}>
-          <img
-            src="/imagesForBlogPage/Rectangle 6730.png"
+          <Image
+            src="/imagesForBlogPage/Rectangle%206730.png" // encoded space
             alt="Modello Deck"
             width={600}
             height={400}

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Header = () => {
@@ -51,36 +52,36 @@ const Header = () => {
                 <div style={{
                     flex: '1 1 500px',
                     textAlign: 'center',
-                    minWidth: '300px'
+                    minWidth: '300px',
+                    position: 'relative',
+                    height: '400px', // define height for fill mode
                 }}>
-                    <img
+                    <Image
                         src="/images/Header.webp"
                         alt="Sample"
+                        fill
                         style={{
-                            width: '90%',
-                            maxWidth: '500px',
+                            objectFit: 'cover',
                             borderTopRightRadius: '30px',
                             borderBottomRightRadius: '30px',
-                            margin: '0 auto'
                         }}
+                        priority
                     />
                 </div>
             </div>
 
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            <br /><br /><br /><br /><br />
 
             {/* SVG Wave */}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style={{ position: 'absolute', bottom: '-10px', zIndex: '121' }}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+                style={{ position: 'absolute', bottom: '-10px', zIndex: '121' }}>
                 <path fill="#ffffffff" fillOpacity="1"
                     d="M0,140L34.3,160C68.6,180,137,210,206,190C274.3,170,343,130,411,120C480,110,549,130,617,160C685.7,190,754,200,823,180C891.4,160,960,130,1029,140C1097.1,150,1166,190,1234,190C1302.9,190,1371,130,1406,110L1440,90L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
                 </path>
             </svg>
 
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style={{ position: 'absolute', bottom: '-1px', filter: 'drop-shadow(0 -10px 10px #d3a069)' }}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+                style={{ position: 'absolute', bottom: '-1px', filter: 'drop-shadow(0 -10px 10px #d3a069)' }}>
                 <path fill="#d3a069" fillOpacity="1"
                     d="M0,140L34.3,160C68.6,180,137,210,206,190C274.3,170,343,130,411,120C480,110,549,130,617,160C685.7,190,754,200,823,180C891.4,160,960,130,1029,140C1097.1,150,1166,190,1234,190C1302.9,190,1371,130,1406,110L1440,90L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
                 </path>

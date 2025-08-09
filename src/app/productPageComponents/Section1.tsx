@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const services = [
@@ -80,9 +81,11 @@ const Section1 = () => {
                 justifyContent: 'center',
               }}
             >
-              <img
+              <Image
                 src={`/png/${img}`}
                 alt={`service-${index + 1}`}
+                width={60}
+                height={60}
                 style={{
                   width: '60px',
                   height: '60px',

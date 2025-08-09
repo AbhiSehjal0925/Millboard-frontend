@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 const Section4 = () => {
@@ -5,60 +6,60 @@ const Section4 = () => {
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize();
+    handleResize(); // initial check
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const sectionStyle = {
+  const sectionStyle: React.CSSProperties = {
     backgroundImage: "url('/imagesForBlogPage/Rectangle 6736 (1).png')",
     width: '100%',
     minHeight: '803px',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    position: 'relative' as const,
+    position: 'relative',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
     padding: '2rem 1rem',
-};
+  };
 
-const containerStyle = {
+  const containerStyle: React.CSSProperties = {
     width: '100%',
     maxWidth: '1200px',
     margin: '0 auto',
-    padding:'40px'
-};
+    padding: '40px',
+  };
 
-const flowMainStyle = {
+  const flowMainStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: isMobile ? 'column' : 'row',
     gap: isMobile ? '2rem' : '116px',
     alignItems: 'center',
     justifyContent: 'center',
-};
+  };
 
-const contentStyle = {
+  const contentStyle: React.CSSProperties = {
     width: isMobile ? '100%' : '50%',
     color: 'black',
-};
+  };
 
-const headingStyle = {
+  const headingStyle: React.CSSProperties = {
     fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
     fontWeight: 700,
-    color:'white'
-};
+    color: 'white',
+  };
 
-const paragraphStyle = {
+  const paragraphStyle: React.CSSProperties = {
     marginTop: '17px',
     lineHeight: 1.8,
     fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-    color:'white'
+    color: 'white',
   };
 
-  const buttonStyle = {
+  const buttonStyle: React.CSSProperties = {
     background: '#D3A069',
     color: 'white',
     borderRadius: '20px',
@@ -69,15 +70,15 @@ const paragraphStyle = {
     fontSize: 'clamp(1rem, 2vw, 1.1rem)',
   };
 
-  const imageContainerStyle = {
+  const imageContainerStyle: React.CSSProperties = {
     width: isMobile ? '100%' : '40%',
   };
 
-  const imageStyle = {
+  const imageStyle: React.CSSProperties = {
     width: '100%',
     height: 'auto',
     borderRadius: '10px',
-    objectFit: 'cover' as const,
+    objectFit: 'cover',
   };
 
   return (
@@ -99,7 +100,7 @@ const paragraphStyle = {
             <button style={buttonStyle}>Modello Linear</button>
           </div>
           <div style={imageContainerStyle}>
-            <img
+            <Image
               src="/imagesForBlogPage/Subtract (2).png"
               alt="Elegance Linear Setting"
               width={600}

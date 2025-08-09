@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '@/context/cartcontext';
 import CartForSamples from '../subComponents/CartForSamples';
+import Image from 'next/image';
 
 export const woods = [
   { name: 'Antique Oak', image: '/imagesForOrderPage/Cladding image2.png' },
@@ -23,7 +24,11 @@ const Section7 = () => {
 
   useEffect(() => {
     setIsHydrated(true);
-    const handleResize = () => setScreenWidth(window.innerWidth);
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        setScreenWidth(window.innerWidth);
+      }
+    };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -121,9 +126,11 @@ const Section7 = () => {
                 maxWidth: '20rem'
               }}
             >
-              <img
+              <Image
                 src={wood.image}
                 alt={wood.name}
+                width={400}
+                height={300}
                 style={{
                   width: '100%',
                   height: '80%',

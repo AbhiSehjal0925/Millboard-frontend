@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 const Section2 = () => {
@@ -13,27 +14,27 @@ const Section2 = () => {
     return () => window.removeEventListener('resize', checkWidth);
   }, []);
 
-  const sectionStyle = {
+  const sectionStyle: React.CSSProperties = {
     width: '100%',
     minHeight: '803px',
-    position: 'relative' as const,
+    position: 'relative',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     color: 'white',
     overflow: 'hidden',
     padding: '2rem 1rem',
-    background:'#efcfac'
+    background: '#efcfac',
   };
 
-  const containerStyle = {
+  const containerStyle: React.CSSProperties = {
     width: '100%',
     maxWidth: '1200px',
     margin: '0 auto',
-    padding:'40px'
+    padding: '40px',
   };
 
-  const featuresMainStyle = {
+  const featuresMainStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: isMobile ? 'column' : 'row',
     gap: isMobile ? '2rem' : '70px',
@@ -41,28 +42,28 @@ const Section2 = () => {
     justifyContent: 'center',
   };
 
-  const featuresLeftStyle = {
+  const featuresLeftStyle: React.CSSProperties = {
     flex: 1,
     maxWidth: '600px',
     width: '100%',
   };
 
-  const featuresRightStyle = {
+  const featuresRightStyle: React.CSSProperties = {
     flex: 1,
     color: 'black',
   };
 
-  const featuresContentStyle = {
+  const featuresContentStyle: React.CSSProperties = {
     color: 'black',
   };
 
-  const headingStyle = {
+  const headingStyle: React.CSSProperties = {
     fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
     color: 'black',
     marginBottom: '1.5rem',
   };
 
-  const paragraphStyle = {
+  const paragraphStyle: React.CSSProperties = {
     color: 'black',
     fontSize: 'clamp(1.1rem, 2vw, 1.5rem)',
     fontWeight: 500,
@@ -70,7 +71,7 @@ const Section2 = () => {
     marginBottom: '0.5rem',
   };
 
-  const listItemStyle = {
+  const listItemStyle: React.CSSProperties = {
     color: 'black',
     marginBottom: '1rem',
     lineHeight: 1.5,
@@ -81,11 +82,16 @@ const Section2 = () => {
       <div style={containerStyle}>
         <div style={featuresMainStyle}>
           <div style={featuresLeftStyle}>
-            <img
-              src="/imagesForBlogPage/Rectangle 6733 (1).png"
+            <Image
+              src="/imagesForBlogPage/Rectangle%206733%20(1).png" // encoded spaces and parentheses
               width={600}
               height={400}
-              style={{ width: '100%', height: 'auto', borderRadius: '10px', objectFit: 'cover' }}
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: '10px',
+                objectFit: 'cover',
+              }}
               alt="Key Features"
             />
           </div>
@@ -97,14 +103,17 @@ const Section2 = () => {
                 <li style={listItemStyle}>
                   No other company offers the unique patterned designs that Modello introduces, making it a global innovation in decking.
                 </li>
+
                 <p style={paragraphStyle}>Two Signature Styles</p>
                 <li style={listItemStyle}>
                   No other company offers the unique patterned designs that Modello introduces, making it a global innovation in decking.
                 </li>
+
                 <p style={paragraphStyle}>Extensive Colour options</p>
                 <li style={listItemStyle}>
                   With ten striking shades ranging from Golden Oak to Brushed Basalt, Modello offers a variety of choices to complement any outdoor setting.
                 </li>
+
                 <p style={paragraphStyle}>Unmatched Customization</p>
                 <li style={listItemStyle}>
                   With ten striking shades ranging from Golden Oak to Brushed Basalt, Modello offers a variety of choices to complement any outdoor setting.

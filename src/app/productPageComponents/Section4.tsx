@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Section4 = () => {
@@ -103,9 +104,11 @@ const Section4 = () => {
                                 ...(isMobile && { width: '50px', height: '50px' })
                             }}
                         >
-                            <img
+                            <Image
                                 src="/png/downloadBtn.png"
                                 alt="Download"
+                                width={36}
+                                height={36}
                                 style={{
                                     ...imageStyle,
                                     ...(isMobile && { width: '28px', height: '28px' })

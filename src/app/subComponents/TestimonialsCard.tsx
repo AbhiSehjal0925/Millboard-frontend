@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const TestimonialsCard = () => {
@@ -21,9 +22,11 @@ const TestimonialsCard = () => {
                     height: '80px',
                 }}
             >
-                <img
+                <Image
                     src="/images/section4thimg1.png"
                     alt="Testimonial"
+                    width={80}
+                    height={80}
                     style={{
                         width: '100%',
                         height: '100%',

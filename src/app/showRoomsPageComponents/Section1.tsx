@@ -5,13 +5,16 @@ const Section1 = () => {
 
     useEffect(() => {
         const handleResize = () => {
+            if (typeof window === 'undefined') return;
             const width = window.innerWidth;
             if (width <= 768) setScreenSize('small');
             else setScreenSize('large');
         };
         handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
     }, []);
 
     return (

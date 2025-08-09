@@ -3,11 +3,12 @@ import MapForShowroomPage from '../subComponents/mapForShowroomPage';
 
 const Section2 = () => {
     const [screenSize, setScreenSize] = useState<'large' | 'medium' | 'small'>('large');
-    const [leftHeight, setLeftHeight] = useState<number>(70 * window.innerHeight / 100); // Default to 70vh
+    const [leftHeight, setLeftHeight] = useState<number>(typeof window !== 'undefined' ? 70 * window.innerHeight / 100 : 500); // Default to 70vh
     const leftSideRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleResize = () => {
+            if (typeof window === 'undefined') return;
             const width = window.innerWidth;
             if (width <= 600) setScreenSize('small');
             else if (width <= 992) setScreenSize('medium');
@@ -18,8 +19,10 @@ const Section2 = () => {
             }
         };
         handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
     }, []);
 
     const showrooms = [
@@ -150,7 +153,7 @@ const Section2 = () => {
                                     width: '100%',
                                 }}
                             >
-                                <path fill="#d3a069" fill-opacity="1" d="M0,320L120,293.3C240,267,480,213,720,197.3C960,181,1200,203,1320,213.3L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+                                <path fill="#d3a069" fillOpacity="1" d="M0,320L120,293.3C240,267,480,213,720,197.3C960,181,1200,203,1320,213.3L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
                             </svg>
                         </div>
                     ))}

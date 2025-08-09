@@ -5,14 +5,17 @@ const Header = () => {
 
     useEffect(() => {
         const handleResize = () => {
+            if (typeof window === 'undefined') return;
             const width = window.innerWidth;
             if (width <= 480) setScreenSize('mobile');
             else if (width <= 1024) setScreenSize('tablet');
             else setScreenSize('large');
         };
         handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
     }, []);
 
     return (
@@ -96,7 +99,7 @@ const Header = () => {
                     width: '100%',
                 }}
             >
-                <path fill="#ffffffff" fill-opacity="1" d="M0,224L60,240C120,256,240,288,360,293.3C480,299,600,277,720,256C840,235,960,213,1080,202.7C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+                <path fill="#ffffffff" fillOpacity="1" d="M0,224L60,240C120,256,240,288,360,293.3C480,299,600,277,720,256C840,235,960,213,1080,202.7C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
             </svg>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +111,7 @@ const Header = () => {
                     width: '100%',
                 }}
             >
-                <path fill="#d3a069" fill-opacity="1" d="M0,224L60,240C120,256,240,288,360,293.3C480,299,600,277,720,256C840,235,960,213,1080,202.7C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+                <path fill="#d3a069" fillOpacity="1" d="M0,224L60,240C120,256,240,288,360,293.3C480,299,600,277,720,256C840,235,960,213,1080,202.7C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
             </svg>
         </header>
     );
