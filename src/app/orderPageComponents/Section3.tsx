@@ -27,7 +27,7 @@ const Section3 = () => {
     const handleCardClick = (wood: { name: string; image: string }) => {
         const item = { ...wood, type: 'Decking' as const };
         if (!deckingItems.some(item => item.name === wood.name)) {
-            addToCart(item);
+            addToCart(item, 'Decking');
         } else {
             const index = deckingItems.findIndex(item => item.name === wood.name);
             removeFromCart(index, 'Decking');
