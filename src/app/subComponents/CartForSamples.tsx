@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useCart, CartItem } from '@/context/cartcontext';
+import { useCart } from '@/context/cartcontext';
 import Image from 'next/image';
 
 const CartForSamples = () => {
     const {
         deckingItems,
         claddingItems,
-        isCartVisible,
-        toggleCartVisibility,
         removeFromCart,
         onNavigate,
     } = useCart();
@@ -67,7 +65,6 @@ const CartForSamples = () => {
         fontSizeBtn,
         itemSize,
         iconSize,
-        confirmFont,
         confirmPadding,
     } = responsive;
 

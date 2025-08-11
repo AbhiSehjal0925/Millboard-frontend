@@ -44,13 +44,6 @@ const Section1: React.FC = () => {
     justifyContent: 'center',
   };
 
-  const textContainerStyle: React.CSSProperties = {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '8px',
-  };
-
   const titleStyle: React.CSSProperties = {
     fontFamily: 'Mansfield, serif',
     fontWeight: 500,

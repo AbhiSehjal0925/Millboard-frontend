@@ -17,7 +17,6 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
   }, []);
 
   const isSmall = screenWidth <= 768;
-  const isMedium = screenWidth > 768 && screenWidth <= 1024;
 
   const handleRequestSample = () => {
     onNavigate('order');

@@ -87,10 +87,6 @@ const Section3rd: React.FC = () => {
     transition: "background-color 0.3s ease",
   };
 
-  const svgOfText: React.CSSProperties = {
-    display: "none", // Removed SVG overlay for simplicity on small screens
-  };
-
   const onMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.currentTarget.style.backgroundColor = "#b07f4c";
   };

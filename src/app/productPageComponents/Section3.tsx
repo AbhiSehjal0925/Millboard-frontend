@@ -32,18 +32,6 @@ const Section3: React.FC = () => {
     lineHeight: '24px',
   };
 
-  const tableStyle: React.CSSProperties = {
-    width: '100%',
-    height: '200px',
-    borderCollapse: 'collapse',
-    textAlign: 'center',
-  };
-
-  const tdStyle: React.CSSProperties = {
-    border: '1px solid #000',
-    padding: '8px',
-  };
-
   return (
     <>
       <section style={sectionStyle} className="section3">

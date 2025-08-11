@@ -71,30 +71,6 @@ const Section7 = () => {
         borderRadius: '12px',
     };
 
-    // Responsive adjustments (mobile/tablet)
-    const responsiveAdjustments = () => {
-        const width = window.innerWidth;
-
-        if (width <= 600) {
-            headingStyle.fontSize = '28px';
-            textStyle.fontSize = '16px';
-            sectionStyle.padding = '50px 16px';
-            sectionStyle.gap = '30px';
-            imageStyle.aspectRatio = '4 / 5';
-        } else if (width <= 1024) {
-            headingStyle.fontSize = '36px';
-            textStyle.fontSize = '18px';
-            containerStyle.flexDirection = 'column';
-            containerStyle.alignItems = 'flex-start';
-        }
-    };
-
-    React.useEffect(() => {
-        responsiveAdjustments();
-        window.addEventListener('resize', responsiveAdjustments);
-        return () => window.removeEventListener('resize', responsiveAdjustments);
-    }, [responsiveAdjustments]);
-
     return (
         <section style={sectionStyle}>
             <div style={containerStyle}>
