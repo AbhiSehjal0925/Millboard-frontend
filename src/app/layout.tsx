@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,10 +15,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script src="https://use.typekit.net/YOUR_KIT_ID.js"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `try{Typekit.load({ async: true });}catch(e){}`
-        }} />
+        <Script src="https://use.typekit.net/YOUR_KIT_ID.js" strategy="afterInteractive" />
+        <Script
+          id="typekit-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `try{Typekit.load({ async: true });}catch(e){}`
+
+          }}
+        />
       </head>
       <body className="antialiased" style={{ fontFamily: '"futura-pt", sans-serif' }}>
         {children}
