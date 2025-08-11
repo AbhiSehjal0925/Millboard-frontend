@@ -16,37 +16,29 @@ const services = [
 const Section1: React.FC = () => {
   const sectionStyle: React.CSSProperties = {
     width: '100%',
-    padding: '40px 20px',
+    padding: '60px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   };
 
   const containerStyle: React.CSSProperties = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
     gap: '20px',
-    maxWidth: '1200px',
     width: '100%',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around'
   };
 
   const cardStyle: React.CSSProperties = {
     display: 'flex',
     alignItems: 'center',
     gap: '20px',
-    padding: '30px 20px',
-    backgroundColor: '#fff',
-    borderRadius: '15px',
-    boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
-    border: '1px solid #eee',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    width: '500px'
   };
 
   const iconContainerStyle: React.CSSProperties = {
-    width: '70px',
-    height: '70px',
-    backgroundColor: 'transparent',
-    borderRadius: '12px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -65,7 +57,7 @@ const Section1: React.FC = () => {
     fontSize: '16px',
     lineHeight: '22px',
     color: '#000',
-    margin: 0,
+    marginBottom: '4px',
   };
 
   const descriptionStyle: React.CSSProperties = {
@@ -83,14 +75,6 @@ const Section1: React.FC = () => {
           <div
             key={index}
             style={cardStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-            }}
           >
             <div style={iconContainerStyle}>
               <Image
@@ -99,8 +83,8 @@ const Section1: React.FC = () => {
                 width={60}
                 height={60}
                 style={{
-                  width: '60px',
-                  height: '60px',
+                  width: '200px',
+                  height: '200px',
                   objectFit: 'contain',
                 }}
               />

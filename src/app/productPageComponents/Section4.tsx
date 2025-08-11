@@ -11,12 +11,14 @@ const Section4 = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '50px'
+        gap: '50px',
+        position: 'relative',
+        height: '75vh'
     };
 
     const headingStyle: React.CSSProperties = {
         fontFamily: 'Mansfield',
-        fontWeight: 600,
+        fontWeight: 500,
         fontSize: '45px',
         lineHeight: '47px',
         color: 'white',
@@ -26,10 +28,11 @@ const Section4 = () => {
     const downloadsContainerStyle: React.CSSProperties = {
         display: 'flex',
         flexWrap: 'wrap',
-        gap: '25px',
+        gap: '40px',
         justifyContent: 'center',
         width: '100%',
-        maxWidth: '1200px'
+        maxWidth: '1200px',
+        zIndex: 1,
     };
 
     const downloadItemStyle: React.CSSProperties = {
@@ -58,21 +61,28 @@ const Section4 = () => {
     };
 
     const imageContainerStyle: React.CSSProperties = {
-        width: '68px',
-        height: '68px',
-        borderRadius: '3px',
+        width: '80px',
+        height: '120px',
+        borderRadius: '5px',
         background: '#D3A069',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexShrink: 0
+        flexShrink: 0,
+        cursor: 'pointer',
     };
 
     const imageStyle: React.CSSProperties = {
-        width: '36px',
-        height: '36px',
+        width: '50px',
+        height: '50px',
         objectFit: 'contain'
     };
+
+    const pngStyle: React.CSSProperties = {
+        position: 'absolute',
+        bottom: '-2px',
+        width: '100%',
+    }
 
     // Optional responsive tweaks
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
@@ -107,8 +117,8 @@ const Section4 = () => {
                             <Image
                                 src="/png/downloadBtn.png"
                                 alt="Download"
-                                width={36}
-                                height={36}
+                                width={45}
+                                height={45}
                                 style={{
                                     ...imageStyle,
                                     ...(isMobile && { width: '28px', height: '28px' })
@@ -118,6 +128,12 @@ const Section4 = () => {
                     </div>
                 ))}
             </div>
+
+            <svg style={pngStyle} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="xMidYMax meet">
+                <path fill="#D3A069" stroke='none' d="M-43 50.0323C-43 50.0323 63.2135 -17.9549 787.175 74.7745C1511.14 167.504 1481.84 50.0323 1481.84 50.0323V120H-43V50.0323Z" />
+                <path fill="#ffffff" stroke='none' d="M-45.3109 95.0278C-45.3109 95.0278 57.3996 14.2496 785.273 85.646C1513.15 157.042 1478.01 26.9689 1478.01 26.9689L1480 120H-45.3109V95.0278Z" />
+            </svg>
+
         </section>
     );
 };

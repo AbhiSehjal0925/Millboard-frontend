@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 
 const accordionData = [
     {
-        question: "What is Material Tailwind?",
-        answer: "Material Tailwind is a framework that enhances Tailwind CSS with additional styles and components."
+        question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ",
+        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"
     },
     {
-        question: "How to use Material Tailwind?",
-        answer: "You can use Material Tailwind by importing its components into your Tailwind CSS project."
+        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem.",
+        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"
     },
     {
-        question: "What can I do with Material Tailwind?",
-        answer: "Material Tailwind allows you to quickly build modern, responsive websites with a focus on design."
+        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem.",
+        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"
     },
     {
-        question: "Is Material Tailwind responsive?",
-        answer: "Yes, it provides responsive utilities and components out of the box."
+        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem.",
+        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has."
     },
     {
-        question: "Can I customize Material Tailwind?",
-        answer: "Absolutely. You can extend and customize it just like Tailwind CSS."
+        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem.",
+        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has "
     }
 ];
 
@@ -37,6 +37,7 @@ const Section5 = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+                justifyContent: 'center',
                 padding: '80px 20px',
                 gap: '50px',
                 width: '100%',
@@ -46,7 +47,7 @@ const Section5 = () => {
             <div
                 style={{
                     fontFamily: 'Mansfield',
-                    fontWeight: 600,
+                    fontWeight: 500,
                     fontSize: '45px',
                     lineHeight: 1.2,
                     color: '#000',
@@ -75,18 +76,19 @@ const Section5 = () => {
                         maxWidth: '500px',
                         display: 'flex',
                         justifyContent: 'center',
-                        alignItems: 'center'
+                        alignItems: 'center',
                     }}
                 >
                     <div
                         style={{
                             width: '100%',
-                            maxWidth: '400px',
+                            maxWidth: '550px',
                             aspectRatio: '3 / 4',
                             backgroundImage: "url('/images/section5Img1.png')",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat'
+                            backgroundRepeat: 'no-repeat',
+                            borderRadius: '40px'
                         }}
                     />
                 </div>
@@ -117,14 +119,16 @@ const Section5 = () => {
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
-                                    padding: '20px 0',
-                                    color: '#1e293b',
-                                    fontSize: '18px',
+                                    padding: '35px 30px',
+                                    color: '#ffffffff',
+                                    fontSize: '14px',
                                     fontWeight: 500,
                                     textAlign: 'left',
                                     background: 'transparent',
                                     border: 'none',
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    backgroundColor: '#6d6d6d',
+                                    borderRadius: '8px',
                                 }}
                             >
                                 <span>{item.question}</span>
@@ -139,7 +143,7 @@ const Section5 = () => {
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 16 16"
                                         fill="currentColor"
-                                        style={{ width: '16px', height: '16px' }}
+                                        style={{ width: '20px', height: '20px' }}
                                     >
                                         <path
                                             fillRule="evenodd"
@@ -156,14 +160,18 @@ const Section5 = () => {
                                 style={{
                                     maxHeight: openIndex === idx ? '160px' : '0',
                                     overflow: 'hidden',
-                                    transition: 'max-height 0.3s ease-in-out'
+                                    transition: 'max-height 0.3s ease-in-out',
+                                    background: '#f0f0f0',
+
                                 }}
                             >
                                 <div
                                     style={{
+                                        padding: '20px',
                                         paddingBottom: '20px',
                                         fontSize: '14px',
-                                        color: '#64748b'
+                                        color: '#64748b',
+                                        backgroundColor: '#f0f0f0'
                                     }}
                                 >
                                     {item.answer}

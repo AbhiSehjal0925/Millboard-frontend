@@ -40,15 +40,18 @@ export default function MultipleDecorSec2() {
   };
 
   const gridStyle: React.CSSProperties = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
     gap: "32px",
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around'
   };
 
   const featureItemStyle: React.CSSProperties = {
     display: "flex",
     alignItems: "flex-start",
     gap: "16px",
+    width: '300px',
+    marginRight: '100px'
   };
 
   const iconStyle: React.CSSProperties = {
@@ -58,19 +61,19 @@ export default function MultipleDecorSec2() {
 
   return (
     <section style={containerStyle}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div>
         <div style={gridStyle}>
           {features.map((item) => (
             <div key={item.title} style={featureItemStyle}>
               <Image
                 src={item.icon}
                 alt={item.title}
-                width={70}
-                height={40}
+                width={100}
+                height={100}
                 style={iconStyle}
               />
               <div>
-                <h4 style={{ fontSize: "18px", fontWeight: 500 }}>
+                <h4 style={{ fontSize: "24px", fontWeight: 500 }}>
                   {item.title}
                 </h4>
                 <p style={{ fontSize: "14px" }}>{item.description}</p>

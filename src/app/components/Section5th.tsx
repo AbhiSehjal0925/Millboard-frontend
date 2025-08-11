@@ -2,108 +2,70 @@ import React from "react";
 import TestimonialsCard from "../subComponents/TestimonialsCard";
 
 const Section5th: React.FC = () => {
-  const sectionStyle: React.CSSProperties = {
-    display: "flex",
-    padding: "40px 20px 60px",
-    justifyContent: "center",
-    alignItems: "center",
-    flexWrap: "wrap",
-  };
-
-  const containerStyle: React.CSSProperties = {
-    width: "100%",
-    maxWidth: "1200px",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "2rem",
-  };
-
-  const headingStyle: React.CSSProperties = {
-    fontFamily: "Mansfield, serif",
-    fontWeight: 500,
-    fontSize: "36px",
-    lineHeight: 1.2,
-    color: "#1E1E1E",
-    textTransform: "capitalize" as const,
-    textAlign: "center" as const,
-    marginTop: "20px",
-  };
-
-  const cardsWrapperStyle: React.CSSProperties = {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "2rem",
-    width: "100%",
-  };
-
-  const arrowStyle: React.CSSProperties = {
-    width: "24px",
-    height: "24px",
-    cursor: "pointer",
-    color: "black",
-  };
-
-  const cardContainerStyle: React.CSSProperties = {
-    width: "100%",
-    maxWidth: "350px",
-    borderRadius: "26px",
-    boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "20px",
-    gap: "1rem",
-  };
-
   return (
-    <section style={sectionStyle}>
-      <div style={containerStyle}>
+    <section className="flex justify-center items-center px-4 py-10 sm:py-14 relative">
+      <div className="w-full max-w-[1200px] flex flex-col justify-center items-center gap-8 relative">
         {/* Heading */}
-        <div style={headingStyle}>Our trusted supporters</div>
+        <h2 className="font-[Mansfield] font-medium text-[1.8rem] sm:text-[2.25rem] text-[#1E1E1E] capitalize text-center mt-5 leading-snug">
+          Our trusted supporters
+        </h2>
 
-        {/* Cards Row */}
-        <div style={cardsWrapperStyle}>
+        {/* Cards Wrapper */}
+        <div className="relative w-full flex justify-center">
           {/* Left Arrow */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            style={arrowStyle}
+          <button
+            className="absolute left-5 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md hover:scale-110 transition-transform"
+            aria-label="Previous"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 19.5 8.25 12l7.5-7.5"
-            />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6 text-black"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
+              />
+            </svg>
+          </button>
 
-          {/* Testimonial Card */}
-          <div style={cardContainerStyle}>
-            <TestimonialsCard />
+          {/* Cards Row */}
+          <div className="flex flex-wrap justify-center items-center gap-6 w-full">
+            <div className="w-full sm:w-[300px] md:w-[350px] bg-white rounded-[26px] shadow-[0px_4px_15px_0px_#00000033] flex flex-col items-center justify-center p-5">
+              <TestimonialsCard />
+            </div>
+            <div className="w-full sm:w-[300px] md:w-[350px] bg-white rounded-[26px] shadow-[0px_4px_15px_0px_#00000033] flex flex-col items-center justify-center p-5">
+              <TestimonialsCard />
+            </div>
+            <div className="w-full sm:w-[300px] md:w-[350px] bg-white rounded-[26px] shadow-[0px_4px_15px_0px_#00000033] flex flex-col items-center justify-center p-5">
+              <TestimonialsCard />
+            </div>
           </div>
 
           {/* Right Arrow */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            style={arrowStyle}
+          <button
+            className="absolute right-5 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md hover:scale-110 transition-transform"
+            aria-label="Next"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m8.25 4.5 7.5 7.5-7.5 7.5"
-            />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6 text-black"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </section>

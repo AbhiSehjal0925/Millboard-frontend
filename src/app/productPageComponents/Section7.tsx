@@ -6,8 +6,7 @@ const Section7 = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'column',
-        padding: '80px 20px',
+        padding: '100px 20px',
         gap: '50px',
         width: '100%',
         boxSizing: 'border-box',
@@ -18,9 +17,9 @@ const Section7 = () => {
         alignItems: 'center',
         justifyContent: 'center',
         flexWrap: 'wrap',
-        gap: '40px',
+        // gap: '40px',
         width: '100%',
-        maxWidth: '1200px',
+        // maxWidth: '1200px',
         boxSizing: 'border-box',
     };
 
@@ -34,6 +33,7 @@ const Section7 = () => {
         gap: '16px',
         padding: '20px',
         boxSizing: 'border-box',
+        boxShadow: 'rgba(0, 0, 0, 0.16) -4px 4px 2px, rgba(0, 0, 0, 0.23) 0px 3px 6px'
     };
 
     const headingStyle: React.CSSProperties = {

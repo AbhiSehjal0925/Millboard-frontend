@@ -14,9 +14,8 @@ const Section3: React.FC = () => {
 
   const headingStyle: React.CSSProperties = {
     fontFamily: 'Mansfield',
-    fontWeight: 700,
-    fontStyle: 'Bold',
-    fontSize: '32px',
+    fontWeight: 500,
+    fontSize: '45px',
     lineHeight: '34px',
     color: '#000',
     textAlign: 'center',
@@ -24,7 +23,7 @@ const Section3: React.FC = () => {
 
   const chartContainerStyle: React.CSSProperties = {
     width: '100%',
-    maxWidth: '400px',
+    maxWidth: '1000px',
     color: '#000',
     fontFamily: 'Mansfield',
     fontWeight: 500,
@@ -35,6 +34,7 @@ const Section3: React.FC = () => {
 
   const tableStyle: React.CSSProperties = {
     width: '100%',
+    height: '200px',
     borderCollapse: 'collapse',
     textAlign: 'center',
   };
@@ -44,87 +44,79 @@ const Section3: React.FC = () => {
     padding: '8px',
   };
 
-  const responsiveStyle = `
-    @media (max-width: 768px) {
-      .section3 {
-        padding: 30px 15px !important;
-        gap: 20px !important;
-      }
-      .section3-heading {
-        font-size: 28px !important;
-        line-height: 30px !important;
-      }
-      .section3-chart {
-        font-size: 14px !important;
-        line-height: 22px !important;
-        max-width: 350px !important;
-      }
-      .section3-chart td {
-        padding: 6px !important;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .section3 {
-        padding: 20px 10px !important;
-        gap: 15px !important;
-      }
-      .section3-heading {
-        font-size: 24px !important;
-        line-height: 26px !important;
-      }
-      .section3-chart {
-        font-size: 12px !important;
-        line-height: 18px !important;
-        max-width: 300px !important;
-      }
-      .section3-chart td {
-        padding: 4px !important;
-      }
-    }
-
-    .section3-chart td:first-child {
-      border-left: none !important;
-    }
-    .section3-chart td:last-child {
-      border-right: none !important;
-    }
-    .section3-chart tr:first-child td {
-      border-top: none !important;
-    }
-    .section3-chart tr:last-child td {
-      border-bottom: none !important;
-    }
-  `;
-
   return (
     <>
-      <style>{responsiveStyle}</style>
       <section style={sectionStyle} className="section3">
         <div style={headingStyle} className="section3-heading">Specifications</div>
         <div style={chartContainerStyle} className="section3-chart">
-          <table style={tableStyle}>
-            <tbody>
-              <tr>
-                <td style={tdStyle}>Weight per m2 (kg)</td>
-                <td style={tdStyle}>17.5</td>
-                <td style={tdStyle}>Dimensions (mm)</td>
-                <td style={tdStyle}>126 x 32 x 3600mm</td>
-              </tr>
-              <tr>
-                <td style={tdStyle}>Fixings per board</td>
-                <td style={tdStyle}>17.5</td>
-                <td style={tdStyle}>SKU</td>
-                <td style={tdStyle}>MDEI26A</td>
-              </tr>
-              <tr>
-                <td style={tdStyle}>Boards per m2</td>
-                <td style={tdStyle}>2.14</td>
-                <td style={tdStyle}>SKU</td>
-                <td style={tdStyle}>MDEI26A</td>
-              </tr>
-            </tbody>
-          </table>
+          <div style={{
+            maxWidth: 700,
+            margin: '0 auto',
+            background: '#fff',
+            padding: '2rem 1rem',
+            borderRadius: 8,
+          }}>
+            <table className="spec-table">
+              <tbody>
+                <tr>
+                  <td className="header">Weight per m2 (kg)</td>
+                  <td>17.5</td>
+                  <td className="header">Dimensions (mm)</td>
+                  <td><em>126 x 32 x 3600mm</em></td>
+                </tr>
+                <tr>
+                  <td className="header">Fixings per board</td>
+                  <td>17.5</td>
+                  <td className="header">SKU</td>
+                  <td><em>MDE126A</em></td>
+                </tr>
+                <tr>
+                  <td className="header">Boards per m2</td>
+                  <td><em>2.14</em></td>
+                  <td className="header">SKU</td>
+                  <td><em>MDE126A</em></td>
+                </tr>
+              </tbody>
+            </table>
+            <style jsx>{`
+              .spec-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 1.1rem;
+                margin: 0 auto;
+                background: #fff;
+              }
+              .spec-table td {
+                padding: 1.1rem 0.5rem;
+                border-bottom: 1px solid #22222286;
+                border-right: 1px solid #22222286;
+                text-align: left;
+                font-family: 'Mansfield', Arial, sans-serif;
+                font-size: 1.05rem;
+                vertical-align: middle;
+              }
+              .spec-table tr:last-child td {
+                border-bottom: none;
+              }
+              .spec-table td:last-child {
+                border-right: none;
+              }
+              .spec-table .header {
+                font-weight: 500;
+                color: #111;
+              }
+              .spec-table em {
+                font-style: italic;
+                color: #222;
+              }
+              @media (max-width: 600px) {
+                .spec-table td {
+                  padding: 0.6rem 0.25rem;
+                  font-size: 0.98rem;
+                }
+              }
+            `}</style>
+          </div>
         </div>
       </section>
     </>

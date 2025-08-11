@@ -6,7 +6,7 @@ const TestimonialsCard = () => {
         <div
             style={{
                 width: '100%',
-                maxWidth: '350px',
+                maxWidth: '368px',
                 borderRadius: '26px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -14,8 +14,20 @@ const TestimonialsCard = () => {
                 justifyContent: 'center',
                 padding: '20px',
                 gap: '1rem',
+                position: 'relative',
             }}
         >
+
+            <div style={{
+                position: 'absolute',
+                color: 'black',
+                // fontSize: '60px',
+                top: '10px',
+                left: '10px',
+            }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16"><path fill="#D3A069" d="M3.516 7a3.5 3.5 0 1 1-3.5 3.5L0 10a7 7 0 0 1 7-7v2a4.97 4.97 0 0 0-3.536 1.464a5 5 0 0 0-.497.578q.269-.043.548-.043zm9 0a3.5 3.5 0 1 1-3.5 3.5L9 10a7 7 0 0 1 7-7v2a4.97 4.97 0 0 0-3.536 1.464a5 5 0 0 0-.497.578q.269-.043.549-.043z" /></svg>
+            </div>
+
             <div
                 style={{
                     width: '80px',
@@ -32,6 +44,7 @@ const TestimonialsCard = () => {
                         height: '100%',
                         borderRadius: '50%',
                         objectFit: 'cover',
+                        border: '3px solid #D3A069',
                     }}
                 />
             </div>
@@ -50,8 +63,9 @@ const TestimonialsCard = () => {
                 <h3
                     style={{
                         fontSize: '20px',
-                        fontWeight: 'bold',
+                        fontWeight: '500',
                         margin: 0,
+                        color: '#1E1E1E',
                     }}
                 >
                     John Doe

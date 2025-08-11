@@ -15,7 +15,7 @@ import ShowroomsPage from './pages/ShowroomsPage';
 import BlogPage from './pages/BlogPage';
 
 const Page = () => {
-  const [route, setRoute] = useState("home");
+  const [route, setRoute] = useState("decor");
 
   const handleNavigate = (newRoute: string) => {
     setRoute(newRoute);

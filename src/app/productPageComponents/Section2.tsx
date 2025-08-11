@@ -12,8 +12,7 @@ const Section2 = () => {
 
   const headingStyle: React.CSSProperties = {
     fontFamily: 'Mansfield',
-    fontWeight: 700,
-    fontStyle: 'Bold',
+fontWeight: 500,
     fontSize: '45px',
     lineHeight: '47px',
     color: '#000',
@@ -22,17 +21,20 @@ const Section2 = () => {
   };
 
   const gridStyle: React.CSSProperties = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gridTemplateRows: 'repeat(2, auto)',
+    // display: 'grid',
+    // gridTemplateColumns: 'repeat(3, 1fr)',
+    // gridTemplateRows: 'repeat(2, auto)',
     gap: '20px',
     padding: '0 20px',
     width: '100%',
-    maxWidth: '1328px',
+    // maxWidth: '1328px',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   };
 
   const imageBoxStyle = (url: string): React.CSSProperties => ({
-    width: '100%',
+    width: '534px',
     height: '336px',
     borderRadius: '35px',
     backgroundImage: `url(${url})`,
@@ -41,65 +43,39 @@ const Section2 = () => {
     backgroundRepeat: 'no-repeat',
   });
 
-  // Responsive styles using media queries
-  const responsiveStyle = `
-    @media (max-width: 1200px) {
-      .inspirations {
-        grid-template-columns: repeat(2, 1fr) !important;
-        grid-template-rows: repeat(4, auto) !important;
-      }
-      .inspiration-box {
-        height: 280px !important;
-      }
-    }
-    @media (max-width: 768px) {
-      .section2 {
-        padding: 50px 10px !important;
-      }
-      .heading {
-        font-size: 36px !important;
-        line-height: 38px !important;
-        margin-bottom: 30px !important;
-      }
-      .inspirations {
-        grid-template-columns: 1fr !important;
-        grid-template-rows: repeat(7, auto) !important;
-        gap: 15px !important;
-      }
-      .inspiration-box {
-        height: 200px !important;
-      }
-    }
-    @media (max-width: 480px) {
-      .section2 {
-        padding: 30px 10px !important;
-      }
-      .heading {
-        font-size: 28px !important;
-        line-height: 30px !important;
-        margin-bottom: 20px !important;
-      }
-      .inspirations {
-        gap: 10px !important;
-      }
-      .inspiration-box {
-        height: 150px !important;
-      }
-    }
-  `;
+  const imageBoxStyle1 = (url: string): React.CSSProperties => ({
+    width: '1250px',
+    height: '336px',
+    borderRadius: '35px',
+    backgroundImage: `url(${url})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  })
+
+  const imageBoxStyle2 = (url: string): React.CSSProperties => ({
+    width: '680px',
+    height: '336px',
+    borderRadius: '35px',
+    backgroundImage: `url(${url})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  })
+
+
 
   return (
     <>
-      <style>{responsiveStyle}</style>
       <section style={containerStyle} className="section2">
         <div style={headingStyle} className="heading">Inspiration</div>
         <div style={gridStyle} className="inspirations">
-          <div style={imageBoxStyle('/imagesForProductPage/section2Img1.png')} className="inspiration-box"></div>
+          <div style={imageBoxStyle1('/imagesForProductPage/section2Img1.png')} className="inspiration-box"></div>
           <div style={imageBoxStyle('/imagesForProductPage/section2Img2.png')} className="inspiration-box"></div>
           <div style={imageBoxStyle('/imagesForProductPage/section2Img3.png')} className="inspiration-box"></div>
-          <div style={imageBoxStyle('/imagesForProductPage/section2Img4.png')} className="inspiration-box"></div>
+          <div style={imageBoxStyle1('/imagesForProductPage/section2Img4.png')} className="inspiration-box"></div>
           <div style={imageBoxStyle('/imagesForProductPage/section2Img5.png')} className="inspiration-box"></div>
-          <div style={imageBoxStyle('/imagesForProductPage/section2Img6.png')} className="inspiration-box"></div>
+          <div style={imageBoxStyle2('/imagesForProductPage/section2Img6.png')} className="inspiration-box"></div>
           <div style={imageBoxStyle('/imagesForProductPage/section2Img7.png')} className="inspiration-box"></div>
         </div>
       </section>

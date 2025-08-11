@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface MainNavProps {
@@ -7,36 +7,49 @@ interface MainNavProps {
 }
 
 const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
+  const [screenWidth, setScreenWidth] = useState(1920);
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isSmall = screenWidth <= 768;
+  const isMedium = screenWidth > 768 && screenWidth <= 1024;
+
   const handleRequestSample = () => {
     onNavigate('order');
   };
 
   const headerStyle: React.CSSProperties = {
     backgroundColor: '#efcfac',
-    color: '#4B5563',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    color: '#000000ff',
+    borderBottom: '1px solid #000000ff',
     position: 'sticky',
-    top: '43px',
+    top: '47px',
     width: '100%',
-    zIndex: 21121121221, // number, not string
+    zIndex: '11111',
   };
 
   const navStyle: React.CSSProperties = {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '12px 16px',
-    flexWrap: 'wrap',
-    gap: '12px',
+    justifyContent: isSmall ? 'center' : 'space-between',
+    padding: isSmall ? '8px 10px' : '12px 16px',
+    flexWrap: isSmall ? 'wrap' : 'nowrap',
+    gap: isSmall ? '8px' : '12px',
+    textAlign: isSmall ? 'center' : 'left',
   };
 
   const navLinksStyle: React.CSSProperties = {
     display: 'flex',
     flexWrap: 'wrap',
-    gap: '12px',
-    flex: '1 1 100%',
-    justifyContent: 'center',
-    order: 2,
+    gap: isSmall ? '8px' : '12px',
+    // flex: isSmall ? '1 1 100%' : '1',
+    justifyContent: isSmall ? 'center' : 'flex-start',
+    order: isSmall ? 2 : 1,
     padding: 0,
     margin: 0,
   };
@@ -45,31 +58,35 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     background: 'none',
     border: 'none',
     cursor: 'pointer',
-    fontSize: '18px',
-    color: '#4B5563',
-    padding: '4px 8px',
+    fontSize: isSmall ? '16px' : '20px',
+    color: '#000000ff',
+    padding: isSmall ? '6px 8px' : '4px 8px',
+    transition: 'all 0.3s ease',
   };
 
   const logoContainerStyle: React.CSSProperties = {
-    flex: '1 1 100%',
+    flex: isSmall ? '1 1 100%' : 'unset',
     display: 'flex',
     justifyContent: 'center',
-    order: 1,
+    order: isSmall ? 1 : 2,
   };
 
   const sampleButtonStyle: React.CSSProperties = {
     backgroundColor: '#D3A069',
     color: 'white',
-    fontWeight: 600,
-    padding: '10px 20px',
+    padding: isSmall ? '8px 14px' : '10px 20px',
     borderRadius: '9999px',
     border: '2px solid white',
-    fontSize: '14px',
+    fontSize: isSmall ? '16px' : '20px',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
-    order: 3,
-    width: '100%',
+    order: isSmall ? 3 : 3,
+    width: isSmall ? '100%' : 'auto',
     alignSelf: 'center',
+  };
+
+  const onActiveLink: React.CSSProperties = {
+    color: '#D3A069',
   };
 
   return (
@@ -82,8 +99,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
                 onClick={() => onNavigate(item)}
                 style={{
                   ...linkButtonStyle,
-                  fontWeight: current === item ? 'bold' : 'normal',
-                  textDecoration: current === item ? 'underline' : 'none',
+                  color: current === item ? onActiveLink.color : linkButtonStyle.color,
                 }}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
@@ -96,8 +112,8 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
           <Image
             src="/images/mainlogo.png"
             alt="Millboard Logo"
-            width={160}
-            height={40}
+            width={isSmall ? 140 : 160}
+            height={isSmall ? 35 : 40}
             style={{ display: 'block', margin: '0 auto' }}
             priority
           />
@@ -112,32 +128,6 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
           Request free sample
         </button>
       </nav>
-
-      <style jsx>{`
-        @media (min-width: 768px) {
-          nav {
-            flex-wrap: nowrap !important;
-            gap: 16px !important;
-          }
-
-          nav > div,
-          nav > ul,
-          nav > button {
-            order: unset !important;
-            flex: unset !important;
-            width: auto !important;
-          }
-
-          ul {
-            justify-content: flex-start !important;
-            flex-grow: 1 !important;
-          }
-
-          button {
-            width: auto !important;
-          }
-        }
-      `}</style>
     </header>
   );
 };

@@ -16,7 +16,7 @@ const Section6 = () => {
 
     const headingStyle: React.CSSProperties = {
         fontFamily: 'Mansfield',
-        fontWeight: 600,
+        fontWeight: 500,
         fontSize: '45px',
         lineHeight: '47px',
         color: 'white',
@@ -26,12 +26,11 @@ const Section6 = () => {
 
     const containerStyle: React.CSSProperties = {
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         alignItems: 'flex-start',
         flexWrap: 'wrap',
-        gap: '40px',
         width: '100%',
-        maxWidth: '1200px',
+        // maxWidth: '1200px',
         boxSizing: 'border-box',
     };
 
