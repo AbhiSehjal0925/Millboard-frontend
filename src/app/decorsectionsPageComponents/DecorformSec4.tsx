@@ -13,12 +13,10 @@ export default function ContactSection() {
 
   const sharedInputStyle = {
     width: "100%",
-    backgroundColor: "#FBEFE5",
+    backgroundColor: "#faefe4",
     padding: "12px",
-    borderRadius: "4px",
     color: "#1F2937",
     fontSize: "16px",
-    border: "1px solid #ccc",
     boxSizing: "border-box" as const,
   };
 
@@ -29,15 +27,16 @@ export default function ContactSection() {
         backgroundColor: "#FFFFFF",
       }}
     >
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div style={{ margin: "0 auto" }}>
         {/* Title */}
         <h2
           style={{
-            fontSize: isMobile ? "24px" : "30px",
-            fontWeight: "600",
-            textAlign: "center",
-            marginBottom: "32px",
+            fontSize: "clamp(24px, 4vw, 52px)",
+            fontWeight: "500",
+            marginBottom: "50px",
+            marginTop: '20px',
             color: "#1F2937",
+            textAlign: "center",
           }}
         >
           Lorem ipsum
@@ -48,6 +47,7 @@ export default function ContactSection() {
             display: "flex",
             flexDirection: isMobile ? "column" : "row",
             gap: "40px",
+            padding: isMobile ? "0" : "0 24px",
           }}
         >
           {/* Left Text Block */}
@@ -58,11 +58,14 @@ export default function ContactSection() {
               display: "flex",
               flexDirection: "column",
               gap: "16px",
+              letterSpacing: "0.5px",
+              lineHeight: "1.6",
+              padding: '40px 0px'
             }}
           >
-            <p>At Millboard, we believe that every detail matters when creating your dream outdoor feature...</p>
-            <p>Décor sides are various design-oriented vertical or diagonal slats...</p>
-            <p>Décor cladding can be specified for just the finer visual areas...</p>
+            <p>At Millboard, we believe that every detail matters when creating extraordinary outdoor spaces. That's why we've introduced our Décor range - the market’s first premium, purpose-made cladding trim, available in lustrous Gold, sleek Carbon, and timeless Bronze. These metallic accents are designed to perfectly complement Millboard's Shadow Line+ Cladding systems, adding a touch of luxury and sophistication to your projects.</p>
+            <p>Décor adds decorative uniqueness and structural durability to any outdoor living space. Décor addresses the desire to include a secondary material to an outdoor wall covering, allowing for a truly aspirational, design led finish. Whether zoning off areas of an installation or purely adding a unique touch to a design, Décor is a designers secret weapon in ensuring a high-end installation that is timeless.</p>
+            <p>If you're interested in being one of the first to use Envello Décor in a project or would like to be notified of when samples are available to order, please submit your details below.</p>
           </div>
 
           {/* Right Form Block */}
@@ -70,8 +73,7 @@ export default function ContactSection() {
             style={{
               flex: "1 1 50%",
               padding: "24px",
-              borderRadius: "8px",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+              // borderRadius: "8px",
               display: "flex",
               flexDirection: "column",
               gap: "16px",
@@ -81,14 +83,14 @@ export default function ContactSection() {
           >
             {/* Name Fields */}
             <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "16px" }}>
-              <input type="text" placeholder="First Name*" style={sharedInputStyle} />
-              <input type="text" placeholder="Last Name*" style={sharedInputStyle} />
+              <input type="text" placeholder="First Name*" className="sharedInputStyle" style={sharedInputStyle} />
+              <input type="text" placeholder="Last Name*" className="sharedInputStyle" style={sharedInputStyle} />
             </div>
 
             {/* Email / Phone */}
             <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "16px" }}>
-              <input type="email" placeholder="Email*" style={sharedInputStyle} />
-              <input type="tel" placeholder="Phone number*" style={sharedInputStyle} />
+              <input type="email" placeholder="Email*" className="sharedInputStyle" style={sharedInputStyle} />
+              <input type="tel" placeholder="Phone number*" className="sharedInputStyle" style={sharedInputStyle} />
             </div>
 
             {/* Role Selector */}
@@ -96,8 +98,8 @@ export default function ContactSection() {
               <label
                 style={{
                   display: "block",
-                  marginBottom: "4px",
-                  fontSize: "14px",
+                  marginBottom: "14px",
+                  fontSize: "16px",
                   fontWeight: "500",
                   color: "#1F2937",
                 }}
@@ -118,7 +120,7 @@ export default function ContactSection() {
                   display: "block",
                   fontSize: "14px",
                   fontWeight: "600",
-                  marginBottom: "4px",
+                  marginBottom: "14px",
                   color: "#1F2937",
                 }}
               >
@@ -126,20 +128,20 @@ export default function ContactSection() {
               </label>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <input type="checkbox" id="quote" style={{ width: "20px", height: "20px", cursor: "pointer" }} />
-                <label htmlFor="quote" style={{ fontSize: "14px", color: "#1F2937" }}>
+                <label htmlFor="quote" style={{ fontSize: "14px", color: "#1F2937", marginBottom: '4px' }}>
                   I am interested in a Project Quote or BOQ
                 </label>
               </div>
             </div>
 
             {/* Address Fields */}
-            <input type="text" placeholder="Street Address*" style={sharedInputStyle} />
-            <input type="text" placeholder="Post code*" style={sharedInputStyle} />
+            <input type="text" placeholder="Street Address*" className="sharedInputStyle" style={sharedInputStyle} />
+            <input type="text" placeholder="Post code*" className="sharedInputStyle" style={sharedInputStyle} />
             <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "16px" }}>
-              <input type="text" placeholder="City*" style={sharedInputStyle} />
-              <input type="text" placeholder="Country/Region*" style={sharedInputStyle} />
+              <input type="text" placeholder="City*" className="sharedInputStyle" style={sharedInputStyle} />
+              <input type="text" placeholder="Country/Region*" className="sharedInputStyle" style={sharedInputStyle} />
             </div>
-            <input type="text" placeholder="United Kingdom*" style={sharedInputStyle} />
+            <input type="text" placeholder="United Kingdom*" className="sharedInputStyle" style={sharedInputStyle} />
 
             {/* Submit Button */}
             <div style={{ paddingTop: "16px" }}>
@@ -149,14 +151,14 @@ export default function ContactSection() {
                   backgroundColor: "#D3A069",
                   color: "#FFFFFF",
                   fontWeight: "500",
-                  padding: "10px 32px",
+                  padding: "15px 33px",
                   borderRadius: "9999px",
                   transition: "background-color 0.3s",
                   border: "none",
-                  fontSize: "16px",
+                  fontSize: "20px",
                   cursor: "pointer",
                 }}
-                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#A06534")}
+                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#D9C6A0")}
                 onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#D3A069")}
               >
                 Submit
@@ -165,6 +167,15 @@ export default function ContactSection() {
           </form>
         </div>
       </div>
+      <style jsx>{`
+  .sharedInputStyle:focus, select:focus {
+    outline: 2px solid #efcfac !important;
+    box-shadow: none !important;
+  }
+  input[type="checkbox"] {
+    accent-color: #D3A069;
+  }
+`}</style>
     </section>
   );
 }

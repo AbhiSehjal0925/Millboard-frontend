@@ -46,7 +46,7 @@ const Section5: React.FC = () => {
       alignItems: 'center',
       gap: isMobile ? '0.5rem' : '1rem',
       width,
-      maxWidth: isMobile ? '24rem' : '20rem',
+      // maxWidth: isMobile ? '24rem' : '20rem',
       flexDirection: isMobile ? 'column' : 'row',
       textAlign: isMobile ? 'center' : 'left',
       borderRadius: '0.75rem',
@@ -54,7 +54,7 @@ const Section5: React.FC = () => {
       boxSizing: 'border-box',
       transition: 'transform 0.3s ease',
       cursor: 'pointer',
-      backgroundColor: '#fff',
+      // backgroundColor: '#fff',
     } as React.CSSProperties;
   };
 
@@ -88,12 +88,13 @@ const Section5: React.FC = () => {
       <div
         style={{
           fontFamily: 'Mansfield, sans-serif',
-          fontWeight: 600,
+          fontWeight: 500,
           fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
           color: '#ffffff',
           textAlign: 'center',
           wordBreak: 'break-word',
           maxWidth: '90%',
+          textShadow: 'rgba(0, 0, 0, 0.3) 2px 2px 4px',
         }}
       >
         Why Choose Millboard Decking?
@@ -105,21 +106,14 @@ const Section5: React.FC = () => {
           flexWrap: 'wrap',
           justifyContent: 'center',
           gap: '1.5rem',
-          maxWidth: '1200px',
+          // maxWidth: '1200px',
           width: '100%',
         }}
       >
         {services.map((img, index) => (
           <div
             key={index}
-            style={getBoxStyle()}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-0.25rem)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
-            }}
-          >
+            style={getBoxStyle()}          >
             <div style={getImgWrapperStyle()}>
               <Image
                 src={`/png/pngsForOrderPage/${img}`}
@@ -142,7 +136,7 @@ const Section5: React.FC = () => {
                 style={{
                   fontFamily: 'Mansfield, sans-serif',
                   fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-                  fontWeight: 600,
+                  fontWeight: 500,
                   marginBottom: '0.5rem',
                   wordBreak: 'break-word',
                 }}

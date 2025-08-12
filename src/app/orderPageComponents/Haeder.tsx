@@ -40,126 +40,223 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Responsive style helpers
+  const getHeaderStyle = (): React.CSSProperties => ({
+    background: "#efcfac",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
+    flexDirection: screenSize === "small" ? "column" : "row",
+    width: "100%",
+    minHeight: screenSize === "small" ? "68vh" : "70vh",
+    padding: screenSize === "small" ? "50px" : undefined,
+  });
+
+  const getBreadcrumbStyle = (): React.CSSProperties => ({
+    position: "absolute",
+    color: "#000",
+    display: "flex",
+    flexWrap: "wrap" as const,
+    gap: "4px",
+    top: screenSize === "small" ? "8px" : "20px",
+    left: screenSize === "small" ? "8px" : "20px",
+    fontSize: screenSize === "small" ? "12px" : "14px",
+    zIndex: 10,
+    width: screenSize === "small" ? "95vw" : "auto",
+    flexDirection: screenSize === "small" ? "row" : "row",
+  });
+
+  const getMainContentStyle = (): React.CSSProperties => ({
+    display: "flex",
+    flexDirection: "column" as const,
+    alignItems: "center" as const,
+    justifyContent: "center" as const,
+    color: "#000",
+    zIndex: 20,
+    paddingTop: screenSize === "small" ? "60px" : undefined,
+    paddingBottom: screenSize === "small" ? "20px" : undefined,
+    paddingLeft:
+      screenSize === "small"
+        ? "8px"
+        : screenSize === "medium"
+          ? "20px"
+          : undefined,
+    paddingRight:
+      screenSize === "small"
+        ? "8px"
+        : screenSize === "medium"
+          ? "20px"
+          : undefined,
+    padding: screenSize === "medium" ? "100px 20px" : screenSize === "large" ? "120px 0" : undefined,
+    width: "100%",
+    maxWidth: screenSize === "small" ? "100vw" : "800px",
+    boxSizing: "border-box",
+  });
+
+  const getH1Style = (): React.CSSProperties => ({
+    fontWeight: 500,
+    textAlign: "center" as const,
+    marginBottom: "8px",
+    fontSize:
+      screenSize === "small"
+        ? "28px"
+        : screenSize === "medium"
+          ? "36px"
+          : "48px",
+  });
+
+  const getDescStyle = (): React.CSSProperties => ({
+    lineHeight: 1.6,
+    textAlign: "center" as const,
+    marginBottom: "8px",
+    fontSize:
+      screenSize === "small"
+        ? "14px"
+        : screenSize === "medium"
+          ? "16px"
+          : "18px",
+    maxWidth: screenSize === "small" ? "90%" : "800px",
+  });
+
+  const getInstructionStyle = (): React.CSSProperties => ({
+    textAlign: "center" as const,
+    fontWeight: 600,
+    marginBottom: "20px",
+    fontSize:
+      screenSize === "small"
+        ? "14px"
+        : screenSize === "medium"
+          ? "16px"
+          : "18px",
+  });
+
+  const getFiltersStyle = (): React.CSSProperties => ({
+    width: "100vw",
+    background: "#d3a069",
+    display: "flex",
+    alignItems: "center" as const,
+    justifyContent: "center" as const,
+    textAlign: "center" as const,
+    flexWrap: "wrap" as const,
+    flexDirection: screenSize === "small" ? "column" : "row",
+    gap: screenSize === "small" ? "10px" : "20px",
+    padding: screenSize === "small" ? "10px" : screenSize === "medium" ? "15px" : "30px 8px",
+    marginBottom: "0.5rem",
+    boxSizing: "border-box",
+  });
+
+  const getFilterLabelStyle = (): React.CSSProperties => ({
+    fontWeight: 700,
+    color: "#fff",
+    display: "flex",
+    alignItems: "center" as const,
+    gap: "8px",
+    cursor: "pointer",
+    fontSize: screenSize === "small" ? "16px" : screenSize === "medium" ? "20px" : "24px",
+    position: "relative",
+    padding: screenSize === "small" ? "6px 0" : "0",
+    width: screenSize === "small" ? "100%" : "auto",
+    justifyContent: screenSize === "small" ? "center" : "flex-start",
+  });
+
+  const getCheckboxBoxStyle = (): React.CSSProperties => ({
+    background: "#5c4a36",
+    display: "flex",
+    alignItems: "center" as const,
+    justifyContent: "center" as const,
+    width: screenSize === "small" ? "24px" : "30px",
+    height: screenSize === "small" ? "24px" : "30px",
+    borderRadius: "4px",
+    position: "relative",
+    marginRight: screenSize === "small" ? "4px" : "8px",
+  });
+
+  const getSampleCountStyle = (): React.CSSProperties => ({
+    textAlign: "center" as const,
+    marginTop: "16px",
+    marginBottom: "8px",
+    fontSize: screenSize === "small" ? "14px" : "16px",
+    width: screenSize === "small" ? "100%" : "auto",
+  });
+
+  const getSelectSamplesStyle = (): React.CSSProperties => ({
+    fontWeight: 600,
+    textAlign: "center" as const,
+    marginBottom: "20px",
+    fontSize: screenSize === "small" ? "20px" : screenSize === "medium" ? "28px" : "32px",
+    width: screenSize === "small" ? "100%" : "auto",
+  });
+
+  const getNoSelectionMsgStyle = (): React.CSSProperties => ({
+    fontSize: "14px",
+    textAlign: "center" as const,
+    color: "#000",
+    padding: "8px",
+    width: screenSize === "small" ? "100%" : "auto",
+  });
+
   return (
-    <header
-      className={`bg-[#efcfac] flex items-center justify-center relative ${
-        screenSize === "small" ? "min-h-[60vh]" : "min-h-[70vh]"
-      }`}
-    >
+    <header style={getHeaderStyle()}>
       {/* Breadcrumb */}
-      <div
-        className={`absolute text-black flex flex-wrap gap-1 ${
-          screenSize === "small"
-            ? "top-2 left-2 text-[12px]"
-            : "top-5 left-5 text-[14px]"
-        }`}
-      >
-        <a href="" className="text-black">
+      <div style={getBreadcrumbStyle()}>
+        <a href="" style={{ color: "#000", textDecoration: "none" }}>
           Home
-        </a>{" "}
-        /{" "}
-        <a href="" className="text-black">
+        </a>
+        <span>/</span>
+        <a href="" style={{ color: "#000", textDecoration: "none" }}>
           Start a product
-        </a>{" "}
-        /{" "}
-        <a href="" className="text-black">
+        </a>
+        <span>/</span>
+        <a href="" style={{ color: "#000", textDecoration: "none" }}>
           Planning
-        </a>{" "}
-        /{" "}
-        <a href="" className="text-black">
+        </a>
+        <span>/</span>
+        <a href="" style={{ color: "#000", textDecoration: "none" }}>
           Order free sample
         </a>
       </div>
 
       {/* Main Content */}
-      <div
-        className={`flex flex-col items-center justify-center text-black z-20 ${
-          screenSize === "small"
-            ? "pt-[60px] px-2 pb-5"
-            : screenSize === "medium"
-            ? "py-[100px] px-5"
-            : "py-[120px]"
-        }`}
-      >
-        <h1
-          className={`font-medium text-center mb-2 ${
-            screenSize === "small"
-              ? "text-[28px]"
-              : screenSize === "medium"
-              ? "text-[36px]"
-              : "text-[48px]"
-          }`}
-        >
+      <div style={getMainContentStyle()}>
+        <h1 style={getH1Style()}>
           Order Free Decking & Cladding Samples
         </h1>
-        <p
-          className={`leading-relaxed text-center mb-2 ${
-            screenSize === "small"
-              ? "text-[14px] max-w-[90%]"
-              : screenSize === "medium"
-              ? "text-[16px] max-w-[800px]"
-              : "text-[18px] max-w-[800px]"
-          }`}
-        >
+        <p style={getDescStyle()}>
           Get up to 3 free samples of Millboard composite decking or cladding.
           All sample packs are delivered free of charge with a complimentary
           Millboard brochure if requested.
         </p>
-        <p
-          className={`text-center font-semibold mb-5 ${
-            screenSize === "small"
-              ? "text-[14px] font-medium"
-              : screenSize === "medium"
-              ? "text-[16px]"
-              : "text-[18px]"
-          }`}
-        >
+        <p style={getInstructionStyle()}>
           Simply Select the samples you would like by clicking on them.
         </p>
 
         {/* Filters */}
-        <div
-          className={`w-full bg-[#d3a069] flex items-center justify-center text-center flex-wrap ${
-            screenSize === "small"
-              ? "gap-[10px] p-[10px]"
-              : screenSize === "medium"
-              ? "gap-[20px] p-[15px]"
-              : "gap-[20px] py-[30px] px-2"
-          }`}
-        >
+        <div style={getFiltersStyle()}>
           <span
-            className={`font-bold text-white ${
-              screenSize === "small"
-                ? "text-[16px]"
-                : screenSize === "medium"
-                ? "text-[20px]"
-                : "text-[24px]"
-            }`}
+            style={{
+              fontWeight: 700,
+              color: "#fff",
+              fontSize:
+                screenSize === "small"
+                  ? "16px"
+                  : screenSize === "medium"
+                    ? "20px"
+                    : "24px",
+            }}
           >
             Filters:
           </span>
 
           {/* Cladding */}
-          <label
-            htmlFor="cladding"
-            className={`font-bold text-white flex items-center gap-2 cursor-pointer ${
-              screenSize === "small"
-                ? "text-[16px]"
-                : screenSize === "medium"
-                ? "text-[20px]"
-                : "text-[24px]"
-            }`}
-          >
-            <span
-              className={`bg-[#5c4a36] flex items-center justify-center ${
-                screenSize === "small" ? "w-6 h-6" : "w-[30px] h-[30px]"
-              }`}
-            >
+          <label htmlFor="cladding" style={getFilterLabelStyle()}>
+            <span style={getCheckboxBoxStyle()}>
               {isCladdingChecked && (
                 <svg
-                  className="w-5 h-5 text-white"
+                  width={screenSize === "small" ? 20 : 24}
+                  height={screenSize === "small" ? 20 : 24}
                   fill="none"
-                  stroke="currentColor"
+                  stroke="white"
                   strokeWidth="3"
                   viewBox="0 0 24 24"
                 >
@@ -177,31 +274,27 @@ const Header = () => {
               type="checkbox"
               checked={isCladdingChecked}
               onChange={() => setIsCladdingChecked(!isCladdingChecked)}
-              className="absolute opacity-0"
+              style={{
+                position: "absolute",
+                opacity: 0,
+                width: "100%",
+                height: "100%",
+                left: 0,
+                top: 0,
+                cursor: "pointer",
+              }}
             />
           </label>
 
           {/* Decking */}
-          <label
-            htmlFor="decking"
-            className={`font-bold text-white flex items-center gap-2 cursor-pointer ${
-              screenSize === "small"
-                ? "text-[16px]"
-                : screenSize === "medium"
-                ? "text-[20px]"
-                : "text-[24px]"
-            }`}
-          >
-            <span
-              className={`bg-[#5c4a36] flex items-center justify-center ${
-                screenSize === "small" ? "w-6 h-6" : "w-[30px] h-[30px]"
-              }`}
-            >
+          <label htmlFor="decking" style={getFilterLabelStyle()}>
+            <span style={getCheckboxBoxStyle()}>
               {isDeckingChecked && (
                 <svg
-                  className="w-5 h-5 text-white"
+                  width={screenSize === "small" ? 20 : 24}
+                  height={screenSize === "small" ? 20 : 24}
                   fill="none"
-                  stroke="currentColor"
+                  stroke="white"
                   strokeWidth="3"
                   viewBox="0 0 24 24"
                 >
@@ -219,54 +312,55 @@ const Header = () => {
               type="checkbox"
               checked={isDeckingChecked}
               onChange={() => setIsDeckingChecked(!isDeckingChecked)}
-              className="absolute opacity-0"
+              style={{
+                position: "absolute",
+                opacity: 0,
+                width: "100%",
+                height: "100%",
+                left: 0,
+                top: 0,
+                cursor: "pointer",
+              }}
             />
           </label>
         </div>
 
         {/* Sample count */}
-        <p
-          className={`text-center mt-4 mb-2 ${
-            screenSize === "small" ? "text-[14px]" : "text-[16px]"
-          }`}
-        >
-          Showing {visibleDeckingSamples} Decking Samples and{" "}
-          {visibleCladdingSamples} Cladding Samples
+        <p style={getSampleCountStyle()}>
+          Showing {visibleDeckingSamples} Decking Samples and {visibleCladdingSamples} Cladding Samples
         </p>
 
-        <p
-          className={`font-semibold text-center mb-5 ${
-            screenSize === "small"
-              ? "text-[20px]"
-              : screenSize === "medium"
-              ? "text-[28px]"
-              : "text-[32px]"
-          }`}
-        >
+        <p style={getSelectSamplesStyle()}>
           Select 3 Samples
         </p>
 
         {showNoSelectionMessage && (
-          <div className="text-[14px] text-center text-black p-2">
-            Please select at least one category (Decking or Cladding) to view
-            samples.
+          <div style={getNoSelectionMsgStyle()}>
+            Please select at least one category (Decking or Cladding) to view samples.
           </div>
         )}
       </div>
 
       {/* Decorative SVG */}
       <svg
+        style={{
+          position: "absolute",
+          bottom: "-1px",
+          width: "100%",
+        }}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        className="absolute bottom-0 w-full h-auto block z-[1]"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="xMidYMax meet"
       >
         <path
-          className="fill-black"
-          d="M0,160L48,170.7C96,181,192,203,288,213.3C384,224,480,224,576,192C672,160,768,96,864,64C960,32,1056,32,1152,64C1248,96,1344,160,1392,192L1440,224L1440,320L0,320Z"
+          fill="#D3A069"
+          stroke="none"
+          d="M-43 50.0323C-43 50.0323 63.2135 -17.9549 787.175 74.7745C1511.14 167.504 1481.84 50.0323 1481.84 50.0323V120H-43V50.0323Z"
         />
         <path
-          className="fill-white drop-shadow-md"
-          d="M0,150L48,160.7C96,171,192,193,288,203.3C384,214,480,214,576,182C672,150,768,86,864,54C960,22,1056,22,1152,54C1248,86,1344,150,1392,182L1440,214L1440,320L0,320Z"
+          fill="#ffffff"
+          stroke="none"
+          d="M-45.3109 95.0278C-45.3109 95.0278 57.3996 14.2496 785.273 85.646C1513.15 157.042 1478.01 26.9689 1478.01 26.9689L1480 120H-45.3109V95.0278Z"
         />
       </svg>
     </header>

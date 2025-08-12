@@ -70,10 +70,9 @@ const Section3 = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '1.5rem',
+                    gap: '2rem',
                     flexWrap: 'wrap',
                     width: '100%',
-                    maxWidth: '1200px',
                 }}
             >
                 {woods.map((wood, index) => {
@@ -97,7 +96,6 @@ const Section3 = () => {
                                 boxSizing: 'border-box',
                                 boxShadow: isDisabled ? 'none' : 'rgba(0, 0, 0, 0.3) 0px 5px 15px',
                                 opacity: isDisabled ? 0.5 : 1,
-                                border: isSelected ? '5px solid rgb(2, 77, 2)' : 'none',
                             }}
                             onMouseEnter={e => !isDisabled && (e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.3) 0px 5px 15px')}
                             onMouseLeave={e => !isDisabled && (e.currentTarget.style.boxShadow = 'none')}
@@ -144,17 +142,17 @@ const Section3 = () => {
                             {isSelected && (
                                 <div
                                     style={{
-                                        position: 'absolute',
-                                        top: '100px',
-                                        right: '100px',
                                         color: 'white',
                                         borderRadius: '50%',
-                                        padding: '5px 8px',
-                                        fontWeight: 'bold',
-                                        fontSize: '35px',
+                                        fontSize: '120px',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
+                                        height: '100%',
+                                        width: '100%',
+                                        position: 'absolute',
+                                        top: '-40px',
+                                        left: 0,
                                     }}
                                 >
                                     ✔

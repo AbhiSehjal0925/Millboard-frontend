@@ -1,4 +1,5 @@
 import Image from "next/image";
+import React from "react";
 
 export default function BranchhillSe8() {
   return (
@@ -11,7 +12,7 @@ export default function BranchhillSe8() {
     >
       <div
         style={{
-          maxWidth: "1280px",
+          maxWidth: "90%",
           margin: "0 auto",
           display: "flex",
           flexWrap: "wrap",
@@ -24,26 +25,25 @@ export default function BranchhillSe8() {
         <div
           style={{
             flex: "1 1 300px",
-            maxWidth: "600px",
             padding: "8px",
           }}
         >
           <h1
             style={{
-              fontSize: "clamp(24px, 4vw, 36px)",
-              fontWeight: "700",
+              fontSize: "clamp(28px, 5vw, 54px)", // Responsive font
               color: "#1F2937",
               marginBottom: "8px",
+              textAlign: "center", // Center text on small screens
             }}
           >
             Branch Hill Hampstead
           </h1>
           <p
             style={{
-              fontSize: "clamp(14px, 2vw, 18px)",
-              color: "#4B5563",
+              fontSize: "clamp(16px, 2.5vw, 26px)", // Responsive font
+              color: "#282b30ff",
               lineHeight: "1.6",
-              maxWidth: "448px",
+              textAlign: "center", // Center text on small screens
             }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
@@ -57,30 +57,37 @@ export default function BranchhillSe8() {
         <div
           style={{
             flex: "1 1 300px",
-            maxWidth: "600px",
             padding: "8px",
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: "center", // Center image on mobile
           }}
         >
-          <div style={{ width: "100%", maxWidth: "320px" }}>
+          <div style={{ width: "100%", maxWidth: "600px" }}>
             <Image
               src="/imagesForDecorPage/Branch Hill Hampstead image.png"
               alt="Branch Hill Hampstead"
               width={600}
-              height={450}
+              height={400}
               priority
               style={{
-                borderRadius: "20px",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                 width: "100%",
                 height: "auto",
-                objectFit: "cover",
+                borderRadius: "8px",
               }}
             />
           </div>
         </div>
       </div>
+
+      {/* Mobile-specific styles */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          section div[style*="display: flex"] {
+            flex-direction: column; /* Stack text above image */
+            text-align: center;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -18,15 +18,15 @@ const Section6 = () => {
         border: '1px solid #b07f4c',
         padding: '2rem',
         width: '100%',
-        maxWidth: '700px',
+        maxWidth: '1000px',
         margin: '0 auto',
         boxSizing: 'border-box'
     };
 
     const headingStyle: React.CSSProperties = {
         fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-        fontWeight: 600,
-        color: '#000',
+        fontWeight: 500,
+        color: '#000000d8',
         marginBottom: '1rem',
         wordBreak: 'break-word'
     };
@@ -65,15 +65,19 @@ const Section6 = () => {
     };
 
     const btnStyle: React.CSSProperties = {
-        display: 'inline-block',
         backgroundColor: '#d3a069',
         color: 'white',
         fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
         padding: '0.5rem 1rem',
-        borderRadius: '0.75rem',
+        borderRadius: '50px',
         cursor: 'pointer',
         transition: 'background-color 0.3s ease',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 'fit-content',
+        margin: '0 auto',
     };
 
     const btnHoverStyle: React.CSSProperties = {

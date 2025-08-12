@@ -1,4 +1,5 @@
 import Image from "next/image";
+import React from "react";
 
 export default function MultipleDecorSec2() {
   const features = [
@@ -40,18 +41,19 @@ export default function MultipleDecorSec2() {
   };
 
   const gridStyle: React.CSSProperties = {
-    gap: "32px",
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around'
+    gap: "92px",
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "40px 210px",
   };
 
   const featureItemStyle: React.CSSProperties = {
     display: "flex",
-    alignItems: "flex-start",
+    alignItems: "center",
     gap: "16px",
-    width: '300px',
-    marginRight: '100px'
+    width: "420px",
   };
 
   const iconStyle: React.CSSProperties = {
@@ -62,21 +64,54 @@ export default function MultipleDecorSec2() {
   return (
     <section style={containerStyle}>
       <div>
-        <div style={gridStyle}>
+        <div
+          style={{
+            ...gridStyle,
+            // Small screen adjustments
+            ...(typeof window !== "undefined" &&
+              window.innerWidth <= 768 && {
+                flexDirection: "column",
+                padding: "20px",
+                gap: "32px",
+              }),
+          }}
+        >
           {features.map((item) => (
-            <div key={item.title} style={featureItemStyle}>
+            <div
+              key={item.title}
+              style={{
+                ...featureItemStyle,
+                ...(typeof window !== "undefined" &&
+                  window.innerWidth <= 768 && {
+                    width: "100%",
+                    justifyContent: "flex-start",
+                    gap: "12px",
+                  }),
+              }}
+            >
               <Image
                 src={item.icon}
                 alt={item.title}
-                width={100}
-                height={100}
+                width={window.innerWidth <= 768 ? 60 : 100}
+                height={window.innerWidth <= 768 ? 60 : 100}
                 style={iconStyle}
               />
               <div>
-                <h4 style={{ fontSize: "24px", fontWeight: 500 }}>
+                <h4
+                  style={{
+                    fontSize: window.innerWidth <= 768 ? "18px" : "24px",
+                    fontWeight: 500,
+                  }}
+                >
                   {item.title}
                 </h4>
-                <p style={{ fontSize: "14px" }}>{item.description}</p>
+                <p
+                  style={{
+                    fontSize: window.innerWidth <= 768 ? "13px" : "14px",
+                  }}
+                >
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}

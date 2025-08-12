@@ -13,7 +13,6 @@ const Section4 = () => {
         alignItems: 'center',
         gap: '50px',
         position: 'relative',
-        height: '75vh'
     };
 
     const headingStyle: React.CSSProperties = {
@@ -28,11 +27,12 @@ const Section4 = () => {
     const downloadsContainerStyle: React.CSSProperties = {
         display: 'flex',
         flexWrap: 'wrap',
-        gap: '40px',
+        gap: '50px',
         justifyContent: 'center',
         width: '100%',
-        maxWidth: '1200px',
+        // maxWidth: '1200px',
         zIndex: 1,
+        paddingBottom: '50px'
     };
 
     const downloadItemStyle: React.CSSProperties = {
