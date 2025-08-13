@@ -49,13 +49,14 @@ const Section2 = () => {
                 style={{
                     fontFamily: 'Mansfield',
                     fontWeight: 500,
-                    fontStyle: 'Medium',
-                    fontSize: screenSize === 'small' ? '30px' : '45px',
+                    // fontStyle: 'Medium',
+                    fontSize: screenSize === 'small' ? '30px' : '50px',
                     lineHeight: '100%',
                     letterSpacing: '0%',
                     textAlign: 'center',
                     textTransform: 'capitalize',
                     color: '#000',
+                    marginBottom: '20px',
                 }}
             >
                 7 locations
@@ -68,14 +69,13 @@ const Section2 = () => {
                     justifyContent: 'center',
                     gap: '20px',
                     width: '100%',
-                    maxWidth: '1200px',
                 }}
             >
                 <div
                     ref={leftSideRef}
                     style={{
                         flex: '1 1 400px',
-                        maxWidth: screenSize === 'medium' || screenSize === 'small' ? '100%' : '48%',
+                        maxWidth: screenSize === 'medium' || screenSize === 'small' ? '100%' : '38%',
                         padding: '20px 30px',
                         boxSizing: 'border-box',
                         background: '#d3a069',
@@ -161,10 +161,10 @@ const Section2 = () => {
                 <div
                     style={{
                         flex: '1 1 400px',
-                        maxWidth: screenSize === 'medium' || screenSize === 'small' ? '100%' : '48%',
+                        maxWidth: screenSize === 'medium' || screenSize === 'small' ? '100%' : '58%',
                         padding: '20px 30px',
                         boxSizing: 'border-box',
-                        height: '70vh', // Fixed to match left side max height
+                        height: '70vh',
                     }}
                 >
                     <MapForShowroomPage />

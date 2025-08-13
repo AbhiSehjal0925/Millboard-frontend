@@ -25,7 +25,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased" style={{ fontFamily: '"futura-pt", sans-serif' }}>
+      <body className="antialiased">
         {children}
       </body>
     </html>

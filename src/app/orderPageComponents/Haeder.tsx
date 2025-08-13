@@ -61,7 +61,7 @@ const Header = () => {
     gap: "4px",
     top: screenSize === "small" ? "8px" : "20px",
     left: screenSize === "small" ? "8px" : "20px",
-    fontSize: screenSize === "small" ? "12px" : "14px",
+    fontSize: screenSize === "small" ? "12px" : "18px",
     zIndex: 10,
     width: screenSize === "small" ? "95vw" : "auto",
     flexDirection: screenSize === "small" ? "row" : "row",

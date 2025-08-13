@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export interface CartItem {
     image: string;
@@ -28,6 +28,24 @@ export const CartProvider = ({
     const [deckingItems, setDeckingItems] = useState<CartItem[]>([]);
     const [claddingItems, setCladdingItems] = useState<CartItem[]>([]);
     const [isCartVisible, setIsCartVisible] = useState(false);
+
+    // Sync to localStorage when deckingItems changes
+    useEffect(() => {
+        localStorage.setItem('deckingItems', JSON.stringify(deckingItems));
+    }, [deckingItems]);
+
+    // Sync to localStorage when claddingItems changes
+    useEffect(() => {
+        localStorage.setItem('claddingItems', JSON.stringify(claddingItems));
+    }, [claddingItems]);
+
+    // On mount, load from localStorage
+    useEffect(() => {
+        const storedDecking = localStorage.getItem('deckingItems');
+        const storedCladding = localStorage.getItem('claddingItems');
+        if (storedDecking) setDeckingItems(JSON.parse(storedDecking));
+        if (storedCladding) setCladdingItems(JSON.parse(storedCladding));
+    }, []);
 
     const toggleCartVisibility = () => setIsCartVisible((v) => !v);
 

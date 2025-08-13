@@ -26,33 +26,30 @@ const Section9 = () => {
   const headingStyle: React.CSSProperties = {
     width: '100%',
     textAlign: 'center',
-    fontSize: 'clamp(24px, 4vw, 32px)',
-    fontWeight: 600,
+    fontSize: 'clamp(24px, 4vw, 3rem)',
+    fontWeight: 500,
     marginBottom: '32px',
   };
 
   const cardStyle: React.CSSProperties = {
     position: 'relative',
-    width: 'clamp(280px, 40vw, 400px)',
-    height: 'clamp(300px, 45vw, 450px)',
+    width: 'clamp(280px, 40vw, 650px)',
+    height: 'clamp(300px, 45vw, 650px)',
     overflow: 'hidden',
     borderRadius: '16px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-    backgroundColor: '#eee',
   };
 
   const textBoxStyle: React.CSSProperties = {
     position: 'absolute',
-    bottom: '20px',
+    bottom: '200px',
     left: '50%',
-    transform: 'translateX(-50%)',
-    width: '80%',
+    // transform: 'translateX(-50%)',
+    width: '300px',
     backgroundColor: 'rgb(255, 255, 255)',
-    padding: '18px',
-    fontSize: 'clamp(12px, 2vw, 14px)',
+    padding: '20px',
+    fontSize: 'clamp(12px, 2vw, 16px)',
     textAlign: 'center',
-    boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 8px',
-    borderRadius: '15px',
+    boxShadow: 'rgba(0, 0, 0, 0.49) 0px 4px 8px',
   };
 
   return (
@@ -64,7 +61,7 @@ const Section9 = () => {
             src={article.image}
             alt={`Article ${index + 1}`}
             fill
-            style={{ objectFit: 'cover' }}
+          // style={{ objectFit: 'conatin' }}
           />
           <div style={textBoxStyle}>{article.text}</div>
         </div>

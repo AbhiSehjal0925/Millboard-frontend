@@ -1,73 +1,144 @@
 import React from "react";
 import TestimonialsCard from "../subComponents/TestimonialsCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+
+const styles = {
+  section: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "40px 16px",
+    position: "relative" as const,
+  },
+  container: {
+    width: "100%",
+    maxWidth: "1200px",
+    display: "flex",
+    flexDirection: "column" as const,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "32px",
+    position: "relative" as const,
+  },
+  heading: {
+    fontFamily: "Mansfield",
+    fontWeight: 500,
+    fontSize: "1.8rem",
+    color: "#1E1E1E",
+    textTransform: "capitalize" as const,
+    textAlign: "center" as const,
+    marginTop: "20px",
+    lineHeight: 1.2,
+  },
+  cardsWrapper: {
+    position: "relative" as const,
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    cursor: 'grab',
+  },
+  arrowBtn: {
+    position: "absolute" as const,
+    top: "50%",
+    transform: "translateY(-50%)",
+    zIndex: 10,
+    padding: "8px",
+    background: "#fff",
+    borderRadius: "50%",
+    boxShadow: "0 2px 8px #0002",
+    border: "none",
+    cursor: "pointer",
+    transition: "transform 0.2s",
+  },
+  cardsRow: {
+    display: "flex",
+    flexWrap: "wrap" as const,
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "24px",
+    width: "100%",
+  },
+  card: {
+    width: "100%",
+    maxWidth: "350px",
+    minWidth: "260px",
+    background: "#fff",
+    borderRadius: "26px",
+    boxShadow: "px 4px 10px 0px #00000033",
+    display: "flex",
+    flexDirection: "column" as const,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "20px",
+    margin: '10px 0',
+  },
+};
 
 const Section5th: React.FC = () => {
   return (
-    <section className="flex justify-center items-center px-4 py-10 sm:py-14 relative">
-      <div className="w-full max-w-[1200px] flex flex-col justify-center items-center gap-8 relative">
+    <section style={styles.section}>
+      <div style={styles.container}>
         {/* Heading */}
-        <h2 className="font-[Mansfield] font-medium text-[1.8rem] sm:text-[2.25rem] text-[#1E1E1E] capitalize text-center mt-5 leading-snug">
-          Our trusted supporters
-        </h2>
+        <h2 style={styles.heading}>Our trusted supporters</h2>
 
         {/* Cards Wrapper */}
-        <div className="relative w-full flex justify-center">
-          {/* Left Arrow */}
-          <button
-            className="absolute left-5 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md hover:scale-110 transition-transform"
-            aria-label="Previous"
+        <div style={styles.cardsWrapper}>
+          <Swiper
+            modules={[Navigation]}
+            navigation
+            spaceBetween={24}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              900: { slidesPerView: 2 },
+              1200: { slidesPerView: 3 },
+            }}
+            style={{ width: "100%", padding: "0 40px" }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6 text-black"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5 8.25 12l7.5-7.5"
-              />
-            </svg>
-          </button>
-
-          {/* Cards Row */}
-          <div className="flex flex-wrap justify-center items-center gap-6 w-full">
-            <div className="w-full sm:w-[300px] md:w-[350px] bg-white rounded-[26px] shadow-[0px_4px_15px_0px_#00000033] flex flex-col items-center justify-center p-5">
-              <TestimonialsCard />
-            </div>
-            <div className="w-full sm:w-[300px] md:w-[350px] bg-white rounded-[26px] shadow-[0px_4px_15px_0px_#00000033] flex flex-col items-center justify-center p-5">
-              <TestimonialsCard />
-            </div>
-            <div className="w-full sm:w-[300px] md:w-[350px] bg-white rounded-[26px] shadow-[0px_4px_15px_0px_#00000033] flex flex-col items-center justify-center p-5">
-              <TestimonialsCard />
-            </div>
-          </div>
-
-          {/* Right Arrow */}
-          <button
-            className="absolute right-5 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md hover:scale-110 transition-transform"
-            aria-label="Next"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6 text-black"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m8.25 4.5 7.5 7.5-7.5 7.5"
-              />
-            </svg>
-          </button>
+            <SwiperSlide>
+              <div style={styles.card}>
+                <TestimonialsCard />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div style={styles.card}>
+                <TestimonialsCard />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div style={styles.card}>
+                <TestimonialsCard />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div style={styles.card}>
+                <TestimonialsCard />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div style={styles.card}>
+                <TestimonialsCard />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div style={styles.card}>
+                <TestimonialsCard />
+              </div>
+            </SwiperSlide>
+            {/* Add more <SwiperSlide> as needed */}
+          </Swiper>
         </div>
       </div>
+      <style jsx global>{`
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: #f5c518 !important;
+          fill: #f5c518 !important;
+        }
+      `}</style>
     </section>
   );
 };

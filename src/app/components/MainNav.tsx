@@ -46,7 +46,6 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     display: 'flex',
     flexWrap: 'wrap',
     gap: isSmall ? '8px' : '12px',
-    // flex: isSmall ? '1 1 100%' : '1',
     justifyContent: isSmall ? 'center' : 'flex-start',
     order: isSmall ? 2 : 1,
     padding: 0,
@@ -61,6 +60,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     color: '#000000ff',
     padding: isSmall ? '6px 8px' : '4px 8px',
     transition: 'all 0.3s ease',
+    position: 'relative', // needed for underline
   };
 
   const logoContainerStyle: React.CSSProperties = {
@@ -100,6 +100,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
                   ...linkButtonStyle,
                   color: current === item ? onActiveLink.color : linkButtonStyle.color,
                 }}
+                className="nav-link-btn underline-hover"
               >
                 {item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
               </button>
@@ -119,14 +120,36 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
         </div>
 
         <button
-          onClick={handleRequestSample}
-          style={sampleButtonStyle}
-          onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#D9C6A0')}
-          onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#D3A069')}
-        >
-          Request free sample
-        </button>
+  onClick={handleRequestSample}
+  style={sampleButtonStyle}
+  className="sample-btn coolBeans"
+>
+  Request free sample
+</button>
       </nav>
+      <style jsx>{`
+        .nav-link-btn:hover {
+          background: #fff3e0;
+          border-radius: 8px;
+          transition: background 0.2s, color 0.2s;
+        }
+
+        /* Smooth underline animation */
+        .underline-hover::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -3px;
+          width: 0;
+          height: 2px;
+          background-color: #ca8c4aff;
+          transition: width 0.3s ease;
+        }
+
+        .underline-hover:hover::after {
+          width: 100%;
+        }
+      `}</style>
     </header>
   );
 };

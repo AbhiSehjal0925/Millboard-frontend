@@ -22,7 +22,7 @@ const Section1 = () => {
   };
 
   const herosecContentStyle: React.CSSProperties = {
-    maxWidth: '1200px',
+    // maxWidth: '1200px',
     margin: '0 auto',
     display: 'flex',
     alignItems: 'center',
@@ -35,14 +35,16 @@ const Section1 = () => {
 
   const textStyle: React.CSSProperties = {
     flex: 1,
-    fontSize: 'clamp(0.9rem, 2vw, 1.2rem)',
+    fontSize: 'clamp(0.9rem, 2vw, 1.3rem)',
     lineHeight: 1.6,
     color: '#333',
+    margin: '40px',
+    fontWeight: 500,
   };
 
   const imageContainerStyle: React.CSSProperties = {
     flex: 1,
-    maxWidth: isMobile ? '100%' : '600px',
+    maxWidth: isMobile ? '100%' : '700px',
     height: 'auto',
   };
 
@@ -70,7 +72,7 @@ const Section1 = () => {
         </div>
         <div style={imageContainerStyle}>
           <Image
-            src="/imagesForBlogPage/Rectangle%206730.png" // encoded space
+            src="/imagesForBlogPage/Rectangle%206730.png"
             alt="Modello Deck"
             width={600}
             height={400}

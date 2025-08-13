@@ -3,12 +3,12 @@ import React from 'react';
 
 const Section5 = () => {
   const sectionStyle: React.CSSProperties = {
-    padding: '48px 16px',
+    padding: '80px',
     backgroundColor: '#FFFFFF',
   };
 
   const containerStyle: React.CSSProperties = {
-    maxWidth: '1200px',
+    // maxWidth: '1200px',
     margin: '0 auto',
     display: 'flex',
     flexDirection: 'row',
@@ -16,23 +16,29 @@ const Section5 = () => {
     alignItems: 'center',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
+    padding: '0 60px'
   };
 
   const contentStyle: React.CSSProperties = {
     flex: '1 1 500px',
-    maxWidth: '650px',
+    // maxWidth: '650px',
   };
 
   const headingStyle: React.CSSProperties = {
-    fontSize: 'clamp(24px, 4vw, 36px)',
-    fontWeight: 600,
-    color: '#1F2937',
+    fontSize: 'clamp(24px, 4vw, 48px)',
+    fontWeight: 500,
+    color: '#000000ff',
     marginBottom: '24px',
   };
 
+  const peragraph: React.CSSProperties = {
+    width: '80%'
+
+  }
+
   const paragraphTitleStyle: React.CSSProperties = {
-    fontWeight: 600,
-    fontSize: 'clamp(16px, 2vw, 18px)',
+    fontWeight: 500,
+    fontSize: 'clamp(16px, 2vw, 24px)',
     margin: '20px 0 8px',
     color: '#111827',
   };
@@ -47,7 +53,10 @@ const Section5 = () => {
 
   const imageContainerStyle: React.CSSProperties = {
     flex: '1 1 400px',
-    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // maxWidth: '100%',
   };
 
   return (
@@ -55,7 +64,7 @@ const Section5 = () => {
       <div style={containerStyle}>
         <div style={contentStyle}>
           <h1 style={headingStyle}>Why Choose Modello by Millboard?</h1>
-          <div>
+          <div style={peragraph}>
             <p style={paragraphTitleStyle}>A World-First Innovation</p>
             <li style={listItemStyle}>
               As the first-ever patterned composite decking, Modello sets a new industry standard,

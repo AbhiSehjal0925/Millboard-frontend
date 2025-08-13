@@ -13,7 +13,6 @@ const MapComponent: React.FC = () => {
             backgroundColor: '#f5f5f5',
             minHeight: '400px',
             border: '1px solid #ddd',
-            borderRadius: '8px'
         }}>
             <div style={{
                 textAlign: 'center',

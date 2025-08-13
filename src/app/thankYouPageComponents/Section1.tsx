@@ -5,10 +5,9 @@ const Section1 = () => {
     const imageBoxStyle = (url: string): React.CSSProperties => ({
         backgroundImage: `url('${url}')`,
         backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100%',
-        maxWidth: '350px',
+        maxWidth: '550px',
         aspectRatio: '1 / 1',
         position: 'relative',
     });
@@ -19,9 +18,11 @@ const Section1 = () => {
         right: '0.5rem',
         top: '50%',
         transform: 'translateY(-50%)',
-        borderRadius: '10px',
+        // borderRadius: '10px',
+        borderEndEndRadius: '15px',
+        borderEndStartRadius: '15px',
         boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-        padding: '0.75rem 1.5rem',
+        padding: '0.75rem 3rem',
         color: '#333333',
         fontWeight: 600,
         fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
@@ -33,7 +34,7 @@ const Section1 = () => {
     };
 
     const buttonStyle: React.CSSProperties = {
-        padding: '0.5rem 1rem',
+        padding: '0.5rem 1.5rem',
         background: '#d3a069',
         borderRadius: '30px',
         border: 'none',
@@ -56,10 +57,10 @@ const Section1 = () => {
             <div
                 style={{
                     fontFamily: 'Mansfield',
-                    fontWeight: 600,
-                    fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
+                    fontWeight: 500,
+                    fontSize: '42px',
                     lineHeight: 1.2,
-                    color: '#333333',
+                    color: '#000000ff',
                     textAlign: 'center',
                     marginBottom: '1.5rem',
                 }}
@@ -70,7 +71,6 @@ const Section1 = () => {
             <div
                 style={{
                     width: '100%',
-                    maxWidth: '1200px',
                     display: 'flex',
                     flexWrap: 'wrap',
                     justifyContent: 'center',

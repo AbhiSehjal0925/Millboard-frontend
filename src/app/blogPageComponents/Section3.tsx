@@ -13,7 +13,6 @@ const Section3: React.FC = () => {
 
   const sectionStyle: React.CSSProperties = {
     width: '100%',
-    minHeight: '803px',
     position: 'relative',
     display: 'flex',
     justifyContent: 'center',
@@ -23,7 +22,6 @@ const Section3: React.FC = () => {
 
   const containerStyle: React.CSSProperties = {
     width: '100%',
-    maxWidth: '1200px',
     margin: '0 auto',
     padding: '40px',
   };
@@ -42,22 +40,23 @@ const Section3: React.FC = () => {
   };
 
   const headingStyle: React.CSSProperties = {
-    fontSize: 'clamp(1.8rem, 5vw, 2.3rem)',
-    fontWeight: 700,
+    fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
+    fontWeight: 500,
     color: 'black',
   };
 
   const paragraphStyle: React.CSSProperties = {
     marginTop: '23px',
     lineHeight: 1.8,
-    color: 'black',
+    color: '#333',
     fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+    width: isMobile ? '100%' : '80%',
   };
 
   const buttonStyle: React.CSSProperties = {
     background: '#D3A069',
     color: 'white',
-    borderRadius: '20px',
+    borderRadius: '50px',
     padding: '8px 16px',
     marginTop: '40px',
     border: 'none',
@@ -67,7 +66,7 @@ const Section3: React.FC = () => {
   };
 
   const imageContainerStyle: React.CSSProperties = {
-    width: isMobile ? '100%' : '50%',
+    width: isMobile ? '100%' : '40%',
   };
 
   const imageStyle: React.CSSProperties = {

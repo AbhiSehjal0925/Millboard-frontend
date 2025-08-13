@@ -14,7 +14,6 @@ const Section4 = () => {
   const sectionStyle: React.CSSProperties = {
     backgroundImage: "url('/imagesForBlogPage/Rectangle 6736 (1).png')",
     width: '100%',
-    minHeight: '803px',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -28,7 +27,6 @@ const Section4 = () => {
 
   const containerStyle: React.CSSProperties = {
     width: '100%',
-    maxWidth: '1200px',
     margin: '0 auto',
     padding: '40px',
   };
@@ -38,7 +36,7 @@ const Section4 = () => {
     flexDirection: isMobile ? 'column' : 'row',
     gap: isMobile ? '2rem' : '116px',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   };
 
   const contentStyle: React.CSSProperties = {
@@ -47,16 +45,16 @@ const Section4 = () => {
   };
 
   const headingStyle: React.CSSProperties = {
-    fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
-    fontWeight: 700,
+    fontSize: 'clamp(1.8rem, 5vw, 2.2rem)',
+    fontWeight: 500,
     color: 'white',
   };
 
   const paragraphStyle: React.CSSProperties = {
     marginTop: '17px',
     lineHeight: 1.8,
-    fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-    color: 'white',
+    fontSize: 'clamp(1rem, 2vw, 1rem)',
+    color: '#ffffffee',
   };
 
   const buttonStyle: React.CSSProperties = {
@@ -65,13 +63,13 @@ const Section4 = () => {
     borderRadius: '20px',
     padding: '4px 14px',
     marginTop: '40px',
-    border: 'none',
+    border: '2px solid white',
     cursor: 'pointer',
-    fontSize: 'clamp(1rem, 2vw, 1.1rem)',
+    fontSize: 'clamp(1rem, 2vw, 1rem)',
   };
 
   const imageContainerStyle: React.CSSProperties = {
-    width: isMobile ? '100%' : '40%',
+    width: isMobile ? '100%' : '25%',
   };
 
   const imageStyle: React.CSSProperties = {

@@ -49,7 +49,7 @@ const Header = () => {
                             marginBottom: '20px',
                             lineHeight: '1.4',
                             margin: isSmall ? '10px 0' : '20px',
-                            textShadow: '6px 2px 4px rgba(0, 0, 0, 0.3)',
+                            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
                         }}
                     >
                         Moulded from oak to mimic timber, but built to outperform real wood

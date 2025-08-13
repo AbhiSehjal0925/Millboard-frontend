@@ -71,6 +71,7 @@ const Section4th: React.FC = () => {
     flexDirection: "column",
     padding: "20px",
     gap: "20px",
+    marginLeft: "40px",
   };
 
   const headingStyle: React.CSSProperties = {
@@ -81,7 +82,7 @@ const Section4th: React.FC = () => {
     color: "#000",
     marginBottom: "20px",
     textShadow: "3px 2px 4px rgba(0, 0, 0, 0.3)",
-    textAlign: "center",
+    // textAlign: "center",
   };
 
   const paragraphStyle: React.CSSProperties = {
@@ -89,7 +90,7 @@ const Section4th: React.FC = () => {
     fontSize: "clamp(0.9rem, 2vw, 16.75px)",
     lineHeight: "150%",
     color: "#000",
-    textAlign: "center",
+    // textAlign: "center",
   };
 
   const svgofsection4: React.CSSProperties = {
@@ -117,8 +118,8 @@ const Section4th: React.FC = () => {
             A Stylish Retreat in the Heart of Stratford-upon-Avon
           </div>
           <div style={paragraphStyle}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </div>
         </div>

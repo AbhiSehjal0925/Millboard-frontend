@@ -42,7 +42,7 @@ const Header = () => {
                     top: '20px',
                     left: '20px',
                     flexWrap: 'wrap',
-                    fontSize: screenSize === 'mobile' ? '12px' : '14px',
+                    fontSize: screenSize === 'mobile' ? '12px' : '18px',
                 }}
             >
                 <a href="" style={{ color: '#000' }}>Home</a>/
@@ -69,9 +69,10 @@ const Header = () => {
                     style={{
                         fontFamily: 'Mansfield',
                         fontWeight: 500,
-                        fontSize: screenSize === 'mobile' ? '30px' : screenSize === 'tablet' ? '40px' : '55px',
+                        fontSize: screenSize === 'mobile' ? '30px' : screenSize === 'tablet' ? '40px' : '50px',
                         lineHeight: 1.1,
                         textTransform: 'capitalize',
+                        padding: '0 80px',
                     }}
                 >
                     Millboard Showrooms Discover the art of outdoor living
@@ -81,38 +82,24 @@ const Header = () => {
                         fontFamily: 'Shega',
                         fontWeight: 300,
                         fontSize: screenSize === 'mobile' ? '14px' : screenSize === 'tablet' ? '16px' : '20.35px',
-                        lineHeight: 1.1,
-                        letterSpacing: '2%',
+                        lineHeight: 1.2,
+                        letterSpacing: '5%',
+                        textAlign: 'center'
                     }}
                 >
                     Welcome to Millboard showrooms, your gateway to experiencing outdoor living like never before. Our showrooms are more than just a place to showcase our innovative products; they are a source of inspiration for your own outdoor utopia. Enter a world where craftsmanship meets innovation and the timeless beauty of wood is enhanced by modern technology.
                 </div>
             </div>
 
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1440 320"
-                style={{
-                    position: 'absolute',
-                    bottom: screenSize === 'mobile' ? '-10px' : '-15px',
-                    zIndex: 1,
-                    width: '100%',
-                }}
-            >
-                <path fill="#ffffffff" fillOpacity="1" d="M0,224L60,240C120,256,240,288,360,293.3C480,299,600,277,720,256C840,235,960,213,1080,202.7C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            <svg style={{
+                position: 'absolute',
+                bottom: '-1px',
+                width: '100%',
+            }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="xMidYMax meet">
+                <path fill="#D3A069" stroke='none' d="M-43 50.0323C-43 50.0323 63.2135 -17.9549 787.175 74.7745C1511.14 167.504 1481.84 50.0323 1481.84 50.0323V120H-43V50.0323Z" />
+                <path fill="#ffffff" stroke='none' d="M-45.3109 95.0278C-45.3109 95.0278 57.3996 14.2496 785.273 85.646C1513.15 157.042 1478.01 26.9689 1478.01 26.9689L1480 120H-45.3109V95.0278Z" />
             </svg>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1440 320"
-                style={{
-                    position: 'absolute',
-                    bottom: '0',
-                    transform: 'rotate(0.8deg)',
-                    width: '100%',
-                }}
-            >
-                <path fill="#d3a069" fillOpacity="1" d="M0,224L60,240C120,256,240,288,360,293.3C480,299,600,277,720,256C840,235,960,213,1080,202.7C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
-            </svg>
+
         </header>
     );
 }

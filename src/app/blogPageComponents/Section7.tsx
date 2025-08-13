@@ -18,14 +18,13 @@ const Section7 = () => {
       <div
         style={{
           flex: '1 1 480px',
-          maxWidth: '600px',
-          borderRadius: '16px',
+          maxWidth: '850px',
           overflow: 'hidden',
           marginBottom: '24px',
           position: 'relative', // needed for Image fill
           aspectRatio: '4/3', // keeps space reserved until image loads
         }}
-      >
+        >
         <Image
           src="/imagesForBlogPage/Rectangle 6739 (1).png"
           alt="Decking Preview"
@@ -33,6 +32,7 @@ const Section7 = () => {
           style={{
             objectFit: 'cover',
             display: 'block',
+            borderRadius: '30px',
           }}
         />
       </div>
@@ -41,7 +41,7 @@ const Section7 = () => {
       <div
         style={{
           flex: '1 1 480px',
-          maxWidth: '640px',
+          maxWidth: '850px',
           padding: '0 24px',
           color: '#1f2937',
         }}
@@ -49,7 +49,7 @@ const Section7 = () => {
         <h2
           style={{
             fontSize: 'clamp(24px, 3vw, 36px)',
-            fontWeight: 600,
+            fontWeight: 500,
             marginBottom: '24px',
             color: '#111827',
           }}
@@ -58,7 +58,7 @@ const Section7 = () => {
         </h2>
         <p
           style={{
-            fontSize: 'clamp(14px, 2vw, 16px)',
+            fontSize: 'clamp(14px, 2vw, 18px)',
             lineHeight: 1.6,
             marginBottom: '16px',
           }}

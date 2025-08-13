@@ -234,7 +234,7 @@ const Header = () => {
                                     marginTop: 10,
                                     fontFamily: 'Poppins',
                                     fontSize: 16,
-                                    color: '#333',
+                                    color: '#333333be',
                                     display: 'flex',
                                     alignItems: 'center',
                                     gap: 10
@@ -247,22 +247,20 @@ const Header = () => {
                                         backgroundColor: selectedColor,
                                         verticalAlign: 'middle',
                                         marginRight: 6,
-                                        border: '1px solid #999'
                                     }}></span>
                                     {selectedColor}
                                     <button
                                         onClick={() => setSelectedColor(null)}
                                         style={{
                                             marginLeft: 8,
-                                            padding: '2px 10px',
                                             border: 'none',
-                                            background: '#d3a069',
-                                            color: '#fff',
                                             cursor: 'pointer',
-                                            fontSize: 14
+                                            fontSize: 16
                                         }}
                                     >
-                                        Cancel
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        </svg>
                                     </button>
                                 </div>
                             ) : (
@@ -270,7 +268,10 @@ const Header = () => {
                                     marginTop: 10,
                                     fontFamily: 'Poppins',
                                     fontSize: 16,
-                                    color: '#d3a069'
+                                    color: '#333333be',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 10
                                 }}>
                                     Select the color
                                 </div>
@@ -291,11 +292,11 @@ const Header = () => {
                                 <button
                                     style={{
                                         borderRadius: 300,
-                                        background: selectedWidth === '180mm' ? '#d3a069' : '#D3A069',
+                                        background: selectedWidth === '180mm' ? '#D3A069' : '#4c4b4e',
                                         color: '#fff',
                                         padding: '8px 15px',
-                                        border: selectedWidth === '180mm' ? '2px solid #333' : 'none',
-                                        cursor: 'pointer'
+                                        cursor: 'pointer',
+                                        transition: 'background 0.3s ease'
                                     }}
                                     onClick={() => setSelectedWidth('180mm')}
                                 >
@@ -304,11 +305,11 @@ const Header = () => {
                                 <button
                                     style={{
                                         borderRadius: 300,
-                                        background: selectedWidth === '133mm' ? '#4c4b4e' : '#4C4B4E',
+                                        background: selectedWidth === '133mm' ? '#D3A069' : '#4c4b4e',
                                         color: '#fff',
                                         padding: '8px 15px',
-                                        border: selectedWidth === '133mm' ? '2px solid #333' : 'none',
-                                        cursor: 'pointer'
+                                        cursor: 'pointer',
+                                        transition: 'background 0.3s ease'
                                     }}
                                     onClick={() => setSelectedWidth('133mm')}
                                 >
@@ -363,6 +364,13 @@ const Header = () => {
                 .swiper-button-prev {
                     color: #fff !important;
                     fill: #fff !important;
+                }
+                .product-header-btn {
+                    transition: transform 0.15s cubic-bezier(.4,0,.2,1), box-shadow 0.15s cubic-bezier(.4,0,.2,1);
+                }
+                .product-header-btn:active {
+                    transform: scale(0.95);
+                    box-shadow: 0 2px 12px #d3a06955;
                 }
             `}</style>
         </header>
