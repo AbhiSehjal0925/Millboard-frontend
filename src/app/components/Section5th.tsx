@@ -68,6 +68,7 @@ const styles = {
     background: "#fff",
     borderRadius: "26px",
     boxShadow: "px 4px 10px 0px #00000033",
+    border: "2px solid #0000001a",  
     display: "flex",
     flexDirection: "column" as const,
     alignItems: "center",
