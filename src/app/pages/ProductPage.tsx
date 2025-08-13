@@ -10,7 +10,7 @@ import Section7 from '../productPageComponents/Section7';
 
 const ProductPage = () => {
     return (
-        <div>
+        <div  style={{ marginTop: '126px'}}>
             <Header />
             <Section1 />
             <Section2 />

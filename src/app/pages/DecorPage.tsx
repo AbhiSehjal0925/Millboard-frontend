@@ -10,7 +10,7 @@ import BranchhillSe8 from '../decorsectionsPageComponents/branchhillSe8';
 
 const DecorPage = () => {
     return (
-        <div>
+        <div  style={{ marginTop: '126px'}}>
             <DecorhomeSec1 />
             <MultipleDecorSec2 />
             <AvailableColours />

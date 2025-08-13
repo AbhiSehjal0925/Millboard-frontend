@@ -3,7 +3,7 @@ import Header from '../basketPageComponents/header';
 
 const Basket = () => {
     return (
-        <div>
+        <div  style={{ marginTop: '126px'}}>
             <Header />
         </div>
     );

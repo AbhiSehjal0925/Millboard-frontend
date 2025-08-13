@@ -19,7 +19,7 @@ const OrderPageContent = ({ onNavigate }: OrderPageProps) => {
     const { isDeckingChecked, isCladdingChecked } = useFilter();
 
     return (
-        <div>
+        <div  style={{ marginTop: '126px'}}>
             <Header />
 
             <CartProvider onNavigate={onNavigate}>

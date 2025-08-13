@@ -5,7 +5,7 @@ import Section2 from '../showRoomsPageComponents/Section2';
 
 const ShowroomsPage = () => {
     return (
-        <div>
+        <div  style={{ marginTop: '126px'}}>
             <Header />
             <Section1 />
             <Section2 />

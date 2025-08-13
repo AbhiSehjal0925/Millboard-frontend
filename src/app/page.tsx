@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
-import UpperNav from './components/upperNav';
 import MainNav from './components/MainNav';
 import Footer from './components/Footer';
 import "./globals.css";
@@ -24,7 +23,6 @@ const Page = () => {
 
   return (
     <div>
-      <UpperNav />
       <MainNav
         onNavigate={handleNavigate}
         current={route}

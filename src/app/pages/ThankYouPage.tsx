@@ -4,7 +4,7 @@ import Section1 from '../thankYouPageComponents/Section1';
 
 const ThankYouPage = () => {
     return (
-        <div>
+        <div  style={{ marginTop: '126px'}}>
             <Haeder />
             <Section1 />
         </div>

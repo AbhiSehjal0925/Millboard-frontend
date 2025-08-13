@@ -9,7 +9,7 @@ import Section6th from '../components/Section6th';
 
 const HomePage = () => {
     return (
-        <div>
+        <div style={{ marginTop: '126px'}}>
             <Header />
             <Section1st />
             <Section2nd />

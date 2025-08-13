@@ -12,7 +12,7 @@ import Section9 from '../blogPageComponents/Section9';
 
 const BlogPage = () => {
     return (
-        <div>
+        <div  style={{ marginTop: '126px'}}>
             <Header />
             <Section1 />
             <Section2 />

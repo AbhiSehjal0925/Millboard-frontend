@@ -16,6 +16,8 @@ const Header = () => {
     const isMedium = screenWidth > 768 && screenWidth <= 1024;
 
     return (
+
+
         <section
             style={{
                 position: 'relative',
@@ -43,13 +45,14 @@ const Header = () => {
                             fontSize: isSmall
                                 ? 'clamp(28px, 6vw, 36px)'
                                 : isMedium
-                                ? 'clamp(36px, 4.5vw, 50px)'
-                                : 'clamp(42px, 4vw, 64px)',
+                                    ? 'clamp(36px, 4.5vw, 50px)'
+                                    : 'clamp(42px, 4vw, 64px)',
                             color: '#000000',
                             marginBottom: '20px',
                             lineHeight: '1.4',
                             margin: isSmall ? '10px 0' : '20px',
                             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
+                            fontFamily: 'Mansfield, serif !important',
                         }}
                     >
                         Moulded from oak to mimic timber, but built to outperform real wood
@@ -67,8 +70,8 @@ const Header = () => {
                             margin: isSmall
                                 ? '0 0 20px 0'
                                 : isMedium
-                                ? '0 0 100px 20px'
-                                : '0 0 150px 20px',
+                                    ? '30px 0 200px 20px'
+                                    : '30px 0 200px 20px',
                             transition: 'background-color 0.3s ease',
                         }}
                         onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#D9C6A0')}
