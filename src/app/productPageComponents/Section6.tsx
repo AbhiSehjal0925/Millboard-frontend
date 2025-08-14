@@ -11,7 +11,7 @@ const Section6 = () => {
     }, []);
 
     const sectionStyle: React.CSSProperties = {
-        fontFamily: 'Arial, sans-serif',
+        // fontFamily: 'Arial, sans-serif',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -26,7 +26,7 @@ const Section6 = () => {
     };
 
     const headingStyle: React.CSSProperties = {
-        fontFamily: 'Mansfield',
+        // fontFamily: 'Mansfield',
         fontWeight: 500,
         fontSize: isMobile ? '24px' : '45px',
         lineHeight: isMobile ? '30px' : '47px',
@@ -67,7 +67,7 @@ const Section6 = () => {
     };
 
     const textStyle: React.CSSProperties = {
-        fontFamily: 'Mansfield',
+        // fontFamily: 'Mansfield',
         fontWeight: 500,
         fontSize: isMobile ? '16px' : '28px',
         lineHeight: 1.3,

@@ -87,7 +87,7 @@ const Section5: React.FC = () => {
     >
       <div
         style={{
-          fontFamily: 'Mansfield, sans-serif',
+          // fontFamily: 'Mansfield, sans-serif',
           fontWeight: 500,
           fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
           color: '#ffffff',
@@ -134,7 +134,7 @@ const Section5: React.FC = () => {
             >
               <div
                 style={{
-                  fontFamily: 'Mansfield, sans-serif',
+                  // fontFamily: 'Mansfield, sans-serif',
                   fontSize: 'clamp(1rem, 2vw, 1.2rem)',
                   fontWeight: 500,
                   marginBottom: '0.5rem',
@@ -145,7 +145,7 @@ const Section5: React.FC = () => {
               </div>
               <div
                 style={{
-                  fontFamily: 'Shega, sans-serif',
+                  // fontFamily: 'Shega, sans-serif',
                   fontSize: 'clamp(0.8rem, 1.5vw, 0.9rem)',
                   color: '#666',
                   wordBreak: 'break-word',

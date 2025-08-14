@@ -6,7 +6,7 @@ const Section4 = () => {
 
     const sectionStyle: React.CSSProperties = {
         background: "url('/images/section4Img1.png') no-repeat center center/cover",
-        fontFamily: 'Arial, sans-serif',
+        // fontFamily: 'Arial, sans-serif',
         padding: '80px 20px',
         display: 'flex',
         flexDirection: 'column',
@@ -16,7 +16,7 @@ const Section4 = () => {
     };
 
     const headingStyle: React.CSSProperties = {
-        fontFamily: 'Mansfield',
+        // fontFamily: 'Mansfield',
         fontWeight: 500,
         fontSize: '45px',
         lineHeight: '47px',
@@ -51,7 +51,7 @@ const Section4 = () => {
     };
 
     const textStyle: React.CSSProperties = {
-        fontFamily: 'Poppins',
+        // fontFamily: 'Poppins',
         fontWeight: 500,
         fontSize: '20px',
         lineHeight: 1.2,

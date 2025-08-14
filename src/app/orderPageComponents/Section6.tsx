@@ -9,7 +9,7 @@ const Section6 = () => {
         backgroundColor: '#ffffff',
         padding: '5% 4%',
         textAlign: 'center',
-        fontFamily: "'Poppins', sans-serif",
+        // fontFamily: "'Poppins', sans-serif",
         width: '100%',
         boxSizing: 'border-box'
     };

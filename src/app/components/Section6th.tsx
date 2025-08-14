@@ -24,7 +24,7 @@ const Section6th: React.FC = () => {
   };
 
   const headingStyle: React.CSSProperties = {
-    fontFamily: "Rose, sans-serif",
+    fontFamily: "Mansfield, sans-serif",
     fontWeight: 400,
     fontSize: "clamp(32px, 4vw, 45px)",
     lineHeight: 1.2,
@@ -32,7 +32,7 @@ const Section6th: React.FC = () => {
   };
 
   const paragraphStyle: React.CSSProperties = {
-    fontFamily: "Shega, sans-serif",
+    fontFamily: "Mansfield, sans-serif",
     fontWeight: "lighter",
     fontSize: "clamp(20px, 3vw, 25px)",
     lineHeight: 1.4,

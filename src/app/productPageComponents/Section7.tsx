@@ -11,7 +11,7 @@ const Section7 = () => {
     }, []);
 
     const sectionStyle: React.CSSProperties = {
-        fontFamily: 'Arial, sans-serif',
+        // fontFamily: 'Arial, sans-serif',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -46,7 +46,7 @@ const Section7 = () => {
     };
 
     const headingStyle: React.CSSProperties = {
-        fontFamily: 'Poppins',
+        // fontFamily: 'Poppins',
         fontWeight: 600,
         fontSize: isMobile ? '28px' : '45px',
         lineHeight: 1.2,
@@ -55,7 +55,7 @@ const Section7 = () => {
     };
 
     const textStyle: React.CSSProperties = {
-        fontFamily: 'Poppins',
+        // fontFamily: 'Poppins',
         fontWeight: 400,
         fontSize: isMobile ? '15px' : '20px',
         lineHeight: 1.5,

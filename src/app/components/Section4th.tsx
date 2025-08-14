@@ -78,7 +78,7 @@ const Section4th: React.FC = () => {
     fontWeight: 500,
     fontSize: "clamp(1.8rem, 5vw, 60px)", // responsive font size
     lineHeight: "100%",
-    fontFamily: "Mansfield, serif",
+    fontFamily: "Mansfield, sans-serif",
     color: "#000",
     marginBottom: "20px",
     textShadow: "3px 2px 4px rgba(0, 0, 0, 0.3)",

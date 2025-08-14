@@ -11,7 +11,7 @@ const Section7 = () => {
         justifyContent: 'center',
         padding: '60px 16px',
         backgroundColor: '#fff',
-        fontFamily: "'Inter', sans-serif",
+        // fontFamily: "'Inter', sans-serif",
       }}
     >
       {/* Left Image */}

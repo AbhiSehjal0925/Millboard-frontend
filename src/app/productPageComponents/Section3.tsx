@@ -2,7 +2,7 @@ import React from 'react';
 
 const Section3: React.FC = () => {
   const sectionStyle: React.CSSProperties = {
-    fontFamily: 'Arial, sans-serif',
+    // fontFamily: 'Arial, sans-serif',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -13,7 +13,7 @@ const Section3: React.FC = () => {
   };
 
   const headingStyle: React.CSSProperties = {
-    fontFamily: 'Mansfield',
+    // fontFamily: 'Mansfield',
     fontWeight: 500,
     fontSize: '45px',
     lineHeight: '34px',
@@ -25,7 +25,7 @@ const Section3: React.FC = () => {
     width: '100%',
     maxWidth: '1000px',
     color: '#000',
-    fontFamily: 'Mansfield',
+    // fontFamily: 'Mansfield',
     fontWeight: 500,
     fontStyle: 'Semi Bold',
     fontSize: '16px',

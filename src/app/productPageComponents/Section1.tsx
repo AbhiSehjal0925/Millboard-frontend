@@ -45,7 +45,7 @@ const Section1: React.FC = () => {
   };
 
   const titleStyle: React.CSSProperties = {
-    fontFamily: 'Mansfield, serif',
+    fontFamily: 'Mansfield, sans-serif',
     fontWeight: 500,
     fontSize: '16px',
     lineHeight: '22px',
@@ -54,7 +54,7 @@ const Section1: React.FC = () => {
   };
 
   const descriptionStyle: React.CSSProperties = {
-    fontFamily: 'Shega',
+    fontFamily: 'Mansfield, sans-serif',
     fontWeight: 400,
     fontSize: '12px',
     lineHeight: '16px',

@@ -62,7 +62,7 @@ export default function AvailableColours() {
         `}
       </style>
 
-      <div style={{ maxWidth: '1600px', margin: "0 auto", textAlign: "center" }}>
+      <div style={{ maxWidth: '1600px', margin: "0 auto", textAlign: "center", padding: '10px' }}>
         <h2
           style={{
             fontSize: "clamp(24px, 4vw, 52px)",

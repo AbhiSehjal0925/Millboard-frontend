@@ -59,7 +59,7 @@ const CartForSamples = () => {
                 backgroundColor: '#efcfac',
                 padding,
                 width: containerWidth,
-                fontFamily: 'Inter, sans-serif',
+                // fontFamily: 'Inter, sans-serif',
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.082)',
                 position: 'fixed',
                 bottom,

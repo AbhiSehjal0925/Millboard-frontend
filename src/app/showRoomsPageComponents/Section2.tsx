@@ -47,7 +47,7 @@ const Section2 = () => {
         >
             <div
                 style={{
-                    fontFamily: 'Mansfield',
+                    // fontFamily: 'Mansfield',
                     fontWeight: 500,
                     // fontStyle: 'Medium',
                     fontSize: screenSize === 'small' ? '30px' : '50px',
@@ -106,7 +106,7 @@ const Section2 = () => {
                         >
                             <div
                                 style={{
-                                    fontFamily: 'Mansfield',
+                                    // fontFamily: 'Mansfield',
                                     fontWeight: 400,
                                     fontSize: '25px',
                                     lineHeight: 1.1,
@@ -117,7 +117,7 @@ const Section2 = () => {
                             </div>
                             <div
                                 style={{
-                                    fontFamily: 'Mansfield',
+                                    // fontFamily: 'Mansfield',
                                     fontWeight: 300,
                                     fontSize: '20px',
                                     lineHeight: 1.1,

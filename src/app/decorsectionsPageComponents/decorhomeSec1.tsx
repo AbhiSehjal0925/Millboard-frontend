@@ -30,7 +30,7 @@ export default function DecorhomeSec1() {
             color: "#FFFFFF",
             marginBottom: "16px",
             textShadow: "6px 2px 4px rgba(0, 0, 0, 0.3)",
-            fontFamily: "Mansfield",
+            fontFamily: "Mansfield, sans-serif",
             lineHeight: "1.2",
           }}
         >
@@ -42,7 +42,7 @@ export default function DecorhomeSec1() {
             color: "#FFFFFF",
             margin: "0 auto",
             lineHeight: "1.6",
-            fontFamily: "shega",
+            fontFamily: "Mansfield, sans-serif",
             padding: "0 10px", // Extra padding for mobile text spacing
           }}
         >

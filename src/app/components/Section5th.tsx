@@ -24,7 +24,7 @@ const styles = {
     position: "relative" as const,
   },
   heading: {
-    fontFamily: "Mansfield",
+    fontFamily: "Mansfield, sans-serif",
     fontWeight: 500,
     fontSize: "1.8rem",
     color: "#1E1E1E",

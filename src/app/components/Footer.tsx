@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div
       style={{
-        width: '100%',
+        width: '100vw',
         background: "url('/images/footerBg.png') center / cover no-repeat",
         display: 'flex',
         flexDirection: 'column',
@@ -21,7 +21,7 @@ const Footer = () => {
           display: 'flex',
           justifyContent: 'space-around',
           flexWrap: 'wrap',
-          width: '100%',
+          width: '100vw',
           padding: '0 16px',
           gap: '16px',
         }}
@@ -46,7 +46,7 @@ const Footer = () => {
           >
             <div
               style={{
-                fontFamily: 'Mansfield',
+                fontFamily: 'Mansfield, sans-serif',
                 fontWeight: 300,
                 fontSize: '20px',
                 lineHeight: '20px',
@@ -130,7 +130,7 @@ const Footer = () => {
         >
           <div
             style={{
-              fontFamily: 'Mansfield',
+              fontFamily: 'Mansfield, sans-serif',
               fontWeight: 300,
               fontSize: '20px',
               lineHeight: '20px',
@@ -218,7 +218,7 @@ const Footer = () => {
         >
           <div
             style={{
-              fontFamily: 'Mansfield',
+              fontFamily: 'Mansfield, sans-serif',
               fontWeight: 300,
               fontSize: '20px',
               lineHeight: '20px',
@@ -263,7 +263,7 @@ const Footer = () => {
       >
         <div
           style={{
-            fontFamily: 'Manjari',
+            fontFamily: 'Mansfield, sans-serif',
             fontWeight: 400,
             fontSize: '14px',
             lineHeight: '24px',

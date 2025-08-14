@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../blogPageComponents/Header';
 import Section1 from '../blogPageComponents/Section1';
 import Section2 from '../blogPageComponents/Section2';
@@ -11,8 +11,18 @@ import Section8 from '../blogPageComponents/Section8';
 import Section9 from '../blogPageComponents/Section9';
 
 const BlogPage = () => {
+    const [screenWidth, setScreenWidth] = useState(1920);
+    const isSmall = screenWidth <= 768;
+
+    useEffect(() => {
+        const handleResize = () => setScreenWidth(window.innerWidth);
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
-        <div  style={{ marginTop: '126px'}}>
+        <div style={{ marginTop: isSmall ? '90px' : '120px' }}>
             <Header />
             <Section1 />
             <Section2 />

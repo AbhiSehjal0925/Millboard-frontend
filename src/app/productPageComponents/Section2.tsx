@@ -11,8 +11,8 @@ const Section2 = () => {
   };
 
   const headingStyle: React.CSSProperties = {
-    fontFamily: 'Mansfield',
-fontWeight: 500,
+    // fontFamily: 'Mansfield',
+    fontWeight: 500,
     fontSize: '45px',
     lineHeight: '47px',
     color: '#000',

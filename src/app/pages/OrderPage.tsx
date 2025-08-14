@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../orderPageComponents/Haeder';
 import Section1 from '../orderPageComponents/Section1';
 import Section2 from '../orderPageComponents/Section2';
@@ -17,9 +17,18 @@ interface OrderPageProps {
 
 const OrderPageContent = ({ onNavigate }: OrderPageProps) => {
     const { isDeckingChecked, isCladdingChecked } = useFilter();
+    const [screenWidth, setScreenWidth] = useState(1920);
+    const isSmall = screenWidth <= 768;
+
+    useEffect(() => {
+        const handleResize = () => setScreenWidth(window.innerWidth);
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
-        <div  style={{ marginTop: '126px'}}>
+        <div style={{ marginTop: isSmall ? '90px' : '120px' }}>
             <Header />
 
             <CartProvider onNavigate={onNavigate}>

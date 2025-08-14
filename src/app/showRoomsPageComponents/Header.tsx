@@ -67,7 +67,7 @@ const Header = () => {
             >
                 <div
                     style={{
-                        fontFamily: 'Mansfield',
+                        // fontFamily: 'Mansfield',
                         fontWeight: 500,
                         fontSize: screenSize === 'mobile' ? '30px' : screenSize === 'tablet' ? '40px' : '50px',
                         lineHeight: 1.1,
@@ -79,7 +79,7 @@ const Header = () => {
                 </div>
                 <div
                     style={{
-                        fontFamily: 'Shega',
+                        // fontFamily: 'Shega',
                         fontWeight: 300,
                         fontSize: screenSize === 'mobile' ? '14px' : screenSize === 'tablet' ? '16px' : '20.35px',
                         lineHeight: 1.2,

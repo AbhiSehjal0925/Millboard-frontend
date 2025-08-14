@@ -56,7 +56,7 @@ const Section1 = () => {
         >
             <div
                 style={{
-                    fontFamily: 'Mansfield',
+                    // fontFamily: 'Mansfield',
                     fontWeight: 500,
                     fontSize: '42px',
                     lineHeight: 1.2,

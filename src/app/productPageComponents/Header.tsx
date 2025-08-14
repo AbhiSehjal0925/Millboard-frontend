@@ -156,19 +156,19 @@ const Header = () => {
                         gap: 10
                     }}>
                         <div style={{
-                            fontFamily: 'Mansfield',
+                            fontFamily: 'Mansfield, sans-serif',
                             fontWeight: 400,
                             fontSize: 24,
                             lineHeight: '36px'
                         }}>Decking</div>
                         <div style={{
-                            fontFamily: 'Mansfield',
+                            fontFamily: 'Mansfield, sans-serif',
                             fontWeight: 600,
                             fontSize: 32,
                             lineHeight: '36px'
                         }}>Enhanced Grain</div>
                         <div style={{
-                            fontFamily: 'Shega',
+                            fontFamily: 'Mansfield, sans-serif',
                             fontWeight: 400,
                             fontSize: 14,
                             lineHeight: '20px'
@@ -176,7 +176,7 @@ const Header = () => {
                             Moulded from timbers that are selected from oak boards for a textured look and feel, the Enhanced Grain collection&apos;s contemporary design accurately recreates the subtle nuances of natural wood. Each of the shades are slip-resistant and showcase their organic patinas beautifully.
                         </div>
                         <div style={{
-                            fontFamily: 'Shega',
+                            fontFamily: 'Mansfield, sans-serif',
                             fontWeight: 400,
                             fontSize: 14,
                             lineHeight: '18px'
@@ -196,7 +196,7 @@ const Header = () => {
                     }}>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 15 }}>
                             <div style={{
-                                fontFamily: 'Poppins',
+                                fontFamily: 'Mansfield, sans-serif',
                                 fontWeight: 300,
                                 fontSize: 18,
                                 lineHeight: '20px',
@@ -232,7 +232,7 @@ const Header = () => {
                             {selectedColor ? (
                                 <div style={{
                                     marginTop: 10,
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Mansfield, sans-serif',
                                     fontSize: 16,
                                     color: '#333333be',
                                     display: 'flex',
@@ -266,7 +266,7 @@ const Header = () => {
                             ) : (
                                 <div style={{
                                     marginTop: 10,
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Mansfield, sans-serif',
                                     fontSize: 16,
                                     color: '#333333be',
                                     display: 'flex',
@@ -280,7 +280,7 @@ const Header = () => {
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 15 }}>
                             <div style={{
-                                fontFamily: 'Poppins',
+                                fontFamily: 'Mansfield, sans-serif',
                                 fontWeight: 300,
                                 fontSize: 18,
                                 lineHeight: '20px',

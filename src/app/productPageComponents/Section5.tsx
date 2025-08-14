@@ -33,7 +33,7 @@ const Section5 = () => {
     return (
         <section
             style={{
-                fontFamily: 'Arial, sans-serif',
+                // fontFamily: 'Arial, sans-serif',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -46,7 +46,7 @@ const Section5 = () => {
         >
             <div
                 style={{
-                    fontFamily: 'Mansfield',
+                    // fontFamily: 'Mansfield',
                     fontWeight: 500,
                     fontSize: '45px',
                     lineHeight: 1.2,
