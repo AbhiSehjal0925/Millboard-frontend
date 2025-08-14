@@ -23,28 +23,29 @@ const Section2 = () => {
     flexDirection: 'column',
     color: 'white',
     overflow: 'hidden',
-    padding: '80px',
+    padding: isMobile ? '48px 16px' : '80px',
     background: '#efcfac',
   };
 
   const containerStyle: React.CSSProperties = {
     width: '100%',
     margin: '0 auto',
-    padding: '40px',
+    padding: isMobile ? '24px 16px' : '40px',
   };
 
   const featuresMainStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: isMobile ? 'column' : 'row',
-    gap: isMobile ? '2rem' : '70px',
+    gap: isMobile ? '24px' : '70px',
     alignItems: 'center',
     justifyContent: 'center',
   };
 
   const featuresLeftStyle: React.CSSProperties = {
     flex: 1,
-    maxWidth: '600px',
+    maxWidth: isMobile ? '100%' : '600px',
     width: '100%',
+    marginBottom: isMobile ? '24px' : '0',
   };
 
   const featuresRightStyle: React.CSSProperties = {
@@ -59,20 +60,20 @@ const Section2 = () => {
   const headingStyle: React.CSSProperties = {
     fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
     color: 'black',
-    marginBottom: '1.5rem',
+    marginBottom: isMobile ? '24px' : '1.5rem',
   };
 
   const paragraphStyle: React.CSSProperties = {
     color: 'black',
     fontSize: 'clamp(1.1rem, 2vw, 1.5rem)',
     fontWeight: 500,
-    marginTop: '1rem',
-    marginBottom: '0.5rem',
+    marginTop: isMobile ? '24px' : '1rem',
+    marginBottom: isMobile ? '16px' : '0.5rem',
   };
 
   const listItemStyle: React.CSSProperties = {
     color: 'black',
-    marginBottom: '1rem',
+    marginBottom: isMobile ? '24px' : '1rem',
     lineHeight: 1.5,
   };
 

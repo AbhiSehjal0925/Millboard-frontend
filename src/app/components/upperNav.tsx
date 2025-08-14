@@ -63,7 +63,7 @@ const UpperNav = () => {
     overflow: "hidden",
     whiteSpace: "nowrap",
     boxShadow: isMobile ? 'rgba(0, 0, 0, 0.15) 0px 2px 4px' : 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-    marginBottom: '-1px' // Eliminate gap between UpperNav and MainNav
+    marginBottom: '0' // Eliminate gap between UpperNav and MainNav
   };
 
   const infoTextStyle: React.CSSProperties = {
@@ -87,8 +87,8 @@ const UpperNav = () => {
 
   const keyframes = `
     @keyframes scroll-left {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+      0% { transform: translateX(100vw); }
+      100% { transform: translateX(-100vw); }
     }
   `;
 

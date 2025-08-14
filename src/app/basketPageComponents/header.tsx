@@ -221,43 +221,49 @@ const Header = () => {
 
                             {/* Checkboxes */}
                             <div style={{ display: 'flex', flexDirection: 'column', color: '#000', width: '100%', gap: '20px', marginTop: '10px' }}>
-                                <label style={{ display: 'flex', gap: 8 }}>
+                                <label style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
                                     <input
                                         type="checkbox"
                                         style={{
-                                            width: 22,
-                                            height: 22,
+                                            width: screenSize === 'mobile' ? 18 : 22,
+                                            height: screenSize === 'mobile' ? 18 : 22,
                                             accentColor: '#C6905B',
                                             backgroundColor: '#ccc',
                                             borderRadius: 4,
                                             border: '1.5px solid #bbb',
-                                            minWidth: 22,
-                                            minHeight: 22,
+                                            minWidth: screenSize === 'mobile' ? 18 : 22,
+                                            minHeight: screenSize === 'mobile' ? 18 : 22,
                                             appearance: 'checkbox', // Ensures native checkbox
                                             WebkitAppearance: 'checkbox',
                                             MozAppearance: 'checkbox',
+                                            marginTop: screenSize === 'mobile' ? '2px' : '0',
                                         }}
                                     />
-                                    Would you like a Millboard Lookbook?
+                                    <span style={{ fontSize: screenSize === 'mobile' ? '14px' : '16px', lineHeight: 1.4 }}>
+                                        Would you like a Millboard Lookbook?
+                                    </span>
                                 </label>
-                                <label style={{ display: 'flex', gap: 8 }}>
+                                <label style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
                                     <input
                                         type="checkbox"
                                         style={{
-                                            width: 22,
-                                            height: 22,
+                                            width: screenSize === 'mobile' ? 18 : 22,
+                                            height: screenSize === 'mobile' ? 18 : 22,
                                             accentColor: '#C6905B',
                                             backgroundColor: '#ccc',
                                             borderRadius: 4,
                                             border: '1.5px solid #bbb',
-                                            minWidth: 22,
-                                            minHeight: 22,
+                                            minWidth: screenSize === 'mobile' ? 18 : 22,
+                                            minHeight: screenSize === 'mobile' ? 18 : 22,
                                             appearance: 'checkbox',
                                             WebkitAppearance: 'checkbox',
                                             MozAppearance: 'checkbox',
+                                            marginTop: screenSize === 'mobile' ? '2px' : '0',
                                         }}
                                     />
-                                    We process your data under legitimate interest to provide relevant content and communications in line with our privacy policy. If you prefer not to receive marketing communications, please tick the box.
+                                    <span style={{ fontSize: screenSize === 'mobile' ? '14px' : '16px', lineHeight: 1.4 }}>
+                                        We process your data under legitimate interest to provide relevant content and communications in line with our privacy policy. If you prefer not to receive marketing communications, please tick the box.
+                                    </span>
                                 </label>
                             </div>
                         </form>
@@ -302,7 +308,7 @@ const Header = () => {
             </div>
 
             {/* Submit Button */}
-            <div style={{ marginBottom: '35px', background: '#C6905B', padding: '10px 15px', borderRadius: '50px', color: '#fff', cursor: 'pointer' }}>
+            <div style={{ marginBottom: '35px', background: '#C6905B', padding: '10px 15px', borderRadius: '50px', color: '#fff', cursor: 'pointer', marginTop: '20px' }}>
                 Submit
             </div>
 
@@ -324,8 +330,6 @@ const Header = () => {
                 .checkout-form input,
                 .checkout-form select {
                   font-size: 14px !important;
-                  height: 44px !important;
-                  width: 100% !important;
                 }
                 .checkout-summary img {
                   width: 50px !important;
@@ -353,6 +357,16 @@ const Header = () => {
                 -moz-appearance: checkbox;
               }
 
+              /* Mobile-specific checkbox sizing */
+              @media (max-width: 480px) {
+                input[type="checkbox"] {
+                  width: 18px !important;
+                  height: 18px !important;
+                  min-width: 18px !important;
+                  min-height: 18px !important;
+                }
+              }
+
               /* For Chrome, Edge, Safari */
               input[type="checkbox"]:not(:checked) {
                 background-color: #ccc;
@@ -361,6 +375,20 @@ const Header = () => {
               /* For Firefox */
               input[type="checkbox"]:not(:checked) {
                 filter: grayscale(1) brightness(1.2);
+              }
+
+              /* Focus outline for all inputs and selects */
+              input[type="text"]:focus,
+              select:focus {
+                outline: 2px solid #C6905B !important;
+                outline-offset: 2px !important;
+              }
+
+              /* For browsers that support focus-visible */
+              input[type="text"]:focus-visible,
+              select:focus-visible {
+                outline: 2px solid #C6905B !important;
+                outline-offset: 2px !important;
               }
             `}</style>
 

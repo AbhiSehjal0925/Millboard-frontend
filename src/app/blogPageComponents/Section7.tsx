@@ -1,7 +1,16 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Section7 = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWidth = () => setIsMobile(window.innerWidth <= 768);
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    return () => window.removeEventListener('resize', checkWidth);
+  }, []);
+
   return (
     <section
       style={{
@@ -9,22 +18,25 @@ const Section7 = () => {
         flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '60px 16px',
+        padding: isMobile ? '48px 16px' : '60px 16px',
         backgroundColor: '#fff',
+        flexDirection: isMobile ? 'column' : 'row',
+        gap: isMobile ? '24px' : '0',
         // fontFamily: "'Inter', sans-serif",
       }}
     >
       {/* Left Image */}
       <div
         style={{
-          flex: '1 1 480px',
-          maxWidth: '850px',
+          flex: isMobile ? 'none' : '1 1 480px',
+          maxWidth: isMobile ? '100%' : '850px',
           overflow: 'hidden',
-          marginBottom: '24px',
+          marginBottom: isMobile ? '24px' : '24px',
           position: 'relative', // needed for Image fill
           aspectRatio: '4/3', // keeps space reserved until image loads
+          width: isMobile ? '100%' : 'auto',
         }}
-        >
+      >
         <Image
           src="/imagesForBlogPage/Rectangle 6739 (1).png"
           alt="Decking Preview"
@@ -40,17 +52,18 @@ const Section7 = () => {
       {/* Right Text */}
       <div
         style={{
-          flex: '1 1 480px',
-          maxWidth: '850px',
-          padding: '0 24px',
+          flex: isMobile ? 'none' : '1 1 480px',
+          maxWidth: isMobile ? '100%' : '850px',
+          padding: isMobile ? '0 16px' : '0 24px',
           color: '#1f2937',
+          width: isMobile ? '100%' : 'auto',
         }}
       >
         <h2
           style={{
             fontSize: 'clamp(24px, 3vw, 36px)',
             fontWeight: 500,
-            marginBottom: '24px',
+            marginBottom: isMobile ? '24px' : '24px',
             color: '#111827',
           }}
         >
@@ -60,7 +73,7 @@ const Section7 = () => {
           style={{
             fontSize: 'clamp(14px, 2vw, 18px)',
             lineHeight: 1.6,
-            marginBottom: '16px',
+            marginBottom: isMobile ? '24px' : '16px',
           }}
         >
           With Modello, Millboard continues to push the boundaries of what composite
@@ -74,6 +87,7 @@ const Section7 = () => {
           style={{
             fontSize: 'clamp(14px, 2vw, 16px)',
             lineHeight: 1.6,
+            marginBottom: isMobile ? '24px' : '0',
           }}
         >
           If you have not heard of Millboard products before and would like to learn

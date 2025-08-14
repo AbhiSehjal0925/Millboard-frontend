@@ -1,17 +1,26 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Section6 = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWidth = () => setIsMobile(window.innerWidth <= 768);
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    return () => window.removeEventListener('resize', checkWidth);
+  }, []);
+
   const sectionStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    padding: '100px',
+    padding: isMobile ? '48px 16px' : '100px',
     backgroundColor: '#F5D7B7',
     position: 'relative',
   };
-  
+
   const containerStyle: React.CSSProperties = {
     display: 'flex',
     alignItems: 'center',
@@ -19,38 +28,41 @@ const Section6 = () => {
     position: 'relative',
     maxWidth: '1200px',
     width: '100%',
-    gap: '40px',
+    gap: isMobile ? '24px' : '40px',
     flexWrap: 'wrap',
-    paddingBottom: '50px',
+    paddingBottom: isMobile ? '24px' : '50px',
+    flexDirection: isMobile ? 'column' : 'row',
   };
 
   const cardStyle: React.CSSProperties = {
     backgroundColor: '#FFFFFF',
-    padding: '32px',
+    padding: isMobile ? '24px 16px' : '32px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-    maxWidth: '500px',
+    maxWidth: isMobile ? '100%' : '500px',
     zIndex: 2,
-    position: 'relative',
-    left: '50px',
-    bottom: '10px',
+    position: isMobile ? 'relative' : 'relative',
+    left: isMobile ? '0' : '50px',
+    bottom: isMobile ? '0' : '10px',
+    width: '100%',
   };
 
   const headingStyle: React.CSSProperties = {
     fontSize: '24px',
     fontWeight: 600,
     color: '#000000',
-    marginBottom: '16px',
+    marginBottom: isMobile ? '24px' : '16px',
   };
 
   const paragraphStyle: React.CSSProperties = {
     color: '#333333',
     lineHeight: 1.6,
     fontSize: '15px',
+    marginBottom: isMobile ? '24px' : '0',
   };
 
   const buttonStyle: React.CSSProperties = {
-    marginTop: '20px',
-    padding: '10px 20px',
+    marginTop: isMobile ? '24px' : '20px',
+    padding: isMobile ? '12px 24px' : '10px 20px',
     backgroundColor: '#D3A069',
     color: '#fff',
     border: 'none',
@@ -64,7 +76,9 @@ const Section6 = () => {
     overflow: 'hidden',
     zIndex: 1,
     position: 'relative',
-    right: '50px',
+    right: isMobile ? '0' : '50px',
+    width: isMobile ? '100%' : 'auto',
+    marginTop: isMobile ? '24px' : '0',
   };
 
   return (

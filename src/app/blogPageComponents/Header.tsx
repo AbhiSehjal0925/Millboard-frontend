@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Header = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWidth = () => setIsMobile(window.innerWidth <= 768);
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    return () => window.removeEventListener('resize', checkWidth);
+  }, []);
+
   const bannerStyle: React.CSSProperties = {
     width: '100%',
-    minHeight: '588px',
+    minHeight: isMobile ? '400px' : '588px',
     backgroundImage: "url('/imagesForBlogPage/Rectangle%206.png')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -14,7 +23,7 @@ const Header = () => {
     justifyContent: 'center',
     color: 'white',
     overflow: 'hidden',
-    padding: '2rem 1rem',
+    padding: isMobile ? '32px 16px' : '2rem 1rem',
   };
 
   const contentStyle: React.CSSProperties = {
@@ -22,11 +31,12 @@ const Header = () => {
     textAlign: 'center',
     maxWidth: '1200px',
     width: '100%',
+    padding: isMobile ? '16px' : '0',
   };
 
   const headingStyle: React.CSSProperties = {
     fontSize: 'clamp(1rem, 5vw, 3rem)',
-    marginBottom: '0.5rem',
+    marginBottom: isMobile ? '16px' : '0.5rem',
     fontWeight: 500,
     lineHeight: 1.2,
     textShadow: '4px 2px 4px rgba(0, 0, 0, 0.3)'
@@ -34,7 +44,7 @@ const Header = () => {
 
   const paragraphStyle: React.CSSProperties = {
     fontSize: 'clamp(0.8rem, 3vw, 1.2rem)',
-    marginTop:'10px',
+    marginTop: isMobile ? '16px' : '10px',
     color: '#ffffffce',
   };
 

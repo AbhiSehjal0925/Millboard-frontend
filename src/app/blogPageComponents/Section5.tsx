@@ -1,9 +1,18 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Section5 = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWidth = () => setIsMobile(window.innerWidth <= 768);
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    return () => window.removeEventListener('resize', checkWidth);
+  }, []);
+
   const sectionStyle: React.CSSProperties = {
-    padding: '80px',
+    padding: isMobile ? '48px 16px' : '80px',
     backgroundColor: '#FFFFFF',
   };
 
@@ -11,16 +20,17 @@ const Section5 = () => {
     // maxWidth: '1200px',
     margin: '0 auto',
     display: 'flex',
-    flexDirection: 'row',
-    gap: '32px',
+    flexDirection: isMobile ? 'column' : 'row',
+    gap: isMobile ? '24px' : '32px',
     alignItems: 'center',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    padding: '0 60px'
+    padding: isMobile ? '0 16px' : '0 60px'
   };
 
   const contentStyle: React.CSSProperties = {
-    flex: '1 1 500px',
+    flex: isMobile ? 'none' : '1 1 500px',
+    width: isMobile ? '100%' : 'auto',
     // maxWidth: '650px',
   };
 
@@ -28,18 +38,17 @@ const Section5 = () => {
     fontSize: 'clamp(24px, 4vw, 48px)',
     fontWeight: 500,
     color: '#000000ff',
-    marginBottom: '24px',
+    marginBottom: isMobile ? '24px' : '24px',
   };
 
   const peragraph: React.CSSProperties = {
-    width: '80%'
-
+    width: isMobile ? '100%' : '80%'
   }
 
   const paragraphTitleStyle: React.CSSProperties = {
     fontWeight: 500,
     fontSize: 'clamp(16px, 2vw, 24px)',
-    margin: '20px 0 8px',
+    margin: isMobile ? '24px 0 16px' : '20px 0 8px',
     color: '#111827',
   };
 
@@ -47,15 +56,17 @@ const Section5 = () => {
     fontSize: 'clamp(14px, 2vw, 16px)',
     lineHeight: '1.6',
     color: '#4B5563',
-    marginBottom: '16px',
+    marginBottom: isMobile ? '24px' : '16px',
     listStyleType: 'none',
   };
 
   const imageContainerStyle: React.CSSProperties = {
-    flex: '1 1 400px',
+    flex: isMobile ? 'none' : '1 1 400px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    width: isMobile ? '100%' : 'auto',
+    marginTop: isMobile ? '24px' : '0',
     // maxWidth: '100%',
   };
 

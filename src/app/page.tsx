@@ -64,7 +64,7 @@ const Page = () => {
   const headerHeight = isSmall ? 72 : 112; // Further reduced for small screens to eliminate white space
 
   return (
-    <div style={{ fontFamily: 'Mansfield, sans-serif' }}>
+    <div style={{ fontFamily: 'Mansfield, sans-serif', width: '100vw', overflowX: 'hidden' }}>
       <MainNav
         onNavigate={handleNavigate}
         current={route}

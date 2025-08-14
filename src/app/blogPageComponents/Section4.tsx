@@ -22,19 +22,19 @@ const Section4 = () => {
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    padding: '2rem 1rem',
+    padding: isMobile ? '24px 16px' : '2rem 1rem',
   };
 
   const containerStyle: React.CSSProperties = {
     width: '100%',
     margin: '0 auto',
-    padding: '40px',
+    padding: isMobile ? '24px 16px' : '40px',
   };
 
   const flowMainStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: isMobile ? 'column' : 'row',
-    gap: isMobile ? '2rem' : '116px',
+    gap: isMobile ? '24px' : '116px',
     alignItems: 'center',
     justifyContent: 'space-around',
   };
@@ -48,21 +48,23 @@ const Section4 = () => {
     fontSize: 'clamp(1.8rem, 5vw, 2.2rem)',
     fontWeight: 500,
     color: 'white',
+    marginBottom: isMobile ? '24px' : '0',
   };
 
   const paragraphStyle: React.CSSProperties = {
-    marginTop: '17px',
+    marginTop: isMobile ? '24px' : '17px',
     lineHeight: 1.8,
     fontSize: 'clamp(1rem, 2vw, 1rem)',
     color: '#ffffffee',
+    marginBottom: isMobile ? '24px' : '0',
   };
 
   const buttonStyle: React.CSSProperties = {
     background: '#D3A069',
     color: 'white',
     borderRadius: '20px',
-    padding: '4px 14px',
-    marginTop: '40px',
+    padding: isMobile ? '12px 24px' : '4px 14px',
+    marginTop: isMobile ? '24px' : '40px',
     border: '2px solid white',
     cursor: 'pointer',
     fontSize: 'clamp(1rem, 2vw, 1rem)',
@@ -70,6 +72,7 @@ const Section4 = () => {
 
   const imageContainerStyle: React.CSSProperties = {
     width: isMobile ? '100%' : '25%',
+    marginTop: isMobile ? '24px' : '0',
   };
 
   const imageStyle: React.CSSProperties = {
