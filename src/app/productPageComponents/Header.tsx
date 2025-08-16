@@ -205,7 +205,8 @@ const Header = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'flex-start',
-                        gap: 10
+                        gap: 10,
+                        paddingRight: '40px'
                     }}>
                         <div style={{
                             fontFamily: 'Mansfield, sans-serif',
@@ -237,7 +238,7 @@ const Header = () => {
 
                     <div style={{
                         width: '100%',
-                        maxWidth: '90%',
+                        maxWidth: window.innerWidth <= 768 ? '100%' : '90%',
                         borderRadius: 15.6,
                         boxShadow: '0px 6.42px 26.6px 0px #64646F33',
                         padding: 20,

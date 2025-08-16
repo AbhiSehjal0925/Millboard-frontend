@@ -1,11 +1,24 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Footer = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   return (
     <div
       style={{
-        width: '100vw',
+        width: '100%',
         background: "url('/images/footerBg.png') center / cover no-repeat",
         display: 'flex',
         flexDirection: 'column',
@@ -36,7 +49,7 @@ const Footer = () => {
           <div
             key={index}
             style={{
-              flex: '1 1 150px', // Flexible growth, shrink, and basis for responsiveness
+              flex: '1 1 150px',
               minWidth: '150px',
               padding: '16px',
               borderRight: index !== 5 ? '1px solid #fff' : 'none',
@@ -136,11 +149,21 @@ const Footer = () => {
               letterSpacing: '0.5px',
               textTransform: 'capitalize',
               marginBottom: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'column',
             }}
           >
             Stay In The Loop
           </div>
-          <form style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '300px' }}>
+          <form style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '10px',
+            maxWidth: isMobile ? '100%' : '300px',
+            width: '100%'
+          }}>
             <input
               type="text"
               placeholder="First Name"
@@ -151,7 +174,7 @@ const Footer = () => {
                 fontSize: '14px',
                 outline: 'none',
                 color: '#000000',
-                width: '100%',
+                width: '280px',
                 boxSizing: 'border-box',
               }}
             />
@@ -165,7 +188,7 @@ const Footer = () => {
                 fontSize: '14px',
                 outline: 'none',
                 color: '#000000',
-                width: '100%',
+                width: '280px',
                 boxSizing: 'border-box',
               }}
             />
@@ -179,12 +202,13 @@ const Footer = () => {
                 fontSize: '14px',
                 outline: 'none',
                 color: '#000000',
-                width: '100%',
+                width: '280px',
                 boxSizing: 'border-box',
               }}
             />
             <button
               type="submit"
+              className="coolBeans"
               style={{
                 padding: '8px 10px',
                 backgroundColor: '#d0a15e',
@@ -192,8 +216,8 @@ const Footer = () => {
                 fontWeight: 'bold',
                 border: 'none',
                 cursor: 'pointer',
-                width: '100%',
-                maxWidth: '100px',
+                width: '280px',
+                // maxWidth: isMobile ? '100%' : '100px',
                 fontSize: '14px',
               }}
             >
@@ -206,7 +230,7 @@ const Footer = () => {
         <div
           style={{
             flex: '1 1 150px',
-            minWidth: '150px',
+            // minWidth: '150px',
             padding: '0 16px',
           }}
         >

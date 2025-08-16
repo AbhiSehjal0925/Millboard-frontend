@@ -3,7 +3,8 @@ import MapForShowroomPage from '../subComponents/mapForShowroomPage';
 
 const Section2 = () => {
     const [screenSize, setScreenSize] = useState<'large' | 'medium' | 'small'>('large');
-    const [, setLeftHeight] = useState<number>(typeof window !== 'undefined' ? 70 * window.innerHeight / 100 : 500); // Default to 70vh
+    const [, setLeftHeight] = useState<number>(typeof window !== 'undefined' ? 70 * window.innerHeight / 100 : 500);
+    const [selectedShowroom, setSelectedShowroom] = useState<number | null>(null);
     const leftSideRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -33,6 +34,11 @@ const Section2 = () => {
         { showroomName: 'Outdoor Living Show Garden', showroomAddress: '162 St Clair St, Show Garden - The Outdoor Living Co., Kirkcaldy, KY1 2BZ' },
     ];
 
+    const handleShowroomClick = (index: number) => {
+        setSelectedShowroom(index);
+        // You can add map interaction logic here later
+    };
+
     return (
         <section
             style={{
@@ -47,9 +53,7 @@ const Section2 = () => {
         >
             <div
                 style={{
-                    // fontFamily: 'Mansfield',
                     fontWeight: 500,
-                    // fontStyle: 'Medium',
                     fontSize: screenSize === 'small' ? '30px' : '50px',
                     lineHeight: '100%',
                     letterSpacing: '0%',
@@ -91,7 +95,7 @@ const Section2 = () => {
                         <div
                             key={index}
                             style={{
-                                background: '#e7cbac',
+                                background: selectedShowroom === index ? '#e7cbac' : '#e7cbac',
                                 display: 'flex',
                                 alignItems: 'flex-start',
                                 justifyContent: 'center',
@@ -102,11 +106,16 @@ const Section2 = () => {
                                 color: '#000',
                                 position: 'relative',
                                 boxSizing: 'border-box',
+                                cursor: 'pointer',
+                                transition: 'all 0.3s ease',
+                                // border: selectedShowroom === index ? '3px solid #fff' : '1px solid transparent',
+                                transform: selectedShowroom === index ? 'scale(1.01)' : 'scale(1)',
+                                boxShadow: selectedShowroom === index ? '0 4px 12px rgba(0,0,0,0.2)' : '0 2px 6px rgba(0,0,0,0.1)',
                             }}
+
                         >
                             <div
                                 style={{
-                                    // fontFamily: 'Mansfield',
                                     fontWeight: 400,
                                     fontSize: '25px',
                                     lineHeight: 1.1,
@@ -117,7 +126,6 @@ const Section2 = () => {
                             </div>
                             <div
                                 style={{
-                                    // fontFamily: 'Mansfield',
                                     fontWeight: 300,
                                     fontSize: '20px',
                                     lineHeight: 1.1,
@@ -138,8 +146,8 @@ const Section2 = () => {
                                     cursor: 'pointer',
                                     zIndex: 10,
                                 }}
-                                onMouseOver={(e) => (e.currentTarget.style.background = '#ac8052')}
-                                onMouseOut={(e) => (e.currentTarget.style.background = '#D3A069')}
+                                className="coolBeans"
+                                onClick={() => handleShowroomClick(index)}
                             >
                                 View Store
                             </button>
@@ -167,7 +175,7 @@ const Section2 = () => {
                         height: '70vh',
                     }}
                 >
-                    <MapForShowroomPage />
+                    <MapForShowroomPage selectedShowroom={selectedShowroom} />
                 </div>
             </div>
         </section>
