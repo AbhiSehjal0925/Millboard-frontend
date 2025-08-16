@@ -25,6 +25,25 @@ const Header = () => {
     const [thumbsSwiper, setThumbsSwiper] = React.useState<SwiperClass | null>(null);
     const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
     const [selectedWidth, setSelectedWidth] = React.useState<string | null>(null);
+    const [scrollProgress, setScrollProgress] = React.useState(0);
+
+    const updateScrollProgress = () => {
+        if (thumbsSwiper) {
+            const progress = Math.abs(thumbsSwiper.translate) / (thumbsSwiper.maxTranslate() || 1);
+            setScrollProgress(Math.min(progress, 1));
+        }
+    };
+
+    React.useEffect(() => {
+        if (thumbsSwiper) {
+            thumbsSwiper.on('scroll', updateScrollProgress);
+            thumbsSwiper.on('slideChange', updateScrollProgress);
+            return () => {
+                thumbsSwiper.off('scroll', updateScrollProgress);
+                thumbsSwiper.off('slideChange', updateScrollProgress);
+            };
+        }
+    }, [thumbsSwiper]);
 
     return (
         <header style={{
@@ -69,8 +88,9 @@ const Header = () => {
                             width: '100%',
                             maxWidth: '100%',
                             aspectRatio: '589 / 528',
-                            borderRadius: 12.26,
+                            borderRadius: '12px',
                             overflow: 'hidden',
+                            minHeight: '300px',
                         }}
                     >
                         {dummyImages.map((img, i) => (
@@ -79,7 +99,10 @@ const Header = () => {
                                     src={img}
                                     alt={`Main Image ${i + 1}`}
                                     fill
-                                    style={{ objectFit: 'cover' }}
+                                    style={{
+                                        objectFit: 'cover',
+                                        borderRadius: '12px',
+                                    }}
                                 />
                             </SwiperSlide>
                         ))}
@@ -89,11 +112,13 @@ const Header = () => {
                     <Swiper
                         modules={[Thumbs]}
                         onSwiper={setThumbsSwiper}
-                        slidesPerView={5}
-                        spaceBetween={10}
+                        slidesPerView="auto"
+                        spaceBetween={15}
                         watchSlidesProgress
+                        freeMode={true}
+                        grabCursor={true}
                         style={{
-                            marginTop: 10,
+                            marginTop: 15,
                             padding: '5px 0',
                             width: '100%',
                             maxWidth: '100%',
@@ -104,28 +129,55 @@ const Header = () => {
                             <SwiperSlide
                                 key={i}
                                 style={{
-                                    width: '100px',
-                                    height: '100px',
-                                    maxWidth: '100%',
-                                    borderRadius: 13.2,
+                                    width: 'clamp(80px, 20vw, 120px)',
+                                    height: 'clamp(80px, 20vw, 120px)',
+                                    minWidth: '100px',
+                                    minHeight: '100px',
+                                    maxWidth: '120px',
+                                    maxHeight: '120px',
+                                    borderRadius: '12px',
                                     background: '#fff',
                                     overflow: 'hidden',
+                                    border: '2px solid transparent',
+                                    transition: 'border-color 0.3s ease',
+                                    flexShrink: 0,
                                 }}
                             >
                                 <Image
                                     src={img}
                                     alt={`Thumbnail ${i + 1}`}
-                                    width={100}
-                                    height={100}
+                                    width={120}
+                                    height={120}
                                     style={{
                                         width: '100%',
                                         height: '100%',
                                         objectFit: 'cover',
+                                        borderRadius: '10px',
                                     }}
                                 />
                             </SwiperSlide>
                         ))}
                     </Swiper>
+
+                    {/* Custom Scrollbar */}
+                    {/* <div style={{
+                        width: '100%',
+                        height: '6px',
+                        backgroundColor: '#f5f5f5',
+                        borderRadius: '3px',
+                        marginTop: '8px',
+                        position: 'relative',
+                        overflow: 'hidden'
+                    }}>
+                        <div style={{
+                            width: `${scrollProgress * 100}%`,
+                            height: '100%',
+                            backgroundColor: '#d3a069',
+                            borderRadius: '3px',
+                            transition: 'background-color 0.3s ease',
+                            cursor: 'pointer'
+                        }} />
+                    </div> */}
                 </div>
             </div>
 

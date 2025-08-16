@@ -85,10 +85,8 @@ const Section5 = () => {
                             maxWidth: '550px',
                             aspectRatio: '3 / 4',
                             backgroundImage: "url('/images/section5Img1.png')",
-                            backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             backgroundRepeat: 'no-repeat',
-                            borderRadius: '40px'
                         }}
                     />
                 </div>
@@ -105,7 +103,7 @@ const Section5 = () => {
                         <div
                             key={idx}
                             style={{
-                                borderBottom: '1px solid #e2e8f0'
+                                borderBottom: '3px solid #e2e8f0'
                             }}
                         >
                             <button
@@ -128,7 +126,7 @@ const Section5 = () => {
                                     border: 'none',
                                     cursor: 'pointer',
                                     backgroundColor: '#6d6d6d',
-                                    borderRadius: '8px',
+                                    // borderRadius: '8px',
                                 }}
                             >
                                 <span>{item.question}</span>
