@@ -81,7 +81,7 @@ const Section1 = () => {
                 <div style={imageBoxStyle('/imagesForThankYouPage/thankYouPageImg1.png')}>
                     <div style={tagBoxStyle}>
                         <p>Find an installer</p>
-                        <button style={buttonStyle}>Read more</button>
+                        <button style={buttonStyle} className="coolBeans">Read more</button>
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@ const Section1 = () => {
                 <div style={imageBoxStyle('/imagesForThankYouPage/thankYouPageImg2.png')}>
                     <div style={tagBoxStyle}>
                         <p>Find an installer</p>
-                        <button style={buttonStyle}>Read more</button>
+                        <button style={buttonStyle} className="coolBeans">Read more</button>
                     </div>
                 </div>
 
@@ -97,7 +97,7 @@ const Section1 = () => {
                 <div style={imageBoxStyle('/imagesForThankYouPage/thankYouPageImg3.png')}>
                     <div style={tagBoxStyle}>
                         <p>Find an installer</p>
-                        <button style={buttonStyle}>Read more</button>
+                        <button style={buttonStyle} className="coolBeans">Read more</button>
                     </div>
                 </div>
             </div>

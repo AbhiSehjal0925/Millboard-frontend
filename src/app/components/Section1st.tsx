@@ -11,12 +11,12 @@ const Section1st = () => {
                     {
                         img: '/images/section1stImg2.png',
                         title: 'Crafted to enhance any outdoor space',
-                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
                     },
                     {
                         img: '/images/section1stImg1.png',
                         title: 'Designed to go further and last longer',
-                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
                     },
                 ].map((card, i) => (
                     <div key={i} className="card">
@@ -33,7 +33,7 @@ const Section1st = () => {
                         <div className="textBox">
                             <h3>{card.title}</h3>
                             <p>{card.text}</p>
-                            <button className="btn">
+                            <button className="btn coolBeans">
                                 Explore the collection
                             </button>
                         </div>
@@ -109,13 +109,33 @@ const Section1st = () => {
           border-radius: 9999px;
           text-decoration: none;
           font-size: 0.95rem;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-          transition: background-color 0.3s ease;
+          border: 2px solid white;
           cursor: pointer;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
         }
 
-        .btn:hover {
-          background-color: #d9c6a0;
+        /* Reuse coolBeans hover effect from Header */
+        .coolBeans::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -300%;
+          width: 300%;
+          height: 100%;
+          background: linear-gradient(120deg, #d3a069, #f5c28f, #d3a069);
+          transition: all 0.4s ease;
+          z-index: -1;
+        }
+
+        .coolBeans:hover::before {
+          left: 0;
+        }
+
+        .coolBeans:hover {
+          box-shadow: 0 8px 20px rgba(211, 160, 105, 0.2);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         /* Tablet & up */

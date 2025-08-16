@@ -399,11 +399,11 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: -300%;
             width: 300%;
             height: 100%;
             background: linear-gradient(120deg, #d3a069, #f5c28f, #d3a069);
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
             z-index: -1;
           }
           .coolBeans:hover::before {

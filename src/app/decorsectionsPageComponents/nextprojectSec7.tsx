@@ -103,12 +103,7 @@ export default function NextProject() {
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
                 }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#D9C6A0")
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#D3A069")
-                }
+                className="coolBeans"
               >
                 Read more
               </button>
@@ -174,12 +169,7 @@ export default function NextProject() {
                   cursor: "pointer",
                   transition: "background-color 0.3s ease",
                 }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#D9C6A0")
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#D3A069")
-                }
+                className="coolBeans"
               >
                 Read more
               </button>

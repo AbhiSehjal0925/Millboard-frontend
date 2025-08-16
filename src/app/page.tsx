@@ -49,6 +49,11 @@ const Page = () => {
     }
   };
 
+  // Scroll to top whenever route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [route]);
+
   // Handle browser back/forward buttons
   useEffect(() => {
     const onPopState = () => {

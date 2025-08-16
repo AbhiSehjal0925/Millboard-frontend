@@ -130,7 +130,7 @@ export default function AvailableColours() {
         </div>
         <br />
         <button
-          className="view-all-btn"
+          className="view-all-btn coolBeans"
           style={{
             padding: "18px 60px", // desktop unchanged
             backgroundColor: "#D3A069",
@@ -142,14 +142,6 @@ export default function AvailableColours() {
             transition: "background-color 0.3s, color 0.3s",
             cursor: "pointer",
             fontSize: "20px",
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.backgroundColor = "#D9C6A0";
-            e.currentTarget.style.color = "#FFFFFF";
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.backgroundColor = "#D3A069";
-            e.currentTarget.style.color = "#FFFFFF";
           }}
         >
           View All

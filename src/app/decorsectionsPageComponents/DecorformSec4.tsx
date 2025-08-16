@@ -158,8 +158,7 @@ export default function ContactSection() {
                   fontSize: "20px",
                   cursor: "pointer",
                 }}
-                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#D9C6A0")}
-                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#D3A069")}
+                className="coolBeans"
               >
                 Submit
               </button>

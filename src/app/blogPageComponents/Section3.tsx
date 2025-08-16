@@ -96,8 +96,7 @@ const Section3: React.FC = () => {
             </p>
             <button
               style={buttonStyle}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#b9864d')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#D3A069')}
+              className="coolBeans"
             >
               Explore Linear
             </button>

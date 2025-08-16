@@ -112,8 +112,7 @@ const Section8 = () => {
                             <a
                                 href="#installer"
                                 style={buttonStyle}
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
+                                className="coolBeans"
                             >
                                 Read more
                             </a>
@@ -127,8 +126,7 @@ const Section8 = () => {
                             <a
                                 href="#buy"
                                 style={buttonStyle}
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
+                                className="coolBeans"
                             >
                                 Read more
                             </a>

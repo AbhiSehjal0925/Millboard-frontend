@@ -302,13 +302,13 @@ const Header = () => {
                                 </div>
                             </div>
                         ))}
-                        <button style={{ background: '#C6905B', padding: '10px', borderRadius: '50px', width: '100%', color: '#fff', border: 'none' }}>Continue shopping</button>
+                        <button style={{ background: '#C6905B', padding: '10px', borderRadius: '50px', width: '100%', color: '#fff', border: 'none' }} className="coolBeans">Continue shopping</button>
                     </div>
                 </div>
             </div>
 
             {/* Submit Button */}
-            <div style={{ marginBottom: '35px', background: '#C6905B', padding: '10px 15px', borderRadius: '50px', color: '#fff', cursor: 'pointer', marginTop: '20px' }}>
+            <div style={{ marginBottom: '35px', background: '#C6905B', padding: '10px 15px', borderRadius: '50px', color: '#fff', cursor: 'pointer', marginTop: '20px' }} className="coolBeans">
                 Submit
             </div>
 

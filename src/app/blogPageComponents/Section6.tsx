@@ -96,7 +96,7 @@ const Section6 = () => {
               pathways, or dining areas with artistic precision, and zonal demarcations that define distinct functional areas while maintaining
               a cohesive look.
             </p>
-            <button style={buttonStyle}>Read more</button>
+            <button style={buttonStyle} className="coolBeans">Read more</button>
           </div>
         </div>
 

@@ -7,29 +7,90 @@ export default function DownloadsSection() {
     { href: "/downloads/wind-resistance-report-2.pdf", label: "Wind Resistance Report 2" },
   ];
 
+  const sectionStyle: React.CSSProperties = {
+    padding: "64px 24px",
+    backgroundColor: "#ffffff",
+  };
+
+  const containerStyle: React.CSSProperties = {
+    maxWidth: "1152px",
+    margin: "0 auto",
+    textAlign: "center",
+  };
+
+  const headingStyle: React.CSSProperties = {
+    fontSize: "clamp(28px, 4vw, 52px)",
+    fontWeight: "500",
+    marginBottom: "64px",
+    color: "#111827",
+  };
+
+  const buttonsContainerStyle: React.CSSProperties = {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "32px",
+    maxWidth: "896px",
+    margin: "0 auto",
+  };
+
+  const buttonStyle: React.CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    gap: "16px",
+    border: "3px solid #F5D8B5",
+    backgroundColor: "#ffffff",
+    color: "#000000",
+    fontWeight: "600",
+    padding: "16px 48px 16px 24px",
+    borderRadius: "9999px",
+    textDecoration: "none",
+    transition: "all 0.3s ease",
+    minWidth: "280px",
+    maxWidth: "320px",
+    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+  };
+
+  const iconContainerStyle: React.CSSProperties = {
+    width: "64px",
+    height: "64px",
+    backgroundColor: "#EFCFAC",
+    borderRadius: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0,
+    transition: "background-color 0.3s ease",
+  };
+
+  const textStyle: React.CSSProperties = {
+    fontSize: "16px",
+    fontWeight: "500",
+    lineHeight: "1.25",
+  };
+
   return (
-    <section className="py-12 px-4 bg-white">
-      <div className="max-w-screen-xl mx-auto text-center">
-        <h2 className="text-gray-900 font-medium text-[clamp(24px,4vw,52px)] mb-12">
+    <section style={sectionStyle}>
+      <div style={containerStyle}>
+        <h2 style={headingStyle}>
           Downloads
         </h2>
 
-        <div className="flex flex-wrap justify-center items-center gap-6">
+        <div style={buttonsContainerStyle}>
           {downloads.map(({ href, label }) => (
             <Link
               key={label}
               href={href}
               download
-              className="flex items-center gap-3 border-[5px] border-[#F5D8B5] bg-white text-black font-semibold py-1 pr-10 pl-1 rounded-full hover:bg-[#F3E0CE] transition-colors"
-            >
-              <div className="w-[70px] h-[70px] bg-[#EFCFAC] rounded-full flex items-center justify-center shrink-0">
+              style={buttonStyle}>
+              <div style={iconContainerStyle}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="31"
+                  width="28"
+                  height="28"
                   viewBox="0 0 32 31"
                   fill="none"
-                  className="w-[34px] h-[34px]"
                 >
                   <rect
                     x="1.58194"
@@ -45,7 +106,7 @@ export default function DownloadsSection() {
                   />
                 </svg>
               </div>
-              {label}
+              <span style={textStyle}>{label}</span>
             </Link>
           ))}
         </div>

@@ -21,7 +21,6 @@ const Footer = () => {
           display: 'flex',
           justifyContent: 'space-around',
           flexWrap: 'wrap',
-          width: '100vw',
           padding: '0 16px',
           gap: '16px',
         }}
@@ -111,7 +110,7 @@ const Footer = () => {
         >
           <ul style={{ listStyle: 'none', padding: 0 }}>
             {[...Array(6)].map((_, i) => (
-              <li key={i} style={{ margin: '8px 0' }}>
+              <li key={i} style={{ marginBottom: '8px' }}>
                 <a href="#" style={{ color: '#fff', textDecoration: 'none', fontSize: '14px' }}>
                   Terms & Conditions
                 </a>

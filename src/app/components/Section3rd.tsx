@@ -77,7 +77,7 @@ const Section3rd: React.FC = () => {
   };
 
   const buttonStyle: React.CSSProperties = {
-    backgroundColor: "#C6905B",
+    backgroundColor: "#d3a069",
     color: "white",
     border: "none",
     padding: isMobile ? "0.3rem 0.8rem" : isTablet ? "0.4rem 1rem" : "0.5rem 1.25rem",
@@ -85,14 +85,6 @@ const Section3rd: React.FC = () => {
     fontSize: isMobile ? "0.8rem" : isTablet ? "0.85rem" : "0.9rem",
     cursor: "pointer",
     transition: "background-color 0.3s ease",
-  };
-
-  const onMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.backgroundColor = "#b07f4c";
-  };
-
-  const onMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.style.backgroundColor = "#C6905B";
   };
 
   const renderRow = (imgSrc: string) => (
@@ -114,8 +106,7 @@ const Section3rd: React.FC = () => {
           </div>
           <button
             style={buttonStyle}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
+            className="coolBeans"
           >
             Read more
           </button>

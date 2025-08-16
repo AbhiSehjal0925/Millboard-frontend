@@ -98,7 +98,7 @@ const Section4 = () => {
               and design professionals can enhance decking from a functional surface to a work of art – offering a distinctive, high-performance surface that seamlessly blends beauty,
               durability, and creative freedom.
             </p>
-            <button style={buttonStyle}>Modello Linear</button>
+            <button style={buttonStyle} className="coolBeans">Modello Linear</button>
           </div>
           <div style={imageContainerStyle}>
             <Image

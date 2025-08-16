@@ -104,8 +104,7 @@ const Section6 = () => {
                 <a
                     href="#reviews"
                     style={btnStyle}
-                    onMouseOver={e => (e.currentTarget.style.backgroundColor = btnHoverStyle.backgroundColor!)}
-                    onMouseOut={e => (e.currentTarget.style.backgroundColor = btnStyle.backgroundColor!)}
+                    className="coolBeans"
                 >
                     Read all reviews
                 </a>

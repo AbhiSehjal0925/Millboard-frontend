@@ -317,14 +317,17 @@ const Header = () => {
                                 </button>
                             </div>
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
-                                <button style={{
-                                    borderRadius: 300,
-                                    background: '#D3A069',
-                                    color: '#fff',
-                                    padding: '8px 15px',
-                                    border: 'none',
-                                    cursor: 'pointer'
-                                }}>Add Free Sample</button>
+                                <button
+                                    style={{
+                                        borderRadius: 300,
+                                        background: '#D3A069',
+                                        color: '#fff',
+                                        padding: '8px 15px',
+                                        border: 'none',
+                                        cursor: 'pointer'
+                                    }}
+                                    className="coolBeans"
+                                >Add Free Sample</button>
                                 <button style={{
                                     borderRadius: 300,
                                     background: '#4C4B4E',

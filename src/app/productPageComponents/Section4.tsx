@@ -63,7 +63,6 @@ const Section4 = () => {
     const imageContainerStyle: React.CSSProperties = {
         width: '80px',
         height: '120px',
-        borderRadius: '5px',
         background: '#D3A069',
         display: 'flex',
         alignItems: 'center',
@@ -113,6 +112,7 @@ const Section4 = () => {
                                 ...imageContainerStyle,
                                 ...(isMobile && { width: '50px', height: '50px' })
                             }}
+                            className="coolBeans"
                         >
                             <Image
                                 src="/png/downloadBtn.png"
