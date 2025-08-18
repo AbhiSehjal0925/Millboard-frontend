@@ -33,7 +33,7 @@ export default function BranchhillSe8() {
               fontSize: "clamp(28px, 5vw, 54px)", // Responsive font
               color: "#1F2937",
               marginBottom: "8px",
-              textAlign: "center", // Center text on small screens
+              textAlign: "start", // Center text on small screens
             }}
           >
             Branch Hill Hampstead
@@ -43,7 +43,7 @@ export default function BranchhillSe8() {
               fontSize: "clamp(16px, 2.5vw, 26px)", // Responsive font
               color: "#282b30ff",
               lineHeight: "1.6",
-              textAlign: "center", // Center text on small screens
+              textAlign: "start", // Center text on small screens
             }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor

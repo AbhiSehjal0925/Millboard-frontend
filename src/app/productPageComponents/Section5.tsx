@@ -33,7 +33,6 @@ const Section5 = () => {
     return (
         <section
             style={{
-                // fontFamily: 'Arial, sans-serif',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -46,7 +45,6 @@ const Section5 = () => {
         >
             <div
                 style={{
-                    // fontFamily: 'Mansfield',
                     fontWeight: 500,
                     fontSize: '45px',
                     lineHeight: 1.2,
@@ -101,11 +99,7 @@ const Section5 = () => {
                 >
                     {accordionData.map((item, idx) => (
                         <div
-                            key={idx}
-                            style={{
-                                borderBottom: '3px solid #e2e8f0'
-                            }}
-                        >
+                            key={idx}>
                             <button
                                 onClick={() => handleAccordion(idx)}
                                 type="button"
@@ -126,7 +120,8 @@ const Section5 = () => {
                                     border: 'none',
                                     cursor: 'pointer',
                                     backgroundColor: '#6d6d6d',
-                                    // borderRadius: '8px',
+                                    borderRadius: '8px',
+                                    marginBottom: '4px',
                                 }}
                             >
                                 <span>{item.question}</span>
@@ -160,7 +155,7 @@ const Section5 = () => {
                                     overflow: 'hidden',
                                     transition: 'max-height 0.3s ease-in-out',
                                     background: '#f0f0f0',
-
+                                    marginBottom: '4px',
                                 }}
                             >
                                 <div

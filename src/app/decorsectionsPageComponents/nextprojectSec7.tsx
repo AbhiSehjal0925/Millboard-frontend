@@ -8,7 +8,7 @@ export default function NextProject() {
       style={{
         width: "100%",
         minHeight: "100vh",
-        backgroundImage: "url('/imagesForDecorPage/next project bg.png')",
+        backgroundImage: "url('/imagesForDecorPage/Rectangle 6751.jpg')",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -65,7 +65,7 @@ export default function NextProject() {
               height={300}
               style={{
                 width: "100%",
-                height: "auto",
+                height: "500px",
                 maxWidth: "400px",
               }}
             />

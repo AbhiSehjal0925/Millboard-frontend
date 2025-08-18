@@ -68,13 +68,12 @@ const styles = {
     background: "#fff",
     borderRadius: "26px",
     boxShadow: "px 4px 10px 0px #00000033",
-    border: "2px solid #0000001a",  
+    border: "2px solid #0000001a",
     display: "flex",
     flexDirection: "column" as const,
     alignItems: "center",
     justifyContent: "center",
     padding: "20px",
-    margin: '10px 0',
   },
 };
 
@@ -97,7 +96,7 @@ const Section5th: React.FC = () => {
               900: { slidesPerView: 2 },
               1200: { slidesPerView: 3 },
             }}
-            style={{ width: "100%", padding: "0 40px" }}
+            style={{ width: "100%" }}
           >
             <SwiperSlide>
               <div style={styles.card}>
@@ -136,8 +135,16 @@ const Section5th: React.FC = () => {
       <style jsx global>{`
         .swiper-button-next,
         .swiper-button-prev {
-          color: #f5c518 !important;
-          fill: #f5c518 !important;
+          color: #000000ff !important;
+          fill: #000000ff !important;
+        }
+
+        .swiper-button-prev {
+        margin-right: 100px !important;
+        }
+        
+        .swiper-button-next {
+          margin-left: 100px !important;
         }
       `}</style>
     </section>

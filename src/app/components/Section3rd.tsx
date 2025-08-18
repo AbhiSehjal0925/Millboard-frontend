@@ -63,6 +63,15 @@ const Section3rd: React.FC = () => {
     boxSizing: "border-box",
   };
 
+  const svgStyle: React.CSSProperties = {
+    position: "absolute",
+    top: "0",
+    right: "0",
+    zIndex: 1,
+    width: isMobile ? "80px" : isTablet ? "120px" : "160px",
+    height: "auto",
+  };
+
   const heading1Style: React.CSSProperties = {
     fontSize: isMobile ? "1.2rem" : isTablet ? "1.5rem" : "1.8rem",
     fontWeight: 500,
@@ -87,38 +96,83 @@ const Section3rd: React.FC = () => {
     transition: "background-color 0.3s ease",
   };
 
-  const renderRow = (imgSrc: string) => (
+  const renderRow = (imgSrc: string, title: string, description: string, isReversed: boolean = false) => (
     <div style={rowStyle}>
-      <div style={imageBoxStyle}>
-        <Image
-          src={imgSrc}
-          alt="Section Image"
-          width={460}
-          height={300}
-          style={{ width: "100%", height: "auto", objectFit: "cover" }}
-        />
-      </div>
-      <div style={textBoxStyle}>
-        <div style={absoluteTextStyle}>
-          <div style={heading1Style}>Board & Batten</div>
-          <div style={heading2Style}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      {isReversed ? (
+        <>
+          <div style={textBoxStyle}>
+            <div style={absoluteTextStyle}>
+              <div style={heading1Style}>{title}</div>
+              <div style={heading2Style}>{description}</div>
+              <button
+                style={buttonStyle}
+                className="coolBeans"
+              >
+                Read more
+              </button>
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="319" height="244" viewBox="0 0 319 244" fill="none" style={{ position: "absolute", top: "-22px", left: "-32px", zIndex: 1000, width: "50%", height: "auto" }}>
+                <path d="M0 0H319L31.5 21L0 244V0Z" fill="#D3A069" />
+              </svg>
+
+            </div>
           </div>
-          <button
-            style={buttonStyle}
-            className="coolBeans"
-          >
-            Read more
-          </button>
-        </div>
-      </div>
+          <div style={imageBoxStyle}>
+            <Image
+              src={imgSrc}
+              alt="Section Image"
+              width={460}
+              height={300}
+              style={{ width: "100%", height: "auto", objectFit: "cover" }}
+            />
+          </div>
+        </>
+      ) : (
+        <>
+          <div style={imageBoxStyle}>
+            <Image
+              src={imgSrc}
+              alt="Section Image"
+              width={460}
+              height={300}
+              style={{ width: "100%", height: "auto", objectFit: "cover" }}
+            />
+          </div>
+          <div style={textBoxStyle}>
+            <div style={absoluteTextStyle}>
+              <div style={heading1Style}>{title}</div>
+              <div style={heading2Style}>{description}</div>
+              <button
+                style={buttonStyle}
+                className="coolBeans"
+              >
+                Read more
+              </button>
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="319" height="244" viewBox="0 0 319 244" fill="none" style={{ position: "absolute", top: "-22px", right: "-32px", zIndex: 1000, width: "50%", height: "auto" }}>
+                <path d="M319 0H0L287.5 21L319 244V0Z" fill="#D3A069" />
+              </svg>
+
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 
   return (
     <section style={sectionStyle}>
-      {renderRow("/images/section3rdimg2.png")}
-      {renderRow("/images/section3rdimg1.png")}
+      {renderRow(
+        "/images/section3rdimg2.png",
+        "Board & Batten",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      )}
+      {renderRow(
+        "/images/section3rdimg1.png",
+        "Premium Decking",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        true
+      )}
     </section>
   );
 };

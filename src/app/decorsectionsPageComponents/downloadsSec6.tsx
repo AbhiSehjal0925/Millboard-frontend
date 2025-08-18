@@ -43,7 +43,7 @@ export default function DownloadsSection() {
     backgroundColor: "#ffffff",
     color: "#000000",
     fontWeight: "600",
-    padding: "16px 48px 16px 24px",
+    padding: "10px 15px 10px 10px",
     borderRadius: "9999px",
     textDecoration: "none",
     transition: "all 0.3s ease",
