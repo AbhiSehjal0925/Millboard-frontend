@@ -90,7 +90,7 @@ const Header = () => {
           : undefined,
     padding: screenSize === "medium" ? "100px 20px" : screenSize === "large" ? "120px 0" : undefined,
     width: "100%",
-    maxWidth: screenSize === "small" ? "100vw" : "800px",
+    maxWidth: screenSize === "small" ? "100vw" : "1000px",
     boxSizing: "border-box",
   });
 
@@ -109,7 +109,7 @@ const Header = () => {
   const getDescStyle = (): React.CSSProperties => ({
     lineHeight: 1.6,
     textAlign: "center" as const,
-    marginBottom: "8px",
+    marginBottom: "25px",
     fontSize:
       screenSize === "small"
         ? "14px"
@@ -122,7 +122,7 @@ const Header = () => {
   const getInstructionStyle = (): React.CSSProperties => ({
     textAlign: "center" as const,
     fontWeight: 600,
-    marginBottom: "20px",
+    marginBottom: "30px",
     fontSize:
       screenSize === "small"
         ? "14px"
@@ -174,14 +174,14 @@ const Header = () => {
 
   const getSampleCountStyle = (): React.CSSProperties => ({
     textAlign: "center" as const,
-    marginTop: "16px",
-    marginBottom: "8px",
+    marginTop: "20px",
+    marginBottom: "20px",
     fontSize: screenSize === "small" ? "14px" : "16px",
     width: screenSize === "small" ? "100%" : "auto",
   });
 
   const getSelectSamplesStyle = (): React.CSSProperties => ({
-    fontWeight: 600,
+    fontWeight: 500,
     textAlign: "center" as const,
     marginBottom: "20px",
     fontSize: screenSize === "small" ? "20px" : screenSize === "medium" ? "28px" : "32px",

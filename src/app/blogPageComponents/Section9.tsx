@@ -54,7 +54,7 @@ const Section9 = () => {
   const textBoxStyle: React.CSSProperties = {
     position: 'absolute',
     bottom: isMobile ? '20px' : '200px',
-    left: '50%',
+    left: '75%',
     transform: 'translateX(-50%)',
     width: isMobile ? 'calc(100% - 32px)' : '300px',
     backgroundColor: 'rgb(255, 255, 255)',

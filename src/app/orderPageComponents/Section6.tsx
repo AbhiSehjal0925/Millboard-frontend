@@ -7,7 +7,7 @@ const Section6 = () => {
 
     const sectionStyle: React.CSSProperties = {
         backgroundColor: '#ffffff',
-        padding: '5% 4%',
+        padding: '5% 5%',
         textAlign: 'center',
         // fontFamily: "'Poppins', sans-serif",
         width: '100%',
@@ -25,7 +25,7 @@ const Section6 = () => {
 
     const headingStyle: React.CSSProperties = {
         fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-        fontWeight: 500,
+        fontWeight: 400,
         color: '#000000d8',
         marginBottom: '1rem',
         wordBreak: 'break-word'
@@ -33,22 +33,22 @@ const Section6 = () => {
 
     const ratingStyle: React.CSSProperties = {
         fontSize: 'clamp(1.8rem, 3.5vw, 2.2rem)',
-        fontWeight: 500,
+        fontWeight: 600,
         color: '#000',
         marginBottom: '0.5rem'
     };
 
     const starsStyle: React.CSSProperties = {
-        fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)',
+        fontSize: 'clamp(1.2rem, 2.5vw, 3rem)',
         color: '#facc15',
-        marginBottom: '1rem'
+        marginBottom: '1rem',
     };
 
     const ratingTextStyle: React.CSSProperties = {
         fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
         color: '#999',
         margin: '1rem 0',
-        wordBreak: 'break-word'
+        wordBreak: 'break-word',
     };
 
     const logoContainerStyle: React.CSSProperties = {
@@ -90,8 +90,10 @@ const Section6 = () => {
                 <div style={headingStyle}>What Our Customers Are Saying</div>
                 <div style={ratingStyle}>{howMany}/{outOf}</div>
                 <div style={starsStyle}>&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-                <div style={ratingTextStyle}>Independent Service Rating Based On 194 Verified Reviews.</div>
-                <hr />
+                <div style={ratingTextStyle}>Independent Service Rating Based On 194
+                    <br />
+                    Verified Reviews.</div>
+                <hr style={{ margin: '0 auto', width: '40%', color: 'gray' }} />
                 <div style={logoContainerStyle}>
                     <Image
                         src="/png/pngsForOrderPage/Feefo_idlyF8-NJ6_0.png"

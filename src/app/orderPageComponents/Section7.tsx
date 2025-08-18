@@ -58,7 +58,7 @@ const Section7 = () => {
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
-        padding: '5% 4%',
+        padding: '5% 5%',
         width: '100%',
         boxSizing: 'border-box',
       }}

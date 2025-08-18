@@ -88,11 +88,12 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: isSmall ? 'space-between' : 'space-between',
-    boxShadow: isSmall ? 'rgba(0, 0, 0, 0.1) 1px 1px 2px' : 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
     padding: isSmall ? '10px 8px' : '10px 16px',
     flexWrap: isSmall ? 'nowrap' : 'nowrap',
     gap: isSmall ? '4px' : '12px',
     textAlign: isSmall ? 'center' : 'left',
+    maxWidth: '1850px',
+    margin: '0 auto'
   };
 
   const navLinksStyle: React.CSSProperties = {
@@ -179,7 +180,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     width: isSmall ? 'auto' : 'auto',
     alignSelf: 'center',
     display: isSmall ? 'none' : 'block',
-    marginRight: '15px',
+    marginRight: '35px',
   };
 
   const onActiveLink: React.CSSProperties = {

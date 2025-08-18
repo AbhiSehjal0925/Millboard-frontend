@@ -133,18 +133,17 @@ const Section5th: React.FC = () => {
         </div>
       </div>
       <style jsx global>{`
+        .swiper-button-prev {
+          left: 16px !important;
+        }
+        
+        .swiper-button-next {
+          right: 16px !important;
+        }
         .swiper-button-next,
         .swiper-button-prev {
           color: #000000ff !important;
           fill: #000000ff !important;
-        }
-
-        .swiper-button-prev {
-        margin-right: 100px !important;
-        }
-        
-        .swiper-button-next {
-          margin-left: 100px !important;
         }
       `}</style>
     </section>

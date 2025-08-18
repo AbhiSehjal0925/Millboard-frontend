@@ -34,8 +34,9 @@ const Header = () => {
                     alignItems: 'center',
                     margin: '0 auto',
                     flexWrap: 'wrap',
-                    padding: isSmall ? '0 15px' : isMedium ? '0 20px' : '0 30px',
+                    // padding: isSmall ? '0 15px' : isMedium ? '0 20px' : '0 30px',
                     textAlign: isSmall ? 'center' : 'left',
+                    maxWidth: '1850px'
                 }}
             >
                 {/* Left Column - Text */}
@@ -85,7 +86,7 @@ const Header = () => {
                         flex: isSmall ? '1' : '1 1 500px',
                         textAlign: 'center',
                         position: 'relative',
-                        left: isSmall ? '0' : isMedium ? '100px' : '260px',
+                        left: isSmall ? '0' : isMedium ? '100px' : '300px',
                         marginTop: isSmall ? '20px' : '0',
                     }}
                 >

@@ -42,7 +42,9 @@ const Section7 = () => {
         gap: isMobile ? '10px' : '16px',
         padding: isMobile ? '12px' : '20px',
         boxSizing: 'border-box',
-        boxShadow: 'rgba(0, 0, 0, 0.16) -4px 4px 2px, rgba(0, 0, 0, 0.23) 0px 3px 6px'
+        boxShadow: 'rgba(0, 0, 0, 0.16) -4px 4px 2px, rgba(0, 0, 0, 0.23) 0px 3px 6px',
+        position: 'relative',
+        left: '20px'
     };
 
     const headingStyle: React.CSSProperties = {

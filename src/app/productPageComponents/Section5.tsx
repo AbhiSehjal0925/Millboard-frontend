@@ -120,8 +120,7 @@ const Section5 = () => {
                                     border: 'none',
                                     cursor: 'pointer',
                                     backgroundColor: '#6d6d6d',
-                                    borderRadius: '8px',
-                                    marginBottom: '4px',
+                                    borderRadius: '6px',
                                 }}
                             >
                                 <span>{item.question}</span>
@@ -155,7 +154,7 @@ const Section5 = () => {
                                     overflow: 'hidden',
                                     transition: 'max-height 0.3s ease-in-out',
                                     background: '#f0f0f0',
-                                    marginBottom: '4px',
+                                    marginBottom: '6px',
                                 }}
                             >
                                 <div

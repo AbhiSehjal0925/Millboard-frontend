@@ -136,7 +136,7 @@ const CartForSamples = () => {
                                     justifyContent: 'space-between'
                                 }}
                             >
-                                <p style={{ fontWeight: 500, fontSize: '13px', color: '#000', margin: 0 }}>
+                                <p style={{ fontWeight: 600, fontSize: '16px', color: '#000', margin: 0 }}>
                                     {type}:
                                 </p>
 

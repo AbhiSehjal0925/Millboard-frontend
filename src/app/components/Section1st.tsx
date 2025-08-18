@@ -4,44 +4,44 @@ import React from 'react';
 import Image from 'next/image';
 
 const Section1st = () => {
-    return (
-        <section className="section">
-            <div className="container">
-                {[
-                    {
-                        img: '/images/section1stImg2.png',
-                        title: 'Crafted to enhance any outdoor space',
-                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
-                    },
-                    {
-                        img: '/images/section1stImg1.png',
-                        title: 'Designed to go further and last longer',
-                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
-                    },
-                ].map((card, i) => (
-                    <div key={i} className="card">
-                        <div className="imageContainer">
-                            <Image
-                                src={card.img}
-                                alt={card.title}
-                                width={900}
-                                height={900}
-                                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                                priority={i === 0}
-                            />
-                        </div>
-                        <div className="textBox">
-                            <h3>{card.title}</h3>
-                            <p>{card.text}</p>
-                            <button className="btn coolBeans">
-                                Explore the collection
-                            </button>
-                        </div>
-                    </div>
-                ))}
+  return (
+    <section className="section">
+      <div className="container">
+        {[
+          {
+            img: '/images/section1stImg2.png',
+            title: 'Crafted to enhance any outdoor space',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
+          },
+          {
+            img: '/images/section1stImg1.png',
+            title: 'Designed to go further and last longer',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
+          },
+        ].map((card, i) => (
+          <div key={i} className="card">
+            <div className="imageContainer">
+              <Image
+                src={card.img}
+                alt={card.title}
+                width={900}
+                height={900}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                priority={i === 0}
+              />
             </div>
+            <div className="textBox">
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+              <button className="btn coolBeans">
+                Explore the collection
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
 
-            <style jsx>{`
+      <style jsx>{`
         .section {
           background: linear-gradient(to bottom, #ffffff, white);
           padding: 2rem 1rem;
@@ -162,8 +162,8 @@ const Section1st = () => {
           }
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default Section1st;

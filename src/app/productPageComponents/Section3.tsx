@@ -7,7 +7,7 @@ const Section3: React.FC = () => {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    padding: '40px 20px',
+    padding: '100px 20px',
     gap: '30px',
     background: '#fff',
   };

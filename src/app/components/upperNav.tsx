@@ -53,7 +53,7 @@ const UpperNav = () => {
   const containerStyle: React.CSSProperties = {
     backgroundColor: "#8c7b67",
     color: "white",
-    padding: isMobile ? "4px 12px" : "8px 20px",
+    padding: isMobile ? "4px 12px" : "8px 55px",
     display: "flex",
     alignItems: "center",
     justifyContent: isMobile ? "center" : "space-between",
@@ -63,7 +63,9 @@ const UpperNav = () => {
     overflow: "hidden",
     whiteSpace: "nowrap",
     boxShadow: isMobile ? 'rgba(0, 0, 0, 0.15) 0px 2px 4px' : 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-    marginBottom: '0' // Eliminate gap between UpperNav and MainNav
+    marginBottom: '0',
+    margin: '0 auto'
+
   };
 
   const infoTextStyle: React.CSSProperties = {

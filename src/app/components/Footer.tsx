@@ -36,6 +36,7 @@ const Footer = () => {
           flexWrap: 'wrap',
           padding: '0 16px',
           gap: '16px',
+          maxWidth: '2000px'
         }}
       >
         {[
@@ -216,7 +217,7 @@ const Footer = () => {
                 fontWeight: 'bold',
                 border: 'none',
                 cursor: 'pointer',
-                width: '280px',
+                width: 'fit-content',
                 // maxWidth: isMobile ? '100%' : '100px',
                 fontSize: '14px',
               }}

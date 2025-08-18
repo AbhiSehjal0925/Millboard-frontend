@@ -12,7 +12,7 @@ const containerStyle: React.CSSProperties = {
     justifyContent: 'center',
     flexDirection: 'column',
     gap: '2rem',
-    padding: '3rem 4%',
+    padding: '3rem 5%',
     boxSizing: 'border-box',
     position: 'relative',
 };

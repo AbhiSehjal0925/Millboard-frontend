@@ -38,7 +38,7 @@ const Section6 = () => {
     backgroundColor: '#FFFFFF',
     padding: isMobile ? '24px 16px' : '32px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-    maxWidth: isMobile ? '100%' : '500px',
+    maxWidth: isMobile ? '100%' : '600px',
     zIndex: 2,
     position: isMobile ? 'relative' : 'relative',
     left: isMobile ? '0' : '50px',
@@ -98,6 +98,18 @@ const Section6 = () => {
             </p>
             <button style={buttonStyle} className="coolBeans">Read more</button>
           </div>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="319" height="244" viewBox="0 0 319 244" fill="none" style={{
+            position: 'absolute',
+            top: '-31px',
+            right: '20px',
+            zIndex: 1000,
+            width: '50%',
+            height: 'auto'
+          }}>
+            <path d="M0 0H319L31.5 21L0 244V0Z" fill="#D3A069" />
+          </svg>
+
         </div>
 
         {/* Right side - Image */}
