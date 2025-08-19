@@ -2,18 +2,17 @@ import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
 const Footer = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-
-    return () => window.removeEventListener('resize', checkScreenSize);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize(); // Run once on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const isTablet = windowWidth <= 1024;
+  const isMobile = windowWidth <= 600;
 
   return (
     <div
@@ -24,7 +23,7 @@ const Footer = () => {
         flexDirection: 'column',
         fontSize: '16px',
         color: '#fff',
-        padding: '40px 16px',
+        padding: isMobile ? '40px 0' : '40px 64px',
         boxSizing: 'border-box',
       }}
     >
@@ -137,7 +136,7 @@ const Footer = () => {
         <div
           style={{
             flex: '1 1 150px',
-            minWidth: '150px',
+            minWidth: isMobile ? '100vw' : '150px',
             padding: '0 16px',
           }}
         >
@@ -175,7 +174,7 @@ const Footer = () => {
                 fontSize: '14px',
                 outline: 'none',
                 color: '#000000',
-                width: '280px',
+                width: isMobile ? '84%' : '280px',
                 boxSizing: 'border-box',
               }}
             />
@@ -189,7 +188,7 @@ const Footer = () => {
                 fontSize: '14px',
                 outline: 'none',
                 color: '#000000',
-                width: '280px',
+                width: isMobile ? '84%' : '280px',
                 boxSizing: 'border-box',
               }}
             />
@@ -203,7 +202,7 @@ const Footer = () => {
                 fontSize: '14px',
                 outline: 'none',
                 color: '#000000',
-                width: '280px',
+                width: isMobile ? '84%' : '280px',
                 boxSizing: 'border-box',
               }}
             />

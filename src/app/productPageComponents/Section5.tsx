@@ -58,7 +58,7 @@ const Section5 = () => {
             <div
                 style={{
                     width: '100%',
-                    maxWidth: '1328px',
+                    maxWidth: '1747px',
                     display: 'flex',
                     gap: '40px',
                     justifyContent: 'center',
@@ -71,7 +71,7 @@ const Section5 = () => {
                 <div
                     style={{
                         width: '100%',
-                        maxWidth: '500px',
+                        maxWidth: '600px',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -80,10 +80,10 @@ const Section5 = () => {
                     <div
                         style={{
                             width: '100%',
-                            maxWidth: '550px',
-                            aspectRatio: '3 / 4',
+                            maxWidth: '1000px',
+                            aspectRatio: '6 / 7',
                             backgroundImage: "url('/images/section5Img1.png')",
-                            backgroundPosition: 'center',
+                            backgroundPosition: 'left',
                             backgroundRepeat: 'no-repeat',
                         }}
                     />
@@ -163,7 +163,7 @@ const Section5 = () => {
                                         paddingBottom: '20px',
                                         fontSize: '14px',
                                         color: '#64748b',
-                                        backgroundColor: '#f0f0f0'
+                                        backgroundColor: '#e9e7e7ff'
                                     }}
                                 >
                                     {item.answer}

@@ -4,23 +4,24 @@ import CartForSamples from '../subComponents/CartForSamples';
 import Image from 'next/image';
 
 export const woods = [
-  { name: 'Antique Oak', image: '/imagesForOrderPage/Cladding image2.png' },
-  { name: 'Ashwood', image: '/imagesForOrderPage/Cladding image 3.png' },
-  { name: 'Brushed Basalt', image: '/imagesForOrderPage/Cladding image 4.png' },
-  { name: 'Burnt Cedar', image: '/imagesForOrderPage/Cladding image 5.png' },
-  { name: 'Coppered Oak', image: '/imagesForOrderPage/Cladding image 6.png' },
-  { name: 'Ebony Grey', image: '/imagesForOrderPage/Lasta-Grip image2.png' },
-  { name: 'Golden Oak', image: '/imagesForOrderPage/Lasta-Grip image 1.png' },
-  { name: 'Jarrah', image: '/imagesForOrderPage/Shadow Line+ image 7.png' },
-  { name: 'Ashwood', image: '/imagesForOrderPage/Cladding image 3.png' },
-  { name: 'Brushed Basalt', image: '/imagesForOrderPage/Cladding image 4.png' },
+  { name: 'Antique Oak25', image: '/imagesForOrderPage/Cladding image2.png' },
+  { name: 'Ashwood26', image: '/imagesForOrderPage/Cladding image 3.png' },
+  { name: 'Brushed Basalt27', image: '/imagesForOrderPage/Cladding image 4.png' },
+  { name: 'Burnt Cedar28', image: '/imagesForOrderPage/Cladding image 5.png' },
+  { name: 'Coppered Oak29', image: '/imagesForOrderPage/Cladding image 6.png' },
+  { name: 'Ebony Grey30', image: '/imagesForOrderPage/Lasta-Grip image2.png' },
+  { name: 'Golden Oak31', image: '/imagesForOrderPage/Lasta-Grip image 1.png' },
+  { name: 'Jarrah32', image: '/imagesForOrderPage/Shadow Line+ image 7.png' },
+  { name: 'Ashwood33', image: '/imagesForOrderPage/Cladding image 3.png' },
+  { name: 'Brushed Basalt34', image: '/imagesForOrderPage/Cladding image 4.png' },
 ];
 
 const Section7 = () => {
   const { deckingItems, claddingItems, addToCart, removeFromCart } = useCart();
   const [isHydrated, setIsHydrated] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  const [screenWidth, setScreenWidth] = useState<number>(0);
+  const [screenWidth, setScreenWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
 
   useEffect(() => {
     setIsHydrated(true);
@@ -29,16 +30,14 @@ const Section7 = () => {
         setScreenWidth(window.innerWidth);
       }
     };
-    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const getCardWidth = () => {
-    if (screenWidth < 600) return '100%'; // 1 card
-    if (screenWidth < 900) return 'calc(50% - 1rem)'; // 2 cards
-    if (screenWidth < 1200) return 'calc(33.33% - 1rem)'; // 3 cards
-    return 'calc(25% - 1.125rem)'; // 4 cards
+    if (screenWidth >= 1024) return 'calc(25% - 1.125rem)';
+    if (screenWidth >= 768) return 'calc(50% - 0.75rem)';
+    return '100%';
   };
 
   const handleCardClick = (wood: { name: string; image: string }) => {
@@ -58,14 +57,20 @@ const Section7 = () => {
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
-        padding: '5% 5%',
+        padding: '5% 0%',
+        borderBottom: '1px solid black',
         width: '100%',
         boxSizing: 'border-box',
       }}
     >
       <div
         style={{
-          fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+          fontSize:
+            screenWidth >= 1024
+              ? '2.5rem'
+              : screenWidth >= 768
+              ? '2rem'
+              : '1.8rem',
           fontWeight: 500,
           textAlign: 'center',
           marginBottom: '1rem',
@@ -77,7 +82,12 @@ const Section7 = () => {
       </div>
       <div
         style={{
-          fontSize: 'clamp(1.5rem, 3.5vw, 2rem)',
+          fontSize:
+            screenWidth >= 1024
+              ? '2rem'
+              : screenWidth >= 768
+              ? '1.8rem'
+              : '1.5rem',
           fontWeight: 400,
           textAlign: 'center',
           marginBottom: '2rem',
@@ -99,19 +109,19 @@ const Section7 = () => {
         }}
       >
         {woods.map((wood, index) => {
-          const isSelected = isHydrated ? claddingItems.some(item => item.name === wood.name) : false;
+          const isSelected = isHydrated
+            ? claddingItems.some(item => item.name === wood.name)
+            : false;
           const totalItems = deckingItems.length + claddingItems.length;
           const isDisabled = !isSelected && totalItems >= 3;
-          const isHovered = hoveredCard === index;
 
           return (
             <div
               key={index}
               onClick={() => !isDisabled && handleCardClick(wood)}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
               style={{
                 width: getCardWidth(),
+                maxWidth: screenWidth < 768 ? '20rem' : '22.7rem',
                 aspectRatio: '1 / 1.2',
                 background: '#d3a069',
                 padding: '1rem',
@@ -119,10 +129,19 @@ const Section7 = () => {
                 transition: 'all 0.1s ease',
                 position: 'relative',
                 boxSizing: 'border-box',
-                boxShadow: isHovered ? 'rgba(0, 0, 0, 0.3) 0px 5px 15px' : 'none',
+                boxShadow: isDisabled
+                  ? 'none'
+                  : 'rgba(0, 0, 0, 0.3) 0px 5px 15px',
                 opacity: isDisabled ? 0.5 : 1,
-                maxWidth: '20rem'
               }}
+              onMouseEnter={e =>
+                !isDisabled &&
+                (e.currentTarget.style.boxShadow =
+                  'rgba(0, 0, 0, 0.3) 0px 5px 15px')
+              }
+              onMouseLeave={e =>
+                !isDisabled && (e.currentTarget.style.boxShadow = 'none')
+              }
             >
               <Image
                 src={wood.image}
@@ -145,7 +164,12 @@ const Section7 = () => {
               >
                 <div
                   style={{
-                    fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+                    fontSize:
+                      screenWidth >= 1024
+                        ? '1rem'
+                        : screenWidth >= 768
+                        ? '0.95rem'
+                        : '0.9rem',
                     fontWeight: 400,
                     color: '#333',
                   }}
@@ -154,7 +178,12 @@ const Section7 = () => {
                 </div>
                 <div
                   style={{
-                    fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+                    fontSize:
+                      screenWidth >= 1024
+                        ? '1.2rem'
+                        : screenWidth >= 768
+                        ? '1.1rem'
+                        : '1rem',
                     fontWeight: 600,
                     wordBreak: 'break-word',
                     color: '#000',

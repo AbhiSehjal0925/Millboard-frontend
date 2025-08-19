@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Thumbs } from 'swiper/modules';
 import 'swiper/css';
@@ -9,6 +9,19 @@ import 'swiper/css/thumbs';
 import { Swiper as SwiperClass } from 'swiper'; // Add this import
 
 const Header = () => {
+
+    const [windowWidth, setWindowWidth] = useState<number>(0);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        handleResize(); // Run once on mount
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const isTablet = windowWidth <= 1024;
+    const isMobile = windowWidth <= 600;
+
     const colorOptions = [
         '#573f20', '#b89e7b', '#223037', '#2b2a29', '#9b4f1c', '#5e544c',
         '#e1bb74', '#7b2c1b', '#c1ae8f', '#d3cabb', '#9a865a'
@@ -50,29 +63,26 @@ const Header = () => {
             background: '#efcfac',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             flexWrap: 'wrap',
-            // height: '86vh',
             position: 'relative',
-            gap: 20,
-            paddingBottom: '80px',
-            paddingTop: '30px',
+            paddingBottom: isMobile ? '50px' : '0',
         }}>
             <div
                 style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    // width: '100%',
                     minWidth: 0,
                     flexWrap: 'wrap',
                     boxSizing: 'border-box',
-                    margin: '20px'
+                    margin: '20px',
+                    padding: isMobile ? '20px 0' : '64px'
                 }}
             >
                 <div
                     style={{
-                        maxWidth: 589,
+                        maxWidth: 700,
                         width: '100%',
                         flexDirection: 'column',
                         minWidth: 0,
@@ -129,10 +139,10 @@ const Header = () => {
                             <SwiperSlide
                                 key={i}
                                 style={{
-                                    width: 'clamp(80px, 20vw, 120px)',
-                                    height: 'clamp(80px, 20vw, 120px)',
-                                    minWidth: '100px',
-                                    minHeight: '100px',
+                                    width: 'clamp(80px, 20vw, 200px)',
+                                    height: 'clamp(80px, 20vw, 200px)',
+                                    minWidth: isMobile ? '100px' : '150px',
+                                    minHeight: isMobile ? '100px' : '150px',
                                     maxWidth: '120px',
                                     maxHeight: '120px',
                                     borderRadius: '12px',
@@ -186,11 +196,12 @@ const Header = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: 20
+                padding: 20,
+                marginRight: isMobile ? '0' : '46px'
             }}>
                 <div style={{
                     width: '100%',
-                    maxWidth: '830px',
+                    maxWidth: '900px',
                     // height: '600px',
                     background: `url('/png/productPageHeaderPng.png') center / cover no-repeat`,
                     margin: 10,
@@ -199,7 +210,7 @@ const Header = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'flex-start',
-                    justifyContent: 'space-around'
+                    justifyContent: 'space-around',
                 }}>
                     <div style={{
                         display: 'flex',
@@ -448,7 +459,7 @@ const Header = () => {
                     box-shadow: 0 2px 12px #d3a06955;
                 }
             `}</style>
-        </header>
+        </header >
     );
 };
 

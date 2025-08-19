@@ -17,12 +17,13 @@ const Section7 = () => {
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        justifyContent: 'center',
-        padding: isMobile ? '48px 16px' : '60px 16px',
+        justifyContent: 'space-between',
+        padding: isMobile ? '60px 16px' : '40px 80px',
+        paddingBottom: '80px',
+        paddingTop: '80px',
         backgroundColor: '#fff',
         flexDirection: isMobile ? 'column' : 'row',
         gap: isMobile ? '24px' : '0',
-        // fontFamily: "'Inter', sans-serif",
       }}
     >
       {/* Left Image */}
@@ -54,7 +55,6 @@ const Section7 = () => {
         style={{
           flex: isMobile ? 'none' : '1 1 480px',
           maxWidth: isMobile ? '100%' : '850px',
-          padding: isMobile ? '0 16px' : '0 24px',
           color: '#1f2937',
           width: isMobile ? '100%' : 'auto',
         }}

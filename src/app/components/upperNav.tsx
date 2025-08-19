@@ -53,7 +53,7 @@ const UpperNav = () => {
   const containerStyle: React.CSSProperties = {
     backgroundColor: "#8c7b67",
     color: "white",
-    padding: isMobile ? "4px 12px" : "8px 55px",
+    padding: isMobile ? "4px 12px" : "8px 86px",
     display: "flex",
     alignItems: "center",
     justifyContent: isMobile ? "center" : "space-between",

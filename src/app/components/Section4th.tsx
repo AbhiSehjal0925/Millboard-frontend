@@ -1,22 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Section4th: React.FC = () => {
+
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize(); // Run once on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isMobile = windowWidth <= 600;
+  const isTablet = windowWidth <= 1024;
+
   const sectionStyle: React.CSSProperties = {
     width: "100%",
     background: "#EFCFAC",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
     flexWrap: "wrap",
-    padding: "20px",
+    padding: isMobile ? '10px' : "0 54px",
     position: "relative",
+    paddingBottom: isMobile ? '100px' : '0',
   };
 
   const leftBoxStyle: React.CSSProperties = {
-    flex: "1 1 100%", // full width on small screens
-    maxWidth: "639px",
-    height: "80vw", // relative height for mobile
-    maxHeight: "828px",
+    flex: "1 1 100%",
+    maxWidth: "850px",
+    height: "80vw",
+    maxHeight: "1000px",
     minHeight: "300px",
     display: "flex",
     alignItems: "center",
@@ -34,6 +48,7 @@ const Section4th: React.FC = () => {
     justifyContent: "center",
     opacity: 0.8,
     position: "relative",
+    marginLeft: isMobile ? '0' : '36px'
   };
 
   const playBtnStyle: React.CSSProperties = {
@@ -54,7 +69,7 @@ const Section4th: React.FC = () => {
 
   const rightBoxStyle: React.CSSProperties = {
     flex: "1 1 100%", // full width on mobile
-    maxWidth: "639px",
+    maxWidth: "900px",
     height: "auto",
     display: "flex",
     alignItems: "center",
@@ -69,9 +84,9 @@ const Section4th: React.FC = () => {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    padding: "20px",
+    padding: isMobile ? '10px' : "20px",
     gap: "20px",
-    marginLeft: "40px",
+    marginLeft: isMobile ? '10px' : "40px",
   };
 
   const headingStyle: React.CSSProperties = {

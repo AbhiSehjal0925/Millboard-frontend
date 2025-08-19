@@ -23,7 +23,7 @@ const Section3: React.FC = () => {
 
   const chartContainerStyle: React.CSSProperties = {
     width: '100%',
-    maxWidth: '1000px',
+    maxWidth: '1200px',
     color: '#000',
     // fontFamily: 'Mansfield',
     fontWeight: 500,
@@ -38,7 +38,7 @@ const Section3: React.FC = () => {
         <div style={headingStyle} className="section3-heading">Specifications</div>
         <div style={chartContainerStyle} className="section3-chart">
           <div style={{
-            maxWidth: 700,
+            maxWidth: '1200px',
             margin: '0 auto',
             background: '#fff',
             padding: '2rem 1rem',
@@ -75,10 +75,10 @@ const Section3: React.FC = () => {
                 background: #fff;
               }
               .spec-table td {
-                padding: 1.1rem 0.5rem;
+                padding: 1.5rem 0.5rem;
                 border-bottom: 1px solid #22222286;
                 border-right: 1px solid #22222286;
-                text-align: left;
+                text-align: center;
                 font-family: 'Mansfield', Arial, sans-serif;
                 font-size: 1.05rem;
                 vertical-align: middle;

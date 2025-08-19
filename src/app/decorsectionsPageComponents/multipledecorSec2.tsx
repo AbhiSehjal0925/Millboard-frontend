@@ -36,7 +36,7 @@ export default function MultipleDecorSec2() {
   ];
 
   const containerStyle: React.CSSProperties = {
-    padding: "48px 16px",
+    padding: "50px 0px",
     color: "#1F2937",
   };
 
@@ -45,7 +45,7 @@ export default function MultipleDecorSec2() {
     display: "flex",
     flexWrap: "wrap",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "left",
     padding: "40px 210px",
   };
 
@@ -70,10 +70,10 @@ export default function MultipleDecorSec2() {
             // Small screen adjustments
             ...(typeof window !== "undefined" &&
               window.innerWidth <= 768 && {
-                flexDirection: "column",
-                padding: "20px",
-                gap: "32px",
-              }),
+              flexDirection: "column",
+              padding: "20px",
+              gap: "32px",
+            }),
           }}
         >
           {features.map((item) => (
@@ -83,10 +83,10 @@ export default function MultipleDecorSec2() {
                 ...featureItemStyle,
                 ...(typeof window !== "undefined" &&
                   window.innerWidth <= 768 && {
-                    width: "100%",
-                    justifyContent: "flex-start",
-                    gap: "12px",
-                  }),
+                  width: "100%",
+                  justifyContent: "flex-start",
+                  gap: "12px",
+                }),
               }}
             >
               <Image

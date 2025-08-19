@@ -1,7 +1,20 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function BranchhillSe8() {
+
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize(); // Run once on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isTablet = windowWidth <= 1024;
+  const isMobile = windowWidth <= 600;
+
   return (
     <section
       style={{
@@ -12,12 +25,12 @@ export default function BranchhillSe8() {
     >
       <div
         style={{
-          maxWidth: "90%",
+          maxWidth: "100%",
           margin: "0 auto",
           display: "flex",
           flexWrap: "wrap",
           alignItems: "center",
-          padding: "0 16px",
+          padding: isMobile ? '15px' : "0 70px",
           gap: "16px",
         }}
       >
@@ -59,7 +72,7 @@ export default function BranchhillSe8() {
             flex: "1 1 300px",
             padding: "8px",
             display: "flex",
-            justifyContent: "center", // Center image on mobile
+            justifyContent: "right", // Center image on mobile
           }}
         >
           <div style={{ width: "100%", maxWidth: "600px" }}>

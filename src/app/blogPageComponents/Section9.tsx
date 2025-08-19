@@ -25,9 +25,9 @@ const Section9 = () => {
   const containerStyle: React.CSSProperties = {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     gap: isMobile ? '24px' : '40px',
-    padding: isMobile ? '48px 16px' : '40px 20px',
+    padding: isMobile ? '48px 16px' : '60px 86px',
     backgroundColor: '#fff',
     color: 'black',
     flexDirection: isMobile ? 'column' : 'row',
@@ -54,7 +54,7 @@ const Section9 = () => {
   const textBoxStyle: React.CSSProperties = {
     position: 'absolute',
     bottom: isMobile ? '20px' : '200px',
-    left: '75%',
+    left: isMobile ? '45%' : '75%',
     transform: 'translateX(-50%)',
     width: isMobile ? 'calc(100% - 32px)' : '300px',
     backgroundColor: 'rgb(255, 255, 255)',
@@ -74,7 +74,6 @@ const Section9 = () => {
             src={article.image}
             alt={`Article ${index + 1}`}
             fill
-          // style={{ objectFit: 'conatin' }}
           />
           <div style={textBoxStyle}>{article.text}</div>
         </div>

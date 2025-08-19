@@ -22,13 +22,14 @@ const Section4 = () => {
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    padding: isMobile ? '24px 16px' : '2rem 1rem',
+    padding: isMobile ? '24px 16px' : '40px 0px',
+    paddingBottom: '80px',
+    paddingTop: '80px',
   };
 
   const containerStyle: React.CSSProperties = {
     width: '100%',
     margin: '0 auto',
-    padding: isMobile ? '24px 16px' : '40px',
   };
 
   const flowMainStyle: React.CSSProperties = {

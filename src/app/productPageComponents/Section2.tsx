@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Section2 = () => {
+
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize(); // Run once on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isTablet = windowWidth <= 1024;
+  const isMobile = windowWidth <= 600;
+
   const containerStyle: React.CSSProperties = {
     background: '#efcfac',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    padding: '70px 20px 160px 20px',
+    padding: isMobile ? '25px 0 100px 0' : '70px 64px 160px 64px',
     position: 'relative',
   };
 
@@ -22,13 +35,9 @@ const Section2 = () => {
   };
 
   const gridStyle: React.CSSProperties = {
-    // display: 'grid',
-    // gridTemplateColumns: 'repeat(3, 1fr)',
-    // gridTemplateRows: 'repeat(2, auto)',
     gap: '20px',
     padding: '0 20px',
     width: '100%',
-    // maxWidth: '1328px',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
@@ -45,7 +54,7 @@ const Section2 = () => {
   });
 
   const imageBoxStyle1 = (url: string): React.CSSProperties => ({
-    width: '1250px',
+    width: '1190px',
     height: '336px',
     borderRadius: '35px',
     backgroundImage: `url(${url})`,
@@ -55,7 +64,7 @@ const Section2 = () => {
   })
 
   const imageBoxStyle2 = (url: string): React.CSSProperties => ({
-    width: '680px',
+    width: '630px',
     height: '336px',
     borderRadius: '35px',
     backgroundImage: `url(${url})`,

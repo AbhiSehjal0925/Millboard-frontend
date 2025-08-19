@@ -16,7 +16,9 @@ const Section6 = () => {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    padding: isMobile ? '48px 16px' : '100px',
+    padding: isMobile ? '60px 16px' : '40px 80px',
+    paddingBottom: '80px',
+    paddingTop: '80px',
     backgroundColor: '#F5D7B7',
     position: 'relative',
   };
@@ -26,11 +28,9 @@ const Section6 = () => {
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
-    maxWidth: '1200px',
     width: '100%',
     gap: isMobile ? '24px' : '40px',
     flexWrap: 'wrap',
-    paddingBottom: isMobile ? '24px' : '50px',
     flexDirection: isMobile ? 'column' : 'row',
   };
 
@@ -102,10 +102,11 @@ const Section6 = () => {
           <svg xmlns="http://www.w3.org/2000/svg" width="319" height="244" viewBox="0 0 319 244" fill="none" style={{
             position: 'absolute',
             top: '-31px',
-            right: '20px',
+            right: '282px',
             zIndex: 1000,
             width: '50%',
-            height: 'auto'
+            height: 'auto',
+            display: isMobile ? 'none' : 'block',
           }}>
             <path d="M0 0H319L31.5 21L0 244V0Z" fill="#D3A069" />
           </svg>

@@ -4,8 +4,8 @@ import CartForSamples from '../subComponents/CartForSamples';
 import Image from 'next/image';
 
 export const woods = [
-    { name: 'Antique Oak', image: '/imagesForOrderPage/Cladding image 4.png' },
-    { name: 'Ashwood', image: '/imagesForOrderPage/Cladding image 3.png' },
+    { name: 'Antique Oak13', image: '/imagesForOrderPage/Cladding image 4.png' },
+    { name: 'Ashwood14', image: '/imagesForOrderPage/Cladding image 3.png' },
 ];
 
 const Section3 = () => {
@@ -47,7 +47,7 @@ const Section3 = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                padding: '5% 5%',
+                padding: '5% 0%',
                 borderBottom: '1px solid black',
                 width: '100%',
                 boxSizing: 'border-box',
@@ -86,7 +86,7 @@ const Section3 = () => {
                             onClick={() => !isDisabled && handleCardClick(wood)}
                             style={{
                                 width: getCardWidth(),
-                                maxWidth: screenWidth < 768 ? '20rem' : '18rem',
+                                maxWidth: screenWidth < 768 ? '20rem' : '22.7rem',
                                 aspectRatio: '1 / 1.2',
                                 background: '#d3a069',
                                 padding: '1rem',

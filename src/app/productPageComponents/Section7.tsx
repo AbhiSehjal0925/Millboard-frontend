@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
 const Section7 = () => {
-    const [isMobile, setIsMobile] = useState(false);
+    const [windowWidth, setWindowWidth] = useState<number>(0);
 
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 700);
-        handleResize();
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        handleResize(); // Run once on mount
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    const isTablet = windowWidth <= 1024;
+    const isMobile = windowWidth <= 600;
+
     const sectionStyle: React.CSSProperties = {
-        // fontFamily: 'Arial, sans-serif',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -33,8 +35,8 @@ const Section7 = () => {
     };
 
     const leftSideStyle: React.CSSProperties = {
-        width: '100%',
-        maxWidth: isMobile ? '100%' : '695px',
+        width: isMobile ? '90%' : '100%',
+        maxWidth: isMobile ? '100%' : '730px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: isMobile ? 'center' : 'flex-start',
@@ -44,7 +46,7 @@ const Section7 = () => {
         boxSizing: 'border-box',
         boxShadow: 'rgba(0, 0, 0, 0.16) -4px 4px 2px, rgba(0, 0, 0, 0.23) 0px 3px 6px',
         position: 'relative',
-        left: '20px'
+        left: isMobile ? '0' : '20px'
     };
 
     const headingStyle: React.CSSProperties = {

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const services = [
   'productSection1ContainerBox1Png1.png',
@@ -14,20 +14,32 @@ const services = [
 ];
 
 const Section1: React.FC = () => {
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize(); // Run once on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isTablet = windowWidth <= 1024;
+  const isMobile = windowWidth <= 600;
+
   const sectionStyle: React.CSSProperties = {
     width: '100%',
-    padding: '60px',
+    padding: isMobile ? '15px' : '60px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   };
 
   const containerStyle: React.CSSProperties = {
-    gap: '20px',
-    width: '100%',
+    gap: isMobile ? '0' : '20px',
+    width: '99%',
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between',
   };
 
   const cardStyle: React.CSSProperties = {

@@ -79,7 +79,7 @@ const Section5: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
-        padding: '5% 5%',
+        padding: '5% 4%',
         gap: '2rem',
         width: '100%',
         boxSizing: 'border-box',

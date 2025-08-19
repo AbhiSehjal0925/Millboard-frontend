@@ -28,7 +28,7 @@ const Header = () => {
                 flexWrap: 'wrap',
                 position: 'relative',
                 padding: screenSize === 'mobile' ? '20px' : screenSize === 'tablet' ? '30px' : '40px 20px',
-                minHeight: '70vh',
+                minHeight: screenSize === 'mobile' ? '50vh' : '70vh',
             }}
         >
             <div
@@ -39,8 +39,8 @@ const Header = () => {
                     color: '#000',
                     gap: '5px',
                     position: 'absolute',
-                    top: '20px',
-                    left: '20px',
+                    top: screenSize === 'mobile' ? '25px' : '20px',
+                    left: screenSize === 'mobile' ? '25px' : '87px',
                     flexWrap: 'wrap',
                     fontSize: screenSize === 'mobile' ? '12px' : '18px',
                 }}
@@ -59,7 +59,7 @@ const Header = () => {
                     flexDirection: 'column',
                     width: screenSize === 'mobile' ? '100%' : screenSize === 'tablet' ? '80%' : '50%',
                     color: '#000',
-                    padding: screenSize === 'mobile' ? '20px' : screenSize === 'tablet' ? '50px 20px' : '150px 20px',
+                    padding: screenSize === 'mobile' ? '0' : screenSize === 'tablet' ? '50px 20px' : '150px 20px',
                     gap: screenSize === 'mobile' ? '15px' : '30px',
                     zIndex: 10,
                     textAlign: 'center',
@@ -72,7 +72,7 @@ const Header = () => {
                         fontSize: screenSize === 'mobile' ? '30px' : screenSize === 'tablet' ? '40px' : '50px',
                         lineHeight: 1.1,
                         textTransform: 'capitalize',
-                        padding: '0 80px',
+                        padding: screenSize === 'mobile' ? '0' : '0 80px',
                     }}
                 >
                     Millboard Showrooms Discover the art of outdoor living

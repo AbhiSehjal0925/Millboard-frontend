@@ -33,9 +33,7 @@ const Section1st = () => {
             <div className="textBox">
               <h3>{card.title}</h3>
               <p>{card.text}</p>
-              <button className="btn coolBeans">
-                Explore the collection
-              </button>
+              <button className="btn coolBeans">Explore the collection</button>
             </div>
           </div>
         ))}
@@ -44,30 +42,33 @@ const Section1st = () => {
       <style jsx>{`
         .section {
           background: linear-gradient(to bottom, #ffffff, white);
-          padding: 2rem 1rem;
+          padding: 40px 0;
           position: relative;
           z-index: 50;
         }
 
+        /* EXACT same horizontal bounds as Header */
         .container {
           margin: 0 auto;
+          max-width: 1850px;
+          padding: 0;            /* ⬅️ changed (was 0 30px) */
           display: grid;
           grid-template-columns: 1fr;
           gap: 2rem;
-          align-items: start;
+          align-items: center;
+          box-sizing: border-box;
         }
 
         .card {
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: 1rem;
         }
 
         .imageContainer {
           margin-bottom: 1rem;
           overflow: hidden;
-          width: 100%;
+          width: 95%;
           aspect-ratio: 1 / 1;
           display: flex;
           align-items: center;
@@ -76,7 +77,7 @@ const Section1st = () => {
 
         .textBox {
           text-align: center;
-          width: 95%;
+          width: 90%;
           box-shadow: 0px 5px 5px 0px #00000040;
           border-radius: 1.5rem;
           padding: 1.5rem;
@@ -116,7 +117,6 @@ const Section1st = () => {
           z-index: 1;
         }
 
-        /* Reuse coolBeans hover effect from Header */
         .coolBeans::before {
           content: '';
           position: absolute;
@@ -129,37 +129,28 @@ const Section1st = () => {
           z-index: -1;
         }
 
-        .coolBeans:hover::before {
-          left: 0;
-        }
-
-        .coolBeans:hover {
-          box-shadow: 0 8px 20px rgba(211, 160, 105, 0.2);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        .coolBeans:hover::before { left: 0; }
+        .coolBeans:hover { box-shadow: 0 8px 20px rgba(211, 160, 105, 0.2); }
 
         /* Tablet & up */
         @media (min-width: 768px) {
-          .section {
-            padding: 80px 70px;
-          }
+          .section { padding: 80px; }
           .container {
             grid-template-columns: 1fr 1fr;
             gap: 2.5rem;
+            padding: 0;          /* ⬅️ changed (was 0 70px) */
           }
-          .textBox {
-            padding: 2.5rem;
-          }
-          .textBox h3 {
-            font-size: 34px;
-            line-height: 46px;
-          }
-          .textBox p {
-            font-size: 17px;
-          }
-          .btn {
-            font-size: 18px;
-          }
+          .textBox { padding: 2.5rem; }
+          .textBox h3 { font-size: 34px; line-height: 46px; }
+          .textBox p { font-size: 17px; }
+          .btn { font-size: 18px; }
+        }
+
+        /* Large screens */
+        @media (min-width: 1200px) {
+          .container { padding: 0; }  /* ⬅️ changed (was 0 80px) */
+          .imageContainer{
+            width: 100%;}
         }
       `}</style>
     </section>

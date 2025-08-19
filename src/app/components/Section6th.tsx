@@ -1,20 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Section6th: React.FC = () => {
+
+
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize(); // Run once on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isMobile = windowWidth <= 600;
+  const isTablet = windowWidth <= 1024;
+
   const sectionStyle: React.CSSProperties = {
     background: "#EFCFAC",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
     gap: "20px",
-    padding: "100px 20px 120px", // space for SVG so it's not cut off
+    padding: isMobile ? '10px' : "100px 80px 100px", 
     flexWrap: "wrap",
     position: "relative",
   };
 
   const leftSideStyle: React.CSSProperties = {
     flex: "1 1 400px",
-    maxWidth: "700px",
+    maxWidth: "900px",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
@@ -40,7 +54,7 @@ const Section6th: React.FC = () => {
 
   const rightSideStyle: React.CSSProperties = {
     flex: "1 1 300px",
-    maxWidth: "547px",
+    maxWidth: "900px",
     aspectRatio: "1 / 1.2", // keeps proportions
     background: `url('/png/section6thPng1.png') center / cover no-repeat`,
     display: "flex",
@@ -59,8 +73,8 @@ const Section6th: React.FC = () => {
     bottom: '0',
     left: 0,
     width: "100%",
-    maxHeight: '500px'
-
+    maxHeight: '500px',
+    display: isMobile ? 'none' : 'block',
   };
 
   return (

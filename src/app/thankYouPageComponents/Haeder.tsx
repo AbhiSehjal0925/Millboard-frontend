@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Header = () => {
+
+    const [windowWidth, setWindowWidth] = useState<number>(0);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        handleResize(); // Run once on mount
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const isTablet = windowWidth <= 1024;
+    const isMobile = windowWidth <= 600;
+
     return (
         <header
             style={{
@@ -18,10 +31,11 @@ const Header = () => {
                 style={{
                     fontSize: '18px',
                     marginBottom: '1.5rem',
+                    marginTop: isMobile ? '1rem' : '0',
                     color: '#000000ff',
                     position: 'absolute',
                     top: '20px',
-                    left: '20px',
+                    left: '87px',
                 }}
             >
                 <a

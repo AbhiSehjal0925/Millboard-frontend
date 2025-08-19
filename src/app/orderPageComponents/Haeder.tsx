@@ -50,7 +50,7 @@ const Header = () => {
     flexDirection: screenSize === "small" ? "column" : "row",
     width: "100%",
     minHeight: screenSize === "small" ? "68vh" : "70vh",
-    padding: screenSize === "small" ? "50px" : undefined,
+    padding: screenSize === "small" ? "60px 50px 50px 50px" : undefined,
   });
 
   const getBreadcrumbStyle = (): React.CSSProperties => ({
@@ -59,8 +59,8 @@ const Header = () => {
     display: "flex",
     flexWrap: "wrap" as const,
     gap: "4px",
-    top: screenSize === "small" ? "8px" : "20px",
-    left: screenSize === "small" ? "8px" : "20px",
+    top: screenSize === "small" ? "25px" : "20px",
+    left: screenSize === "small" ? "25px" : "87px",
     fontSize: screenSize === "small" ? "12px" : "18px",
     zIndex: 10,
     width: screenSize === "small" ? "95vw" : "auto",

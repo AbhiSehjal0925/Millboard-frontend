@@ -5,9 +5,9 @@ const Section1 = () => {
     const imageBoxStyle = (url: string): React.CSSProperties => ({
         backgroundImage: `url('${url}')`,
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
+        backgroundSize: 'cover',
         width: '100%',
-        maxWidth: '550px',
+        maxWidth: '560px',
         aspectRatio: '1 / 1',
         position: 'relative',
     });
@@ -16,9 +16,8 @@ const Section1 = () => {
         background: '#ffffff',
         position: 'absolute',
         right: '0.5rem',
-        top: '50%',
+        top: '56%',
         transform: 'translateY(-50%)',
-        // borderRadius: '10px',
         borderEndEndRadius: '15px',
         borderEndStartRadius: '15px',
         boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
@@ -74,7 +73,7 @@ const Section1 = () => {
                     display: 'flex',
                     flexWrap: 'wrap',
                     justifyContent: 'center',
-                    gap: '1.5rem',
+                    gap: '2rem',
                 }}
             >
                 {/* Image 1 */}

@@ -4,16 +4,16 @@ import CartForSamples from '../subComponents/CartForSamples';
 import Image from 'next/image';
 
 export const woods = [
-    { name: 'Antique Oak', image: '/imagesForOrderPage/Cladding image2.png' },
-    { name: 'Ashwood', image: '/imagesForOrderPage/Cladding image 3.png' },
-    { name: 'Brushed Basalt', image: '/imagesForOrderPage/Cladding image 4.png' },
-    { name: 'Burnt Cedar', image: '/imagesForOrderPage/Cladding image 5.png' },
-    { name: 'Coppered Oak', image: '/imagesForOrderPage/Cladding image 6.png' },
-    { name: 'Ebony Grey', image: '/imagesForOrderPage/Lasta-Grip image2.png' },
-    { name: 'Golden Oak', image: '/imagesForOrderPage/Lasta-Grip image 1.png' },
-    { name: 'Jarrah', image: '/imagesForOrderPage/Shadow Line+ image 7.png' },
-    { name: 'Ashwood', image: '/imagesForOrderPage/Cladding image 3.png' },
-    { name: 'Brushed Basalt', image: '/imagesForOrderPage/Cladding image 4.png' },
+    { name: 'Antique Oak1', image: '/imagesForOrderPage/Cladding image2.png' },
+    { name: 'Ashwood2', image: '/imagesForOrderPage/Cladding image 3.png' },
+    { name: 'Brushed Basalt3', image: '/imagesForOrderPage/Cladding image 4.png' },
+    { name: 'Burnt Cedar4', image: '/imagesForOrderPage/Cladding image 5.png' },
+    { name: 'Coppered Oak5', image: '/imagesForOrderPage/Cladding image 6.png' },
+    { name: 'Ebony Grey6', image: '/imagesForOrderPage/Lasta-Grip image2.png' },
+    { name: 'Golden Oak7', image: '/imagesForOrderPage/Lasta-Grip image 1.png' },
+    { name: 'Jarrah8', image: '/imagesForOrderPage/Shadow Line+ image 7.png' },
+    { name: 'Ashwood9', image: '/imagesForOrderPage/Cladding image 3.png' },
+    { name: 'Brushed Basalt10', image: '/imagesForOrderPage/Cladding image 4.png' },
 ];
 
 const Section1 = () => {
@@ -55,7 +55,7 @@ const Section1 = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                padding: '5% 5%',
+                padding: '5% 0%',
                 width: '100%',
                 boxSizing: 'border-box',
             }}
@@ -105,7 +105,7 @@ const Section1 = () => {
                             onClick={() => !isDisabled && handleCardClick(wood)}
                             style={{
                                 width: getCardWidth(),
-                                maxWidth: screenWidth < 768 ? '20rem' : '18rem',
+                                maxWidth: screenWidth < 768 ? '20rem' : '22.7rem',
                                 aspectRatio: '1 / 1.2',
                                 background: '#d3a069',
                                 padding: '1rem',

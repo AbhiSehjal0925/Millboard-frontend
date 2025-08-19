@@ -34,8 +34,7 @@ const Section1 = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '20px',
-                    // maxWidth: '1200px',
-                    width: '100%',
+                    width: '95%',
                 }}
             >
                 <div

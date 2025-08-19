@@ -92,7 +92,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     flexWrap: isSmall ? 'nowrap' : 'nowrap',
     gap: isSmall ? '4px' : '12px',
     textAlign: isSmall ? 'center' : 'left',
-    maxWidth: '1850px',
+    maxWidth: '1780px',
     margin: '0 auto'
   };
 
@@ -180,7 +180,6 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     width: isSmall ? 'auto' : 'auto',
     alignSelf: 'center',
     display: isSmall ? 'none' : 'block',
-    marginRight: '35px',
   };
 
   const onActiveLink: React.CSSProperties = {

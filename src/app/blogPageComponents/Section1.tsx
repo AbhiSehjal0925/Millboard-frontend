@@ -18,11 +18,10 @@ const Section1 = () => {
     width: '100%',
     position: 'relative',
     overflow: 'hidden',
-    padding: isMobile ? '24px 16px' : '2rem 1rem',
+    padding: isMobile ? '0' : '2rem 1rem',
   };
 
   const herosecContentStyle: React.CSSProperties = {
-    // maxWidth: '1200px',
     margin: '0 auto',
     display: 'flex',
     alignItems: 'center',
@@ -30,7 +29,7 @@ const Section1 = () => {
     gap: isMobile ? '24px' : '2rem',
     flexDirection: isMobile ? 'column' : 'row',
     textAlign: isMobile ? 'center' : 'left',
-    padding: isMobile ? '24px 16px' : '40px',
+    padding: isMobile ? '60px 16px' : '40px 70px',
   };
 
   const textStyle: React.CSSProperties = {
@@ -38,7 +37,7 @@ const Section1 = () => {
     fontSize: 'clamp(0.9rem, 2vw, 1.3rem)',
     lineHeight: 1.6,
     color: '#333',
-    margin: isMobile ? '0 0 24px 0' : '40px',
+    // margin: isMobile ? '0 0 24px 0' : '40px',
     fontWeight: 500,
   };
 

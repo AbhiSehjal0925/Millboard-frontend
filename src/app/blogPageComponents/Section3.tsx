@@ -17,13 +17,13 @@ const Section3: React.FC = () => {
     display: 'flex',
     justifyContent: 'center',
     overflow: 'hidden',
-    padding: isMobile ? '24px 16px' : '2rem 1rem',
+    padding: isMobile ? '24px 16px' : '40px 16px',
+    paddingBottom: '150px'
   };
 
   const containerStyle: React.CSSProperties = {
     width: '100%',
     margin: '0 auto',
-    padding: isMobile ? '24px 16px' : '40px',
   };
 
   const eleganceMainStyle: React.CSSProperties = {

@@ -12,8 +12,9 @@ const Section5 = () => {
   }, []);
 
   const sectionStyle: React.CSSProperties = {
-    padding: isMobile ? '48px 16px' : '80px',
-    backgroundColor: '#FFFFFF',
+    padding: isMobile ? '24px 16px' : '40px 86px',
+    paddingBottom: '80px',
+    paddingTop: '80px',
   };
 
   const containerStyle: React.CSSProperties = {
@@ -25,7 +26,6 @@ const Section5 = () => {
     alignItems: 'center',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    padding: isMobile ? '0 16px' : '0 60px'
   };
 
   const contentStyle: React.CSSProperties = {
@@ -63,7 +63,7 @@ const Section5 = () => {
   const imageContainerStyle: React.CSSProperties = {
     flex: isMobile ? 'none' : '1 1 400px',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'right',
     alignItems: 'center',
     width: isMobile ? '100%' : 'auto',
     marginTop: isMobile ? '24px' : '0',

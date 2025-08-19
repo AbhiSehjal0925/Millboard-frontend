@@ -72,7 +72,7 @@ const Section2 = () => {
                     flexWrap: 'wrap',
                     justifyContent: 'center',
                     gap: '20px',
-                    width: '100%',
+                    width: '95%',
                 }}
             >
                 <div

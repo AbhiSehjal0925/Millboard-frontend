@@ -65,18 +65,19 @@ const Header = () => {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 flexDirection: 'column',
-                padding: screenSize === 'mobile' ? '80px 20px' : screenSize === 'tablet' ? '50px 30px' : '50px 100px',
+                padding: screenSize === 'mobile' ? '80px 20px' : screenSize === 'tablet' ? '50px 30px' : '50px 100px 200px 100px',
                 position: 'relative',
-                // minHeight: '100vh',
             }}
         >
             <div
                 style={{
                     position: 'absolute',
-                    top: '20px',
-                    left: '20px',
+                    top: screenSize === 'mobile' ? '22px' : '20px',
+                    left: screenSize === 'mobile' ? '22px' :  '87px',
                     color: 'black',
                     fontSize: screenSize === 'mobile' ? '14px' : '18px',
+                    marginTop: screenSize === 'mobile' ? '1rem' : '0',
+
                 }}
             >
                 <a href="" style={{ color: 'black' }}>Home</a> / <a href="" style={{ color: 'black' }}>Order Samples</a>

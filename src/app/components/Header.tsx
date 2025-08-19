@@ -51,7 +51,7 @@ const Header = () => {
                             color: '#000000',
                             marginBottom: '20px',
                             lineHeight: '1.4',
-                            margin: isSmall ? '10px 0' : '20px',
+                            margin: isSmall ? '10px 5px' : '20px 20px 20px 50px',
                             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
                             fontFamily: 'Mansfield, sans-serif'
                         }}
@@ -71,8 +71,8 @@ const Header = () => {
                             margin: isSmall
                                 ? '0 0 20px 0'
                                 : isMedium
-                                    ? '30px 0 200px 20px'
-                                    : '30px 0 200px 20px',
+                                    ? '30px 0 200px 50px'
+                                    : '30px 0 200px 50px',
                             transition: 'background-color 0.3s ease',
                         }}
                         className='coolBeans'>
