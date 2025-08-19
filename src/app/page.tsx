@@ -12,6 +12,7 @@ import Basket from './pages/BasketPage';
 import OrderPage from './pages/OrderPage';
 import ShowroomsPage from './pages/ShowroomsPage';
 import BlogPage from './pages/BlogPage';
+import { CartProvider } from '../context/cartcontext';
 
 const Page = () => {
   const [route, setRoute] = useState("home");
@@ -69,29 +70,31 @@ const Page = () => {
   const headerHeight = isSmall ? 72 : 112; // Further reduced for small screens to eliminate white space
 
   return (
-    <div style={{ fontFamily: 'Mansfield, sans-serif', width: '100vw', overflowX: 'hidden' }}>
-      <MainNav
-        onNavigate={handleNavigate}
-        current={route}
-      />
+    <CartProvider onNavigate={handleNavigate}>
+      <div style={{ fontFamily: 'Mansfield, sans-serif', width: '100vw', overflowX: 'hidden' }}>
+        <MainNav
+          onNavigate={handleNavigate}
+          current={route}
+        />
 
-      {/* Main content with proper top margin */}
-      <main style={{
-        marginTop: `${headerHeight}px`, // Add margin to account for fixed header
-        minHeight: 'calc(100vh - 200px)' // Ensure minimum height
-      }}>
-        {route === "home" && <HomePage />}
-        {route === "product" && <ProductPage />}
-        {route === "decor" && <DecorPage />}
-        {route === "thankyou" && <ThankYouPage />}
-        {route === "basket" && <Basket />}
-        {route === "order" && <OrderPage onNavigate={handleNavigate} />}
-        {route === "showrooms" && <ShowroomsPage />}
-        {route === "blogs" && <BlogPage />}
-      </main>
+        {/* Main content with proper top margin */}
+        <main style={{
+          marginTop: `${headerHeight}px`, // Add margin to account for fixed header
+          minHeight: 'calc(100vh - 200px)' // Ensure minimum height
+        }}>
+          {route === "home" && <HomePage />}
+          {route === "product" && <ProductPage />}
+          {route === "decor" && <DecorPage />}
+          {route === "thankyou" && <ThankYouPage />}
+          {route === "basket" && <Basket />}
+          {route === "order" && <OrderPage onNavigate={handleNavigate} />}
+          {route === "showrooms" && <ShowroomsPage />}
+          {route === "blogs" && <BlogPage />}
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </CartProvider>
   );
 };
 

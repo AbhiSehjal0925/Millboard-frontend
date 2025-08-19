@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 
 const accordionData = [
     {
-        question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has ",
-        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"
+        question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry?",
+        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"
     },
     {
-        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem.",
-        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"
+        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem?",
+        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"
     },
     {
-        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem.",
-        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"
+        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem?",
+        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"
     },
     {
-        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem.",
-        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has."
+        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem?",
+        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has."
     },
     {
-        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem.",
-        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.LoremIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has "
+        question: "Lorem Ipsum is simply Lorem Ipsum is simply Lorem Ipsum is simply Lorem?",
+        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has"
     }
 ];
 
@@ -37,19 +37,22 @@ const Section5 = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '80px 20px',
-                gap: '50px',
+                padding: '120px 20px',
+                gap: '80px',
                 width: '100%',
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
+                backgroundColor: '#fafafa'
             }}
         >
             <div
                 style={{
-                    fontWeight: 500,
-                    fontSize: '45px',
+                    fontWeight: 600,
+                    fontSize: '48px',
                     lineHeight: 1.2,
-                    color: '#000',
-                    textAlign: 'center'
+                    color: '#1a1a1a',
+                    textAlign: 'center',
+                    fontFamily: 'Mansfield, sans-serif',
+                    letterSpacing: '-0.02em'
                 }}
             >
                 FAQ
@@ -60,7 +63,7 @@ const Section5 = () => {
                     width: '100%',
                     maxWidth: '1747px',
                     display: 'flex',
-                    gap: '40px',
+                    gap: '80px',
                     justifyContent: 'center',
                     alignItems: 'flex-start',
                     flexWrap: 'wrap',
@@ -83,8 +86,11 @@ const Section5 = () => {
                             maxWidth: '1000px',
                             aspectRatio: '6 / 7',
                             backgroundImage: "url('/images/section5Img1.png')",
-                            backgroundPosition: 'left',
+                            backgroundPosition: 'center',
+                            backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat',
+                            borderRadius: '20px',
+                            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)'
                         }}
                     />
                 </div>
@@ -93,13 +99,24 @@ const Section5 = () => {
                 <div
                     style={{
                         flex: 1,
-                        minWidth: '300px',
-                        width: '100%'
+                        minWidth: '400px',
+                        width: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '16px'
                     }}
                 >
                     {accordionData.map((item, idx) => (
                         <div
-                            key={idx}>
+                            key={idx}
+                            style={{
+                                border: '1px solid #e5e7eb',
+                                borderRadius: '4px',
+                                overflow: 'hidden',
+                                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
+                                transition: 'all 0.3s ease'
+                            }}
+                        >
                             <button
                                 onClick={() => handleAccordion(idx)}
                                 type="button"
@@ -111,31 +128,39 @@ const Section5 = () => {
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
-                                    padding: '35px 30px',
-                                    color: '#ffffffff',
-                                    fontSize: '14px',
+                                    padding: '28px 32px',
+                                    color: openIndex === idx ? '#1f2937' : 'white',
+                                    fontSize: '16px',
                                     fontWeight: 500,
                                     textAlign: 'left',
-                                    background: 'transparent',
+                                    background: openIndex === idx ? '#f0f0f0' : '#6d6d6d',
                                     border: 'none',
                                     cursor: 'pointer',
-                                    backgroundColor: '#6d6d6d',
-                                    borderRadius: '6px',
+                                    transition: 'all 0.3s ease',
+                                    borderBottom: openIndex === idx ? '1px solid #e5e7eb' : 'none'
                                 }}
                             >
-                                <span>{item.question}</span>
+                                <span style={{
+                                    flex: 1,
+                                    paddingRight: '20px',
+                                    lineHeight: 1.5,
+                                }}>
+                                    {item.question}
+                                </span>
                                 <span
                                     style={{
                                         display: 'flex',
                                         transform: openIndex === idx ? 'rotate(180deg)' : 'rotate(0deg)',
-                                        transition: 'transform 0.3s'
+                                        transition: 'transform 0.3s ease',
+                                        color: '#6b7280',
+                                        flexShrink: 0
                                     }}
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 16 16"
                                         fill="currentColor"
-                                        style={{ width: '20px', height: '20px' }}
+                                        style={{ width: '24px', height: '24px' }}
                                     >
                                         <path
                                             fillRule="evenodd"
@@ -150,20 +175,19 @@ const Section5 = () => {
                                 id={`content-${idx}`}
                                 aria-labelledby={`accordion-header-${idx}`}
                                 style={{
-                                    maxHeight: openIndex === idx ? '160px' : '0',
+                                    maxHeight: openIndex === idx ? '200px' : '0',
                                     overflow: 'hidden',
-                                    transition: 'max-height 0.3s ease-in-out',
-                                    background: '#f0f0f0',
-                                    marginBottom: '6px',
+                                    transition: 'max-height 0.4s ease-in-out',
+                                    background: '#ffffff'
                                 }}
                             >
                                 <div
                                     style={{
-                                        padding: '20px',
-                                        paddingBottom: '20px',
-                                        fontSize: '14px',
-                                        color: '#64748b',
-                                        backgroundColor: '#e9e7e7ff'
+                                        padding: '32px',
+                                        fontSize: '15px',
+                                        color: '#4b5563',
+                                        lineHeight: 1.6,
+                                        backgroundColor: '#ffffff'
                                     }}
                                 >
                                     {item.answer}

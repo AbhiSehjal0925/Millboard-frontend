@@ -21,7 +21,7 @@ const Section6th: React.FC = () => {
     alignItems: "center",
     justifyContent: "space-between",
     gap: "20px",
-    padding: isMobile ? '10px' : "100px 80px 100px", 
+    padding: isTablet ? '10px' : "0 80px 100px", 
     flexWrap: "wrap",
     position: "relative",
   };
@@ -74,7 +74,7 @@ const Section6th: React.FC = () => {
     left: 0,
     width: "100%",
     maxHeight: '500px',
-    display: isMobile ? 'none' : 'block',
+    display: isTablet ? 'none' : 'block',
   };
 
   return (

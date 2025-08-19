@@ -221,8 +221,8 @@ export default function Section8() {
                     <path fill="white" d="M4 146.773C4 68.8162 85.1841 17.4202 155.648 50.7673V50.7673C191.629 67.795 234.11 63.2748 265.702 39.057L279.908 28.1667C319.421 -2.12337 372.36 -8.31231 417.794 12.0468L488.927 43.9211C536.973 65.4505 592.697 60.8743 636.587 31.7952V31.7952C685.374 -0.528113 748.288 -2.32293 798.838 27.1665L805.836 31.2493C856.125 60.5867 918.08 61.5499 969.257 33.7898L991.169 21.9038C1040.06 -4.6178 1099.8 -2.61169 1147.02 26.7847V26.7847C1197.47 58.1924 1261.94 57.8458 1311.8 25.5049V25.5049C1356.36 -3.40269 1412.72 -7.16752 1460.74 15.5555L1499.76 34.0254C1559.03 62.0738 1627.95 61.0634 1686.37 31.2895L1705.9 21.3389C1757.69 -5.05928 1819.34 -3.39306 1869.64 25.7644L1921.05 55.5709C1945.32 69.6382 1975.45 68.8679 1998.98 53.6044V53.6044C2048.5 21.4833 2114 56.9745 2114 116V116V116C2114 220.934 2028.93 306 1924 306H130.765C60.7547 306 4 249.245 4 179.235V146.773Z" />
                 </g>
                 <defs>
-                    <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="313.805" width="2118" y="0.195312" x="0" id="filter0_d_190_2">
-                        <feFlood result="BackgroundImageFix" flood-opacity="0" />
+                    <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="313.805" width="2118" y="0.195312" x="0" id="filter0_d_190_2">
+                        <feFlood result="BackgroundImageFix" floodOpacity="0" />
                         <feColorMatrix result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" type="matrix" in="SourceAlpha" />
                         <feOffset dy="4" />
                         <feGaussianBlur stdDeviation="2" />

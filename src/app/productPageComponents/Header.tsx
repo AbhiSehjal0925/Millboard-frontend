@@ -168,26 +168,6 @@ const Header = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-
-                    {/* Custom Scrollbar */}
-                    {/* <div style={{
-                        width: '100%',
-                        height: '6px',
-                        backgroundColor: '#f5f5f5',
-                        borderRadius: '3px',
-                        marginTop: '8px',
-                        position: 'relative',
-                        overflow: 'hidden'
-                    }}>
-                        <div style={{
-                            width: `${scrollProgress * 100}%`,
-                            height: '100%',
-                            backgroundColor: '#d3a069',
-                            borderRadius: '3px',
-                            transition: 'background-color 0.3s ease',
-                            cursor: 'pointer'
-                        }} />
-                    </div> */}
                 </div>
             </div>
 
@@ -202,7 +182,6 @@ const Header = () => {
                 <div style={{
                     width: '100%',
                     maxWidth: '900px',
-                    // height: '600px',
                     background: `url('/png/productPageHeaderPng.png') center / cover no-repeat`,
                     margin: 10,
                     padding: 20,

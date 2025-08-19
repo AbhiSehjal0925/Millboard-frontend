@@ -29,21 +29,21 @@ const Header = () => {
             <div
                 style={{
                     display: 'flex',
-                    flexDirection: isSmall ? 'column' : 'row',
-                    justifyContent: isSmall ? 'center' : 'space-between',
+                    flexDirection: isMedium ? 'column' : 'row',
+                    justifyContent: isMedium ? 'center' : 'space-between',
                     alignItems: 'center',
                     margin: '0 auto',
                     flexWrap: 'wrap',
-                    // padding: isSmall ? '0 15px' : isMedium ? '0 20px' : '0 30px',
-                    textAlign: isSmall ? 'center' : 'left',
+                    // padding: isMedium ? '0 15px' : isMedium ? '0 20px' : '0 30px',
+                    textAlign: isMedium ? 'center' : 'left',
                     maxWidth: '1850px'
                 }}
             >
                 {/* Left Column - Text */}
-                <div style={{ flex: isSmall ? '1' : '2' }}>
+                <div style={{ flex: isMedium ? '1' : '2' }}>
                     <h2
                         style={{
-                            fontSize: isSmall
+                            fontSize: isMedium
                                 ? 'clamp(28px, 6vw, 36px)'
                                 : isMedium
                                     ? 'clamp(36px, 4.5vw, 50px)'
@@ -51,7 +51,7 @@ const Header = () => {
                             color: '#000000',
                             marginBottom: '20px',
                             lineHeight: '1.4',
-                            margin: isSmall ? '10px 5px' : '20px 20px 20px 50px',
+                            margin: isMedium ? '10px 5px' : '20px 20px 20px 50px',
                             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
                             fontFamily: 'Mansfield, sans-serif'
                         }}
@@ -61,19 +61,20 @@ const Header = () => {
 
                     <button
                         style={{
-                            padding: isSmall ? '10px 20px' : '12px 24px',
-                            fontSize: isSmall ? '16px' : '20px',
+                            padding: isMedium ? '10px 20px' : '12px 24px',
+                            fontSize: isMedium ? '16px' : '20px',
                             border: '2px solid white',
                             borderRadius: '30px',
                             backgroundColor: '#d3a069',
                             color: '#ffffffff',
                             cursor: 'pointer',
-                            margin: isSmall
+                            margin: isMedium
                                 ? '0 0 20px 0'
                                 : isMedium
                                     ? '30px 0 200px 50px'
                                     : '30px 0 200px 50px',
                             transition: 'background-color 0.3s ease',
+                            zIndex: '12121212'
                         }}
                         className='coolBeans'>
                         Choose your free sample
@@ -83,22 +84,22 @@ const Header = () => {
                 {/* Right Column - Image */}
                 <div
                     style={{
-                        flex: isSmall ? '1' : '1 1 500px',
+                        flex: isMedium ? '1' : '1 1 500px',
                         textAlign: 'center',
                         position: 'relative',
-                        left: isSmall ? '0' : isMedium ? '100px' : '300px',
-                        marginTop: isSmall ? '20px' : '0',
+                        left: isMedium ? '0' : isMedium ? '100px' : '300px',
+                        marginTop: isMedium ? '20px' : '0',
                     }}
                 >
                     <Image
                         src="/images/Header.webp"
                         alt="Sample"
-                        height={isSmall ? 400 : isMedium ? 600 : 800}
-                        width={isSmall ? 300 : isMedium ? 450 : 600}
+                        height={isMedium ? 400 : isMedium ? 600 : 800}
+                        width={isMedium ? 300 : isMedium ? 450 : 600}
                         style={{
                             objectFit: 'cover',
-                            borderTopRightRadius: isSmall ? '20px' : '30px',
-                            borderBottomRightRadius: isSmall ? '20px' : '30px',
+                            borderTopRightRadius: isMedium ? '20px' : '30px',
+                            borderBottomRightRadius: isMedium ? '20px' : '30px',
                         }}
                         priority
                     />

@@ -1,39 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-
-type CartItem = {
-    id: string;
-    name: string;
-    image: string;
-    type: 'Decking' | 'Cladding';
-};
+import { useCart, CartItem } from '../../context/cartcontext';
 
 const Header = () => {
-    const [deckingItems, setDeckingItems] = useState<CartItem[]>([]);
-    const [claddingItems, setCladdingItems] = useState<CartItem[]>([]);
+    const { deckingItems, claddingItems, removeFromCart } = useCart();
     const [screenSize, setScreenSize] = useState<'large' | 'tablet' | 'mobile'>('large');
 
     useEffect(() => {
-        const storedDecking = localStorage.getItem('deckingItems');
-        const storedCladding = localStorage.getItem('claddingItems');
-
-        if (storedDecking) {
-            try {
-                setDeckingItems(JSON.parse(storedDecking));
-            } catch (err) {
-                console.error("Error parsing deckingItems:", err);
-            }
-        }
-
-        if (storedCladding) {
-            try {
-                setCladdingItems(JSON.parse(storedCladding));
-            } catch (err) {
-                console.error("Error parsing claddingItems:", err);
-            }
-        }
-
         const handleResize = () => {
             const width = window.innerWidth;
             if (width <= 480) setScreenSize('mobile');
@@ -45,16 +19,8 @@ const Header = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const handleRemoveItem = (itemToRemove: CartItem) => {
-        if (itemToRemove.type === 'Decking') {
-            const updatedDecking = deckingItems.filter(item => item.id !== itemToRemove.id);
-            setDeckingItems(updatedDecking);
-            localStorage.setItem('deckingItems', JSON.stringify(updatedDecking));
-        } else {
-            const updatedCladding = claddingItems.filter(item => item.id !== itemToRemove.id);
-            setCladdingItems(updatedCladding);
-            localStorage.setItem('claddingItems', JSON.stringify(updatedCladding));
-        }
+    const handleRemoveItem = (itemToRemove: CartItem, index: number) => {
+        removeFromCart(index, itemToRemove.type);
     };
 
     return (
@@ -73,11 +39,10 @@ const Header = () => {
                 style={{
                     position: 'absolute',
                     top: screenSize === 'mobile' ? '22px' : '20px',
-                    left: screenSize === 'mobile' ? '22px' :  '87px',
+                    left: screenSize === 'mobile' ? '22px' : '87px',
                     color: 'black',
                     fontSize: screenSize === 'mobile' ? '14px' : '18px',
                     marginTop: screenSize === 'mobile' ? '1rem' : '0',
-
                 }}
             >
                 <a href="" style={{ color: 'black' }}>Home</a> / <a href="" style={{ color: 'black' }}>Order Samples</a>
@@ -150,7 +115,7 @@ const Header = () => {
                             ["Project size", "Project budget"]
                             ].map((pair, idx) => (
                                 <div
-                                    key={idx}
+                                    key={`pair-${idx}`}
                                     style={{
                                         display: 'flex',
                                         alignItems: 'center',
@@ -160,9 +125,10 @@ const Header = () => {
                                         width: '100%',
                                     }}
                                 >
-                                    {pair.map((placeholder, i) =>
-                                        placeholder.includes("Select") || placeholder.includes("Who") || placeholder.includes("Project")
-                                            ? <select key={i} style={{ background: '#fff', width: '100%', height: '50px', padding: '6px', color: '#000', borderRadius: 0 }}>
+                                    {pair.map((placeholder, i) => {
+                                        const uniqueKey = `${idx}-${i}-${placeholder.replace(/[^a-zA-Z0-9]/g, '')}`;
+                                        return placeholder.includes("Select") || placeholder.includes("Who") || placeholder.includes("Project")
+                                            ? <select key={uniqueKey} style={{ background: '#fff', width: '100%', height: '50px', padding: '6px', color: '#000', borderRadius: 0 }}>
                                                 <option value="">Select Country*</option>
                                                 <option value="Afghanistan">Afghanistan</option>
                                                 <option value="Armenia">Armenia</option>
@@ -215,8 +181,8 @@ const Header = () => {
                                                 <option value="Vietnam">Vietnam</option>
                                                 <option value="Yemen">Yemen</option>
                                             </select>
-                                            : <input key={i} type="text" placeholder={placeholder} style={{ background: '#fff', width: '100%', height: '50px', padding: '6px', color: '#000', borderRadius: 0 }} />
-                                    )}
+                                            : <input key={uniqueKey} type="text" placeholder={placeholder} style={{ background: '#fff', width: '100%', height: '50px', padding: '6px', color: '#000', borderRadius: 0 }} />
+                                    })}
                                 </div>
                             ))}
 
@@ -234,7 +200,7 @@ const Header = () => {
                                             border: '1.5px solid #bbb',
                                             minWidth: screenSize === 'mobile' ? 18 : 22,
                                             minHeight: screenSize === 'mobile' ? 18 : 22,
-                                            appearance: 'checkbox', // Ensures native checkbox
+                                            appearance: 'checkbox',
                                             WebkitAppearance: 'checkbox',
                                             MozAppearance: 'checkbox',
                                             marginTop: screenSize === 'mobile' ? '2px' : '0',
@@ -292,14 +258,25 @@ const Header = () => {
                         className="checkout-summary"
                     >
                         <div style={{ fontSize: '20px', fontWeight: 500, marginBottom: '20px' }}>Basket</div>
-                        {[...deckingItems, ...claddingItems].map(item => (
-                            <div key={item.id} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+                        {deckingItems.map((item, index) => (
+                            <div key={`decking-${item.id}-${index}`} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
                                 <img src={item.image} alt={item.name} style={{ width: '60px', height: '60px', objectFit: 'cover', border: '1px solid #ccc' }} />
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                    <div style={{ fontSize: '12px', color: '#666' }}>{item.type}</div>
+                                    <div style={{ fontSize: '12px', color: '#666' }}>Decking</div>
                                     <div style={{ fontWeight: 600 }}>{item.name}</div>
                                     <div style={{ fontSize: '12px' }}>{item.name} - 176mm FREE</div>
-                                    <span onClick={() => handleRemoveItem(item)} style={{ color: '#a22', cursor: 'pointer', textDecoration: 'underline', fontSize: '12px' }}>Remove</span>
+                                    <span onClick={() => handleRemoveItem(item, index)} style={{ color: '#a22', cursor: 'pointer', textDecoration: 'underline', fontSize: '12px' }}>Remove</span>
+                                </div>
+                            </div>
+                        ))}
+                        {claddingItems.map((item, index) => (
+                            <div key={`cladding-${item.id}-${index}`} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+                                <img src={item.image} alt={item.name} style={{ width: '60px', height: '60px', objectFit: 'cover', border: '1px solid #ccc' }} />
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <div style={{ fontSize: '12px', color: '#666' }}>Cladding</div>
+                                    <div style={{ fontWeight: 600 }}>{item.name}</div>
+                                    <div style={{ fontSize: '12px' }}>{item.name} - 176mm FREE</div>
+                                    <span onClick={() => handleRemoveItem(item, index)} style={{ color: '#a22', cursor: 'pointer', textDecoration: 'underline', fontSize: '12px' }}>Remove</span>
                                 </div>
                             </div>
                         ))}
@@ -393,7 +370,6 @@ const Header = () => {
               }
             `}</style>
 
-
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="17.072 0 1502.336 170.7168458781362" width="1502.336" height="170.7168458781362"
                 style={{
                     width: '100%', height: 'auto', position: 'absolute',
@@ -407,7 +383,7 @@ const Header = () => {
                     <path fill="white" d="M4 139.838C4 82.5129 71.1564 51.5006 114.795 88.6739V88.6739C139.68 109.871 176.206 110.091 201.344 89.1947L291.808 13.9942C321.426 -10.6272 366.458 0.944486 380.537 36.7949V36.7949C396.213 76.7106 448.891 85.3083 476.444 52.4484L486.776 40.1276C508.591 14.1114 546.574 8.86635 574.623 27.9967L600.497 45.6429C630.411 66.0451 669.585 66.7326 700.197 47.3926L725.663 31.3033C757.126 11.4258 798.864 22.8417 815.831 55.9649V55.9649C834.153 91.7365 880.738 101.604 911.99 76.3331L953.798 42.5272C989.455 13.6952 1039.52 10.7943 1078.27 35.3155L1161.6 88.052C1194.49 108.862 1237.94 99.8992 1259.91 67.7761V67.7761C1285.81 29.8968 1340 25.4345 1371.75 58.5661L1401.15 89.2478C1419.69 108.585 1450.86 107.714 1468.28 87.3724V87.3724C1495.65 55.4177 1548 74.7728 1548 116.846V174.743V205C1548 326.503 1449.5 425 1328 425H140.064C64.9179 425 4 364.082 4 288.936V139.838Z" />
                 </g>
                 <defs>
-                    <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="432.081" width="1552" y="0.918945" x="0" id="filter0_d_145_3">
+                    <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="432.081" width="1552" y="0.918945" x="0" id="filter0_d_145_3">
                         <feFlood result="BackgroundImageFix" floodOpacity="0" />
                         <feColorMatrix result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" type="matrix" in="SourceAlpha" />
                         <feOffset dy="4" />
@@ -419,8 +395,6 @@ const Header = () => {
                     </filter>
                 </defs>
             </svg>
-
-
         </header>
     );
 };

@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export interface CartItem {
+    id: string;
     image: string;
     name: string;
+    type: 'Decking' | 'Cladding';
     // add other properties if needed
 }
 
@@ -12,7 +14,7 @@ interface CartContextType {
     isCartVisible: boolean;
     toggleCartVisibility: () => void;
     removeFromCart: (index: number, type: 'Decking' | 'Cladding') => void;
-    addToCart: (item: CartItem, type: 'Decking' | 'Cladding') => void; // <-- ADD THIS
+    addToCart: (item: Omit<CartItem, 'id'>, type: 'Decking' | 'Cladding') => void;
     onNavigate?: (page: string) => void;
 }
 
@@ -43,8 +45,34 @@ export const CartProvider = ({
     useEffect(() => {
         const storedDecking = localStorage.getItem('deckingItems');
         const storedCladding = localStorage.getItem('claddingItems');
-        if (storedDecking) setDeckingItems(JSON.parse(storedDecking));
-        if (storedCladding) setCladdingItems(JSON.parse(storedCladding));
+
+        if (storedDecking) {
+            try {
+                const parsedDecking = JSON.parse(storedDecking);
+                // Ensure all items have an id
+                const deckingWithIds = parsedDecking.map((item: any, index: number) => ({
+                    ...item,
+                    id: item.id || `Decking-${item.name}-${index}-${Date.now()}`
+                }));
+                setDeckingItems(deckingWithIds);
+            } catch (err) {
+                console.error('Error parsing deckingItems:', err);
+            }
+        }
+
+        if (storedCladding) {
+            try {
+                const parsedCladding = JSON.parse(storedCladding);
+                // Ensure all items have an id
+                const claddingWithIds = parsedCladding.map((item: any, index: number) => ({
+                    ...item,
+                    id: item.id || `Cladding-${item.name}-${index}-${Date.now()}`
+                }));
+                setCladdingItems(claddingWithIds);
+            } catch (err) {
+                console.error('Error parsing claddingItems:', err);
+            }
+        }
     }, []);
 
     const toggleCartVisibility = () => setIsCartVisible((v) => !v);
@@ -58,11 +86,16 @@ export const CartProvider = ({
     };
 
     // ADD THIS FUNCTION
-    const addToCart = (item: CartItem, type: 'Decking' | 'Cladding') => {
+    const addToCart = (item: Omit<CartItem, 'id'>, type: 'Decking' | 'Cladding') => {
+        const itemWithId = {
+            ...item,
+            id: `${type}-${item.name}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+        };
+
         if (type === 'Decking') {
-            setDeckingItems((items) => [...items, item]);
+            setDeckingItems((items) => [...items, itemWithId]);
         } else {
-            setCladdingItems((items) => [...items, item]);
+            setCladdingItems((items) => [...items, itemWithId]);
         }
     };
 
