@@ -52,14 +52,17 @@ const styles = {
     justifyContent: "center",
     cursor: "pointer",
     transition: "all 0.3s ease",
-    fontSize: "50px",
+    fontSize: "20px",
     color: "#333",
   },
   leftButton: {
-    left: "-275px",
+    left: "-265px",
+    transform: "rotate(-90deg)",
+    
   },
   rightButton: {
-    right: "-275px",
+    right: "-265px",
+    transform: "rotate(90deg)",
   },
   arrowBtn: {
     position: "absolute" as const,
@@ -124,7 +127,18 @@ const Section5th: React.FC = () => {
             onClick={goPrev}
             aria-label="Previous slide"
           >
-            ←
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              style={{ width: '80px', height: '80px' }}
+            >
+              <path
+                fillRule="evenodd"
+                d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z"
+                clipRule="evenodd"
+              />
+            </svg>
           </button>
 
           <Swiper
@@ -179,36 +193,25 @@ const Section5th: React.FC = () => {
             onClick={goNext}
             aria-label="Next slide"
           >
-            →
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              style={{ width: '80px', height: '80px' }}
+            >
+              <path
+                fillRule="evenodd"
+                d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z"
+                clipRule="evenodd"
+              />
+            </svg>
           </button>
         </div>
       </div>
       <style jsx global>{`
-        .swiper-button-prev {
-          left: 10px !important;
-        }
-        
+        .swiper-button-prev,
         .swiper-button-next {
-          right: 10px !important;
-        }
-        .swiper-button-next,
-        .swiper-button-prev {
-          color: #000000ff !important;
-          fill: #000000ff !important;
-          top: 50% !important;
-          transform: translateY(-50%) !important;
-          z-index: 1000 !important;
-          background: rgba(255, 255, 255, 0.9) !important;
-          border-radius: 50% !important;
-          width: 40px !important;
-          height: 40px !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-        }
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
-          font-size: 18px !important;
+          display: none !important;
         }
       `}</style>
     </section>
