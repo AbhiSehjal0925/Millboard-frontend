@@ -16,44 +16,46 @@ const Header = () => {
     const isMedium = screenWidth > 768 && screenWidth <= 1024;
 
     return (
-
-
         <section
             style={{
                 position: 'relative',
                 background: '#f2cea4',
-                padding: isSmall ? '40px 0' : isMedium ? '60px 0' : '80px 0',
+                padding: isSmall ? '0' : isMedium ? '60px 0' : '80px 0',
                 height: isSmall ? 'auto' : isMedium ? '70vh' : '78vh',
             }}
         >
             <div
                 style={{
                     display: 'flex',
-                    flexDirection: isMedium ? 'column' : 'row',
-                    justifyContent: isMedium ? 'center' : 'space-between',
+                    flexDirection: isSmall ? 'column' : isMedium ? 'column' : 'row',
+                    justifyContent: isSmall ? 'center' : isMedium ? 'center' : 'space-between',
                     alignItems: 'center',
                     margin: '0 auto',
                     flexWrap: 'wrap',
-                    // padding: isMedium ? '0 15px' : isMedium ? '0 20px' : '0 30px',
-                    textAlign: isMedium ? 'center' : 'left',
-                    maxWidth: '1850px'
+                    textAlign: isSmall ? 'center' : isMedium ? 'center' : 'left',
+                    maxWidth: '1850px',
                 }}
             >
                 {/* Left Column - Text */}
                 <div style={{ flex: isMedium ? '1' : '2' }}>
                     <h2
                         style={{
-                            fontSize: isMedium
-                                ? 'clamp(28px, 6vw, 36px)'
+                            fontSize: isSmall
+                                ? 'clamp(22px, 6vw, 28px)'
                                 : isMedium
-                                    ? 'clamp(36px, 4.5vw, 50px)'
-                                    : 'clamp(42px, 4vw, 64px)',
+                                ? 'clamp(28px, 5vw, 36px)'
+                                : 'clamp(42px, 4vw, 64px)',
                             color: '#000000',
-                            marginBottom: '20px',
+                            marginBottom: isSmall ? '15px' : '20px',
                             lineHeight: '1.4',
-                            margin: isMedium ? '10px 5px' : '20px 20px 20px 50px',
+                            margin: isSmall
+                                ? '30px auto'
+                                : isMedium
+                                ? '10px 5px'
+                                : '20px 20px 20px 50px',
                             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
-                            fontFamily: 'Mansfield, sans-serif'
+                            fontFamily: 'Mansfield, sans-serif',
+                            maxWidth: isSmall ? '90%' : '100%',
                         }}
                     >
                         Moulded from oak to mimic timber, but built to outperform real wood
@@ -61,22 +63,24 @@ const Header = () => {
 
                     <button
                         style={{
-                            padding: isMedium ? '10px 20px' : '12px 24px',
-                            fontSize: isMedium ? '16px' : '20px',
+                            padding: isSmall ? '10px 18px' : isMedium ? '10px 20px' : '12px 24px',
+                            fontSize: isSmall ? '14px' : isMedium ? '16px' : '20px',
                             border: '2px solid white',
                             borderRadius: '30px',
                             backgroundColor: '#d3a069',
                             color: '#ffffffff',
                             cursor: 'pointer',
-                            margin: isMedium
-                                ? '0 0 20px 0'
+                            margin: isSmall
+                                ? '15px auto 25px auto'
                                 : isMedium
-                                    ? '30px 0 200px 50px'
-                                    : '30px 0 200px 50px',
+                                ? '30px 0 200px 50px'
+                                : '30px 0 200px 50px',
+                            display: 'block',
                             transition: 'background-color 0.3s ease',
-                            zIndex: '12121212'
+                            zIndex: '12121212',
                         }}
-                        className='coolBeans'>
+                        className="coolBeans"
+                    >
                         Choose your free sample
                     </button>
                 </div>
@@ -84,22 +88,21 @@ const Header = () => {
                 {/* Right Column - Image */}
                 <div
                     style={{
-                        flex: isMedium ? '1' : '1 1 500px',
+                        flex: isSmall ? '0' : isMedium ? '1' : '1 1 500px',
                         textAlign: 'center',
                         position: 'relative',
-                        left: isMedium ? '0' : isMedium ? '100px' : '300px',
-                        marginTop: isMedium ? '20px' : '0',
+                        left: isSmall ? '0' : isMedium ? '100px' : '300px',
+                        marginTop: isSmall ? '10px' : isMedium ? '20px' : '0',
                     }}
                 >
                     <Image
                         src="/images/Header.webp"
                         alt="Sample"
-                        height={isMedium ? 400 : isMedium ? 600 : 800}
-                        width={isMedium ? 300 : isMedium ? 450 : 600}
+                        height={isSmall ? 250 : isMedium ? 400 : 800}
+                        width={isSmall ? 220 : isMedium ? 450 : 600}
                         style={{
                             objectFit: 'cover',
-                            borderTopRightRadius: isMedium ? '20px' : '30px',
-                            borderBottomRightRadius: isMedium ? '20px' : '30px',
+                            borderRadius: isSmall ? '15px' : isMedium ? '20px' : '30px',
                         }}
                         priority
                     />
@@ -146,32 +149,31 @@ const Header = () => {
             </svg>
 
             <style jsx>{`
-.coolBeans {
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            transition: all 0.4s ease;
-          }
-          .coolBeans::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 300%;
-            height: 100%;
-            background: linear-gradient(120deg, #d3a069, #f5c28f, #d3a069);
-            transition: all 0.4s ease;
-            z-index: -1;
-          }
-          .coolBeans:hover::before {
-            left: 0;
-          }
-          .coolBeans:hover {
-            box-shadow: 0 8px 20px rgba(211, 160, 105, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-          }
-`}</style>
-
+                .coolBeans {
+                    position: relative;
+                    overflow: hidden;
+                    z-index: 1;
+                    transition: all 0.4s ease;
+                }
+                .coolBeans::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 300%;
+                    height: 100%;
+                    background: linear-gradient(120deg, #d3a069, #f5c28f, #d3a069);
+                    transition: all 0.4s ease;
+                    z-index: -1;
+                }
+                .coolBeans:hover::before {
+                    left: 0;
+                }
+                .coolBeans:hover {
+                    box-shadow: 0 8px 20px rgba(211, 160, 105, 0.2);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+            `}</style>
         </section>
     );
 };
