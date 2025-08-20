@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const accordionData = [
     {
@@ -25,6 +25,17 @@ const accordionData = [
 
 const Section5 = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const [windowWidth, setWindowWidth] = useState<number>(0);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        handleResize(); // Run once on mount
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const isTablet = windowWidth <= 1024;
+    const isMobile = windowWidth <= 768;
 
     const handleAccordion = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -37,8 +48,8 @@ const Section5 = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '120px 20px',
-                gap: '80px',
+                padding: isMobile ? '60px 16px' : isTablet ? '80px 20px' : '120px 20px',
+                gap: isMobile ? '40px' : isTablet ? '60px' : '80px',
                 width: '100%',
                 boxSizing: 'border-box',
                 backgroundColor: '#fafafa'
@@ -47,7 +58,7 @@ const Section5 = () => {
             <div
                 style={{
                     fontWeight: 600,
-                    fontSize: '48px',
+                    fontSize: isMobile ? '32px' : isTablet ? '40px' : '48px',
                     lineHeight: 1.2,
                     color: '#1a1a1a',
                     textAlign: 'center',
@@ -63,9 +74,10 @@ const Section5 = () => {
                     width: '100%',
                     maxWidth: '1747px',
                     display: 'flex',
-                    gap: '80px',
+                    flexDirection: isMobile ? 'column' : 'row',
+                    gap: isMobile ? '40px' : isTablet ? '60px' : '80px',
                     justifyContent: 'center',
-                    alignItems: 'flex-start',
+                    alignItems: isMobile ? 'center' : 'flex-start',
                     flexWrap: 'wrap',
                     boxSizing: 'border-box'
                 }}
@@ -74,7 +86,7 @@ const Section5 = () => {
                 <div
                     style={{
                         width: '100%',
-                        maxWidth: '600px',
+                        maxWidth: isMobile ? '100%' : '600px',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -83,14 +95,14 @@ const Section5 = () => {
                     <div
                         style={{
                             width: '100%',
-                            maxWidth: '1000px',
-                            aspectRatio: '6 / 7',
+                            maxWidth: isMobile ? '400px' : '1000px',
+                            aspectRatio: isMobile ? '4 / 5' : '6 / 7',
                             backgroundImage: "url('/images/section5Img1.png')",
                             backgroundPosition: 'center',
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat',
-                            borderRadius: '20px',
-                            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)'
+                            borderRadius: isMobile ? '16px' : '20px',
+                            boxShadow: isMobile ? '0 10px 20px rgba(0, 0, 0, 0.1)' : '0 20px 40px rgba(0, 0, 0, 0.1)'
                         }}
                     />
                 </div>
@@ -99,11 +111,11 @@ const Section5 = () => {
                 <div
                     style={{
                         flex: 1,
-                        minWidth: '400px',
+                        minWidth: isMobile ? '100%' : '400px',
                         width: '100%',
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '16px'
+                        gap: isMobile ? '12px' : '16px'
                     }}
                 >
                     {accordionData.map((item, idx) => (
@@ -128,9 +140,9 @@ const Section5 = () => {
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
-                                    padding: '28px 32px',
+                                    padding: isMobile ? '20px 24px' : isTablet ? '24px 28px' : '28px 32px',
                                     color: openIndex === idx ? '#1f2937' : 'white',
-                                    fontSize: '16px',
+                                    fontSize: isMobile ? '14px' : '16px',
                                     fontWeight: 500,
                                     textAlign: 'left',
                                     background: openIndex === idx ? '#f0f0f0' : '#6d6d6d',
@@ -183,8 +195,8 @@ const Section5 = () => {
                             >
                                 <div
                                     style={{
-                                        padding: '32px',
-                                        fontSize: '15px',
+                                        padding: isMobile ? '20px 24px' : isTablet ? '24px 28px' : '32px',
+                                        fontSize: isMobile ? '14px' : '15px',
                                         color: '#4b5563',
                                         lineHeight: 1.6,
                                         backgroundColor: '#ffffff'

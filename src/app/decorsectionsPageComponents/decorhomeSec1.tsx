@@ -1,4 +1,19 @@
+import { useEffect, useState } from "react";
+
 export default function DecorhomeSec1() {
+
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize(); // Run once on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isTablet = windowWidth <= 1024;
+  const isMobile = windowWidth <= 600;
+
   return (
     <section
       style={{
@@ -8,19 +23,19 @@ export default function DecorhomeSec1() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "800px",
+        minHeight: isTablet ? "400px" : "650px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
-        height: "87vh",
+        height: "100%",
       }}
     >
       <div
         style={{
           padding: "0 16px",
           maxWidth: "800px",
-          marginBottom: "150px",
+          marginBottom: isTablet ? "0" : "150px",
         }}
       >
         <h1
@@ -80,9 +95,6 @@ export default function DecorhomeSec1() {
             min-height: 600px;
             height: auto;
             padding: 60px 0 120px;
-          }
-          div {
-            margin-bottom: 80px;
           }
         }
       `}</style>

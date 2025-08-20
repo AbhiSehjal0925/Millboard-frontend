@@ -68,6 +68,7 @@ const Header = () => {
                         marginBottom: '1rem',
                         color: '#333333',
                         textDecoration: 'underline',
+                        marginTop: isMobile ? '20px' : '0',
                     }}
                 >
                     We&apos;ve got your order
@@ -122,7 +123,7 @@ const Header = () => {
             <style jsx>{`
   @media (max-width: 600px) {
     header {
-      padding: 3rem 0.5rem !important;
+      padding: 3rem 1rem !important;
     }
     .thankyou-content {
       max-width: 100% !important;
@@ -144,8 +145,8 @@ const Header = () => {
     }
     .thankyou-breadcrumb {
       font-size: 12px !important;
-      top: 10px !important;
-      left: 10px !important;
+      top: 20px !important;
+      left: 20px !important;
     }
   }
 `}</style>

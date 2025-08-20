@@ -61,7 +61,7 @@ const section2imgStyle: React.CSSProperties = {
   maxHeight: isMobile ? '320px' : isTablet ? '360px' : '620px', 
   minHeight: isMobile ? '220px' : isTablet ? '240px' : '280px', // ⬅ raised minHeight
   backgroundSize: 'cover',   // fill box
-  backgroundPosition: 'center', 
+  backgroundPosition: isMobile ? 'contain' : 'center', 
   marginLeft: isTablet ? '0' : '40px',
 };
 

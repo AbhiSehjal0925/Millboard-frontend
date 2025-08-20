@@ -25,7 +25,7 @@ export default function Section8() {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                paddingBottom: "250px",
+                paddingBottom: isMobile ? "50px" : "300px",
                 position: "relative",
             }}
         >
@@ -76,7 +76,7 @@ export default function Section8() {
                             height={300}
                             style={{
                                 width: "100%",
-                                height: "550px",
+                                height: isTablet ? "350px" : "550px",
                                 maxWidth: "500px",
                             }}
                         />
@@ -141,7 +141,7 @@ export default function Section8() {
                             height={300}
                             style={{
                                 width: "100%",
-                                height: "550px",
+                                height: isTablet ? "350px" : "550px",
                                 maxWidth: "500px",
                             }}
                         />
@@ -200,6 +200,7 @@ export default function Section8() {
                     position: 'absolute',
                     bottom: '0px',
                     zIndex: '121',
+                    display: isMobile ? 'block' : 'none',
                 }}
             >
                 <path
@@ -214,7 +215,8 @@ export default function Section8() {
                 style={{
                     position: 'absolute',
                     bottom: '0px',
-                    maxHeight: '500px'
+                    maxHeight: '500px',
+                    display: isMobile ? 'none' : 'block',
                 }}
             >
                 <g filter="url(#filter0_d_190_2)">

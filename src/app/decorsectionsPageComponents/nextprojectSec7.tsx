@@ -79,7 +79,7 @@ export default function NextProject() {
               height={300}
               style={{
                 width: "100%",
-                height: "550px",
+                height: isTablet ? "350px" : "550px",
                 maxWidth: "500px",
               }}
             />
@@ -145,7 +145,7 @@ export default function NextProject() {
               height={300}
               style={{
                 width: "100%",
-                height: "550px",
+                height: isTablet ? "350px" : "550px",
                 maxWidth: "500px",
               }}
             />

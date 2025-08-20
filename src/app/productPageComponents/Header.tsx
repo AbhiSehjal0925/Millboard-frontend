@@ -36,6 +36,8 @@ const Header = () => {
     ];
 
     const [thumbsSwiper, setThumbsSwiper] = React.useState<SwiperClass | null>(null);
+    const [mainSwiper, setMainSwiper] = React.useState<SwiperClass | null>(null);
+    const [activeSlideIndex, setActiveSlideIndex] = React.useState(0);
     const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
     const [selectedWidth, setSelectedWidth] = React.useState<string | null>(null);
     const [scrollProgress, setScrollProgress] = React.useState(0);
@@ -94,6 +96,8 @@ const Header = () => {
                         modules={[Navigation, Thumbs]}
                         navigation
                         thumbs={{ swiper: thumbsSwiper }}
+                        onSwiper={setMainSwiper}
+                        onSlideChange={(swiper) => setActiveSlideIndex(swiper.activeIndex)}
                         style={{
                             width: '100%',
                             maxWidth: '100%',
@@ -148,9 +152,15 @@ const Header = () => {
                                     borderRadius: '12px',
                                     background: '#fff',
                                     overflow: 'hidden',
-                                    border: '2px solid transparent',
+                                    border: activeSlideIndex === i ? '4px solid #D3A069' : '2px solid transparent',
                                     transition: 'border-color 0.3s ease',
                                     flexShrink: 0,
+                                    cursor: 'pointer',
+                                }}
+                                onClick={() => {
+                                    if (mainSwiper) {
+                                        mainSwiper.slideTo(i);
+                                    }
                                 }}
                             >
                                 <Image
@@ -430,6 +440,20 @@ const Header = () => {
                     color: #fff !important;
                     fill: #fff !important;
                 }
+                
+                /* Small screens - decrease navigation button size */
+                @media (max-width: 600px) {
+                    .swiper-button-next,
+                    .swiper-button-prev {
+                        width: 40px !important;
+                        height: 40px !important;
+                    }
+                    .swiper-button-next::after,
+                    .swiper-button-prev::after {
+                        font-size: 18px !important;
+                    }
+                }
+                
                 .product-header-btn {
                     transition: transform 0.15s cubic-bezier(.4,0,.2,1), box-shadow 0.15s cubic-bezier(.4,0,.2,1);
                 }
