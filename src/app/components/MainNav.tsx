@@ -76,7 +76,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     color: '#000000ff',
     boxShadow: isSmall ? 'rgba(0, 0, 0, 0.1) 1px 1px 2px' : 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
     position: 'fixed',
-    top: showNavbar ? '0' : `-${headerHeight + 30}px`, // Add extra 10px to ensure complete hiding
+    top: showNavbar ? '0' : `-${headerHeight + 35}px`, // Add extra 10px to ensure complete hiding
     width: '100vw',
     zIndex: '111113310',
     transition: 'top 0.3s ease-in-out',
