@@ -46,7 +46,6 @@ const Section4th: React.FC = () => {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    opacity: 0.8,
     position: "relative",
     marginLeft: isMobile ? '0' : '36px'
   };
@@ -55,6 +54,7 @@ const Section4th: React.FC = () => {
     background: "url('/png/playBtn.png') center / cover no-repeat",
     width: "60px", // smaller for mobile
     height: "60px",
+    cursor: "pointer",
   };
 
   const yellowBarStyle: React.CSSProperties = {

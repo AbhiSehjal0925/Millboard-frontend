@@ -84,7 +84,7 @@ const styles = {
   },
   card: {
     width: "100%",
-    maxWidth: "350px",
+    maxWidth: "400px",
     minWidth: "260px",
     background: "#fff",
     borderRadius: "26px",

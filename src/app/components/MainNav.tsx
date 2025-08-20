@@ -78,7 +78,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     position: 'fixed',
     top: showNavbar ? '0' : `-${headerHeight + 10}px`, // Add extra 10px to ensure complete hiding
     width: '100vw',
-    zIndex: '11111',
+    zIndex: '111113310',
     transition: 'top 0.3s ease-in-out',
     marginTop: '0', // Eliminate any gap between UpperNav and MainNav
     lineHeight: '1', // Ensure no line height gaps
