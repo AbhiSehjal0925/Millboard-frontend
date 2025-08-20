@@ -2,12 +2,91 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import UpperNav from './upperNav';
 
+// Define the navigation data structure
+interface NavItem {
+  id: string;
+  label: string;
+  route: string;
+  isMainLink: boolean;
+}
+
+interface NavColors {
+  background: string;
+  text: string;
+  activeLink: string;
+  button: string;
+  buttonText: string;
+  buttonBorder: string;
+  dropdownBackground: string;
+  dropdownShadow: string;
+  mobileBorder: string;
+}
+
+interface NavBreakpoints {
+  small: number;
+}
+
+interface MainNavData {
+  logo: {
+    src: string;
+    alt: string;
+    smallWidth: number;
+    smallHeight: number;
+    largeWidth: number;
+    largeHeight: number;
+  };
+  colors: NavColors;
+  breakpoints: NavBreakpoints;
+  navigation: NavItem[];
+  buttonText: string;
+  dropdownLabel: string;
+}
+
+// Default navigation data (fallback)
+const defaultNavData: MainNavData = {
+  logo: {
+    src: '/images/mainlogo.png',
+    alt: 'Millboard Logo',
+    smallWidth: 140,
+    smallHeight: 35,
+    largeWidth: 160,
+    largeHeight: 40
+  },
+  colors: {
+    background: '#efcfac',
+    text: '#000000ff',
+    activeLink: '#D3A069',
+    button: '#D3A069',
+    buttonText: 'white',
+    buttonBorder: 'white',
+    dropdownBackground: '#fff',
+    dropdownShadow: '0 4px 8px rgba(0,0,0,0.1)',
+    mobileBorder: '#d3a069'
+  },
+  breakpoints: {
+    small: 768
+  },
+  navigation: [
+    { id: 'home', label: 'Home', route: 'home', isMainLink: true },
+    { id: 'product', label: 'Product', route: 'product', isMainLink: true },
+    { id: 'decor', label: 'Decor', route: 'decor', isMainLink: true },
+    { id: 'thankyou', label: 'Thank You', route: 'thankyou', isMainLink: false },
+    { id: 'basket', label: 'Basket', route: 'basket', isMainLink: false },
+    { id: 'order', label: 'Order', route: 'order', isMainLink: false },
+    { id: 'showrooms', label: 'Showrooms', route: 'showrooms', isMainLink: false },
+    { id: 'blogs', label: 'Blogs', route: 'blogs', isMainLink: false }
+  ],
+  buttonText: 'Request free sample',
+  dropdownLabel: 'More ▾'
+};
+
 interface MainNavProps {
   onNavigate: (route: string) => void;
   current: string;
+  navData?: MainNavData;
 }
 
-const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
+const MainNav: React.FC<MainNavProps> = ({ onNavigate, current, navData = defaultNavData }) => {
   const [screenWidth, setScreenWidth] = useState(1920);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -53,7 +132,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     };
   }, []);
 
-  const isSmall = screenWidth <= 768;
+  const isSmall = screenWidth <= navData.breakpoints.small;
 
   const handleRequestSample = () => {
     onNavigate('order');
@@ -72,8 +151,8 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
   const headerHeight = isSmall ? 72 : 112; // Further reduced for small screens to eliminate white space
 
   const headerStyle: React.CSSProperties = {
-    backgroundColor: '#efcfac',
-    color: '#000000ff',
+    backgroundColor: navData.colors.background,
+    color: navData.colors.text,
     boxShadow: isSmall ? 'rgba(0, 0, 0, 0.1) 1px 1px 2px' : 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
     position: 'fixed',
     top: showNavbar ? '0' : `-${headerHeight + 35}px`, // Add extra 10px to ensure complete hiding
@@ -112,7 +191,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
     border: 'none',
     cursor: 'pointer',
     fontSize: isSmall ? '16px' : '20px',
-    color: '#000000ff',
+    color: navData.colors.text,
     padding: isSmall ? '6px 0px' : '4px 0px',
     transition: 'all 0.3s ease',
     position: 'relative',
@@ -143,7 +222,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
   const mobileMenuIconStyle: React.CSSProperties = {
     width: '24px',
     height: '3px',
-    backgroundColor: '#000000ff',
+    backgroundColor: navData.colors.text,
     margin: '3px 0',
     transition: '0.3s',
     transform: mobileMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
@@ -152,7 +231,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
   const mobileMenuIconStyle2: React.CSSProperties = {
     width: '24px',
     height: '3px',
-    backgroundColor: '#000000ff',
+    backgroundColor: navData.colors.text,
     margin: '3px 0',
     transition: '0.3s',
     opacity: mobileMenuOpen ? 0 : 1,
@@ -161,18 +240,18 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
   const mobileMenuIconStyle3: React.CSSProperties = {
     width: '24px',
     height: '3px',
-    backgroundColor: '#000000ff',
+    backgroundColor: navData.colors.text,
     margin: '3px 0',
     transition: '0.3s',
     transform: mobileMenuOpen ? 'rotate(-45deg) translate(7px, -6px)' : 'none',
   };
 
   const sampleButtonStyle: React.CSSProperties = {
-    backgroundColor: '#D3A069',
-    color: 'white',
+    backgroundColor: navData.colors.button,
+    color: navData.colors.buttonText,
     padding: isSmall ? '8px 14px' : '10px 20px',
     borderRadius: '9999px',
-    border: '2px solid white',
+    border: `2px solid ${navData.colors.buttonBorder}`,
     fontSize: isSmall ? '16px' : '20px',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
@@ -183,12 +262,11 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
   };
 
   const onActiveLink: React.CSSProperties = {
-    color: '#D3A069',
+    color: navData.colors.activeLink,
   };
 
-  const navItems = ['home', 'product', 'decor', 'thankyou', 'basket', 'order', 'showrooms', 'blogs'];
-  const mainLinks = navItems.slice(0, 3);
-  const dropdownLinks = navItems.slice(3);
+  const mainLinks = navData.navigation.filter(item => item.isMainLink);
+  const dropdownLinks = navData.navigation.filter(item => !item.isMainLink);
 
   return (
     <>
@@ -209,10 +287,10 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
           {/* Logo */}
           <div style={logoContainerStyle}>
             <Image
-              src="/images/mainlogo.png"
-              alt="Millboard Logo"
-              width={isSmall ? 140 : 160}
-              height={isSmall ? 35 : 40}
+              src={navData.logo.src}
+              alt={navData.logo.alt}
+              width={isSmall ? navData.logo.smallWidth : navData.logo.largeWidth}
+              height={isSmall ? navData.logo.smallHeight : navData.logo.largeHeight}
               style={{ display: 'block', margin: '0 auto' }}
               priority
             />
@@ -221,16 +299,16 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
           {/* Desktop Navigation */}
           <ul style={navLinksStyle}>
             {mainLinks.map((item) => (
-              <li key={item} style={{ listStyle: 'none' }}>
+              <li key={item.id} style={{ listStyle: 'none' }}>
                 <button
-                  onClick={() => onNavigate(item)}
+                  onClick={() => onNavigate(item.route)}
                   style={{
                     ...linkButtonStyle,
-                    color: current === item ? onActiveLink.color : linkButtonStyle.color,
+                    color: current === item.route ? onActiveLink.color : linkButtonStyle.color,
                   }}
                   className="nav-link-btn underline-hover"
                 >
-                  {item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
+                  {item.label}
                 </button>
               </li>
             ))}
@@ -242,7 +320,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
                 className="nav-link-btn underline-hover"
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               >
-                More ▾
+                {navData.dropdownLabel}
               </button>
               {dropdownOpen && (
                 <ul
@@ -250,20 +328,20 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
                     position: 'absolute',
                     top: '120%',
                     left: 0,
-                    background: '#fff',
+                    background: navData.colors.dropdownBackground,
                     padding: '10px 8px',
                     margin: 0,
                     listStyle: 'none',
-                    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+                    boxShadow: navData.colors.dropdownShadow,
                     minWidth: '150px',
                     zIndex: 9999,
                   }}
                 >
                   {dropdownLinks.map((item) => (
-                    <li key={item}>
+                    <li key={item.id}>
                       <button
                         onClick={() => {
-                          onNavigate(item);
+                          onNavigate(item.route);
                           setDropdownOpen(false);
                         }}
                         style={{
@@ -276,7 +354,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
                         }}
                         className="nav-link-btn"
                       >
-                        {item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
+                        {item.label}
                       </button>
                     </li>
                   ))}
@@ -290,7 +368,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
             style={sampleButtonStyle}
             className="sample-btn coolBeans"
           >
-            Request free sample
+            {navData.buttonText}
           </button>
         </nav>
 
@@ -299,48 +377,48 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
           <div
             style={{
               width: '100vw',
-              backgroundColor: '#efcfac',
+              backgroundColor: navData.colors.background,
               boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
               zIndex: 1000,
               padding: '20px',
-              borderTop: '1px solid #d3a069',
+              borderTop: `1px solid ${navData.colors.mobileBorder}`,
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               {/* Main Navigation Links */}
               {mainLinks.map((item) => (
                 <button
-                  key={item}
-                  onClick={() => handleMobileNavigation(item)}
+                  key={item.id}
+                  onClick={() => handleMobileNavigation(item.route)}
                   style={{
                     ...linkButtonStyle,
-                    color: current === item ? onActiveLink.color : linkButtonStyle.color,
+                    color: current === item.route ? onActiveLink.color : linkButtonStyle.color,
                     fontSize: '18px',
                     padding: '12px 0',
                     textAlign: 'left',
-                    borderBottom: '1px solid #d3a069',
+                    borderBottom: `1px solid ${navData.colors.mobileBorder}`,
                     width: '100%',
                   }}
                 >
-                  {item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
+                  {item.label}
                 </button>
               ))}
 
               {/* Dropdown Links */}
               {dropdownLinks.map((item) => (
                 <button
-                  key={item}
-                  onClick={() => handleMobileNavigation(item)}
+                  key={item.id}
+                  onClick={() => handleMobileNavigation(item.route)}
                   style={{
                     ...linkButtonStyle,
                     fontSize: '18px',
                     padding: '12px 0',
                     textAlign: 'left',
-                    borderBottom: '1px solid #d3a069',
+                    borderBottom: `1px solid ${navData.colors.mobileBorder}`,
                     width: '100%',
                   }}
                 >
-                  {item.charAt(0).toUpperCase() + item.slice(1).replace('-', ' ')}
+                  {item.label}
                 </button>
               ))}
 
@@ -357,7 +435,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current }) => {
                 }}
                 className="sample-btn coolBeans"
               >
-                Request free sample
+                {navData.buttonText}
               </button>
             </div>
           </div>

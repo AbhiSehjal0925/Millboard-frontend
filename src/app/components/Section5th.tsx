@@ -5,100 +5,93 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
-const styles = {
-  section: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "40px 16px",
-    position: "relative" as const,
+// Define the section data structure
+interface Section5Data {
+  heading: string;
+  colors: {
+    text: string;
+    background: string;
+    border: string;
+    shadow: string;
+    button: string;
+  };
+  layout: {
+    maxWidth: string;
+    gap: string;
+    padding: string;
+  };
+  navigation: {
+    buttonSize: string;
+    leftPosition: string;
+    rightPosition: string;
+    arrowSize: string;
+  };
+  card: {
+    maxWidth: string;
+    minWidth: string;
+    borderRadius: string;
+    padding: string;
+    borderWidth: string;
+  };
+  swiper: {
+    spaceBetween: number;
+    breakpoints: {
+      mobile: { slidesPerView: number };
+      tablet: { slidesPerView: number };
+      desktop: { slidesPerView: number };
+    };
+  };
+  testimonials: {
+    count: number;
+  };
+}
+
+// Default section data (fallback)
+const defaultSection5Data: Section5Data = {
+  heading: "Our trusted supporters",
+  colors: {
+    text: "#1E1E1E",
+    background: "#fff",
+    border: "#0000001a",
+    shadow: "px 4px 10px 0px #00000033",
+    button: "#333"
   },
-  container: {
-    width: "100%",
+  layout: {
     maxWidth: "1200px",
-    display: "flex",
-    flexDirection: "column" as const,
-    justifyContent: "center",
-    alignItems: "center",
     gap: "32px",
-    position: "relative" as const,
+    padding: "40px 16px"
   },
-  heading: {
-    fontFamily: "Mansfield, sans-serif",
-    fontWeight: 500,
-    fontSize: "1.8rem",
-    color: "#1E1E1E",
-    textTransform: "capitalize" as const,
-    textAlign: "center" as const,
-    marginTop: "20px",
-    lineHeight: 1.2,
-  },
-  cardsWrapper: {
-    position: "relative" as const,
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    cursor: 'grab',
-  },
-  customNavButton: {
-    position: "absolute" as const,
-    top: "50%",
-    transform: "translateY(-50%)",
-    zIndex: 1000,
-    width: "50px",
-    height: "50px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    cursor: "pointer",
-    transition: "all 0.3s ease",
-    fontSize: "20px",
-    color: "#333",
-  },
-  leftButton: {
-    left: "-265px",
-    transform: "rotate(-90deg)",
-    
-  },
-  rightButton: {
-    right: "-265px",
-    transform: "rotate(90deg)",
-  },
-  arrowBtn: {
-    position: "absolute" as const,
-    top: "50%",
-    transform: "translateY(-50%)",
-    zIndex: 10,
-    padding: "8px",
-    border: "none",
-    cursor: "pointer",
-    transition: "transform 0.2s",
-  },
-  cardsRow: {
-    display: "flex",
-    flexWrap: "wrap" as const,
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "24px",
-    width: "100%",
+  navigation: {
+    buttonSize: "50px",
+    leftPosition: "-150px",
+    rightPosition: "-150px",
+    arrowSize: "80px"
   },
   card: {
-    width: "100%",
     maxWidth: "400px",
     minWidth: "260px",
-    background: "#fff",
     borderRadius: "26px",
-    boxShadow: "px 4px 10px 0px #00000033",
-    border: "2px solid #0000001a",
-    display: "flex",
-    flexDirection: "column" as const,
-    alignItems: "center",
-    justifyContent: "center",
     padding: "20px",
+    borderWidth: "2px"
   },
+  swiper: {
+    spaceBetween: 24,
+    breakpoints: {
+      mobile: { slidesPerView: 1 },
+      tablet: { slidesPerView: 2 },
+      desktop: { slidesPerView: 3 }
+    }
+  },
+  testimonials: {
+    count: 6
+  }
 };
 
-const Section5th: React.FC = () => {
+interface Section5Props {
+  sectionData?: Section5Data;
+}
+
+const Section5th: React.FC<Section5Props> = ({ sectionData = defaultSection5Data }) => {
   const swiperRef = useRef<any>(null);
 
   const goNext = () => {
@@ -113,11 +106,103 @@ const Section5th: React.FC = () => {
     }
   };
 
+  const styles = {
+    section: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: sectionData.layout.padding,
+      position: "relative" as const,
+    },
+    container: {
+      width: "100%",
+      maxWidth: sectionData.layout.maxWidth,
+      display: "flex",
+      flexDirection: "column" as const,
+      justifyContent: "center",
+      alignItems: "center",
+      gap: sectionData.layout.gap,
+      position: "relative" as const,
+    },
+    heading: {
+      fontFamily: "Mansfield, sans-serif",
+      fontWeight: 500,
+      fontSize: "1.8rem",
+      color: sectionData.colors.text,
+      textTransform: "capitalize" as const,
+      textAlign: "center" as const,
+      marginTop: "20px",
+      lineHeight: 1.2,
+    },
+    cardsWrapper: {
+      position: "relative" as const,
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      cursor: 'grab',
+    },
+    customNavButton: {
+      position: "absolute" as const,
+      top: "50%",
+      transform: "translateY(-50%)",
+      zIndex: 1000,
+      width: sectionData.navigation.buttonSize,
+      height: sectionData.navigation.buttonSize,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+      fontSize: "20px",
+      color: sectionData.colors.button,
+    },
+    leftButton: {
+      left: sectionData.navigation.leftPosition,
+      transform: "rotate(-90deg)",
+    },
+    rightButton: {
+      right: sectionData.navigation.rightPosition,
+      transform: "rotate(90deg)",
+    },
+    arrowBtn: {
+      position: "absolute" as const,
+      top: "50%",
+      transform: "translateY(-50%)",
+      zIndex: 10,
+      padding: "8px",
+      border: "none",
+      cursor: "pointer",
+      transition: "transform 0.2s",
+    },
+    cardsRow: {
+      display: "flex",
+      flexWrap: "wrap" as const,
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "24px",
+      width: "100%",
+    },
+    card: {
+      width: "100%",
+      maxWidth: sectionData.card.maxWidth,
+      minWidth: sectionData.card.minWidth,
+      background: sectionData.colors.background,
+      borderRadius: sectionData.card.borderRadius,
+      boxShadow: sectionData.colors.shadow,
+      border: `${sectionData.card.borderWidth} solid ${sectionData.colors.border}`,
+      display: "flex",
+      flexDirection: "column" as const,
+      alignItems: "center",
+      justifyContent: "center",
+      padding: sectionData.card.padding,
+    },
+  };
+
   return (
     <section style={styles.section}>
       <div style={styles.container}>
         {/* Heading */}
-        <h2 style={styles.heading}>Our trusted supporters</h2>
+        <h2 style={styles.heading}>{sectionData.heading}</h2>
 
         {/* Cards Wrapper */}
         <div style={styles.cardsWrapper}>
@@ -131,7 +216,7 @@ const Section5th: React.FC = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
               fill="currentColor"
-              style={{ width: '80px', height: '80px' }}
+              style={{ width: sectionData.navigation.arrowSize, height: sectionData.navigation.arrowSize }}
             >
               <path
                 fillRule="evenodd"
@@ -145,46 +230,22 @@ const Section5th: React.FC = () => {
             ref={swiperRef}
             modules={[Navigation]}
             navigation={false}
-            spaceBetween={24}
+            spaceBetween={sectionData.swiper.spaceBetween}
             slidesPerView={1}
             breakpoints={{
-              640: { slidesPerView: 1 },
-              900: { slidesPerView: 2 },
-              1200: { slidesPerView: 3 },
+              640: { slidesPerView: sectionData.swiper.breakpoints.mobile.slidesPerView },
+              900: { slidesPerView: sectionData.swiper.breakpoints.tablet.slidesPerView },
+              1200: { slidesPerView: sectionData.swiper.breakpoints.desktop.slidesPerView },
             }}
             style={{ width: "100%" }}
           >
-            <SwiperSlide>
-              <div style={styles.card}>
-                <TestimonialsCard />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div style={styles.card}>
-                <TestimonialsCard />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div style={styles.card}>
-                <TestimonialsCard />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div style={styles.card}>
-                <TestimonialsCard />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div style={styles.card}>
-                <TestimonialsCard />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div style={styles.card}>
-                <TestimonialsCard />
-              </div>
-            </SwiperSlide>
-            {/* Add more <SwiperSlide> as needed */}
+            {Array.from({ length: sectionData.testimonials.count }, (_, index) => (
+              <SwiperSlide key={index}>
+                <div style={styles.card}>
+                  <TestimonialsCard />
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
 
           {/* Custom Right Navigation Button */}
@@ -197,7 +258,7 @@ const Section5th: React.FC = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
               fill="currentColor"
-              style={{ width: '80px', height: '80px' }}
+              style={{ width: sectionData.navigation.arrowSize, height: sectionData.navigation.arrowSize }}
             >
               <path
                 fillRule="evenodd"
