@@ -145,7 +145,7 @@ const UpperNav: React.FC<UpperNavProps> = ({ navData = defaultUpperNavData }) =>
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       // Hide UpperNav when scrolling down, show when scrolling up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setShowUpperNav(false);
         setIsUpperNavVisible(false);
       } else if (currentScrollY < lastScrollY) {
@@ -190,7 +190,7 @@ const UpperNav: React.FC<UpperNavProps> = ({ navData = defaultUpperNavData }) =>
     boxShadow: showUpperNav ? (isMobile ? navData.shadows.mobile : navData.shadows.desktop) : 'none',
     marginBottom: '0',
     margin: '0',
-    transition: 'top 0.3s ease-in-out',
+    transition: 'top 0.1s cubic-bezier(0.4, 0, 0.2, 1)',
     height: isMobile ? '40px' : '48px' // Fixed height to ensure consistency
   };
 
