@@ -88,10 +88,9 @@ interface MainNavProps {
 
 const MainNav: React.FC<MainNavProps> = ({ onNavigate, current, navData = defaultNavData }) => {
   const [screenWidth, setScreenWidth] = useState(1920);
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [upperNavVisible, setUpperNavVisible] = useState(true);
 
   // Ref for dropdown
   const dropdownRef = useRef<HTMLLIElement>(null);
@@ -103,13 +102,12 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current, navData = defaul
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      // Show navbar when scrolling up, hide when scrolling down
-      if (currentScrollY > lastScrollY && currentScrollY > 400) {
-        setShowNavbar(false);
-      } else if (currentScrollY < lastScrollY) {
-        setShowNavbar(true);
+      // Track UpperNav visibility based on scroll
+      if (currentScrollY > 100) {
+        setUpperNavVisible(false);
+      } else {
+        setUpperNavVisible(true);
       }
-      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -117,7 +115,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current, navData = defaul
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -155,12 +153,12 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current, navData = defaul
     color: navData.colors.text,
     boxShadow: isSmall ? 'rgba(0, 0, 0, 0.1) 1px 1px 2px' : 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
     position: 'fixed',
-    top: showNavbar ? '0' : `-${headerHeight + 35}px`, // Add extra 10px to ensure complete hiding
+    top: upperNavVisible ? '47px' : '0',
     width: '100vw',
     zIndex: '111113310',
-    transition: 'top 0.3s ease-in-out',
-    marginTop: '0', // Eliminate any gap between UpperNav and MainNav
+    marginTop: '0',
     lineHeight: '1', // Ensure no line height gaps
+    transition: 'top 0.3s ease-in-out'
   };
 
   const navStyle: React.CSSProperties = {

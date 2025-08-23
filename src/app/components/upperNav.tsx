@@ -129,6 +129,8 @@ const UpperNav: React.FC<UpperNavProps> = ({ navData = defaultUpperNavData }) =>
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [isMobile, setIsMobile] = useState(false);
   const [paused, setPaused] = useState(false);
+  const [showUpperNav, setShowUpperNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const marqueeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -137,8 +139,24 @@ const UpperNav: React.FC<UpperNavProps> = ({ navData = defaultUpperNavData }) =>
     };
     handleResize();
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [navData.breakpoints.mobile]);
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      // Hide UpperNav when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowUpperNav(false);
+      } else if (currentScrollY < lastScrollY) {
+        setShowUpperNav(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [navData.breakpoints.mobile, lastScrollY]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -158,13 +176,17 @@ const UpperNav: React.FC<UpperNavProps> = ({ navData = defaultUpperNavData }) =>
     alignItems: "center",
     justifyContent: isMobile ? "center" : "space-between",
     fontSize: isMobile ? navData.layout.fontSize.mobile : navData.layout.fontSize.desktop,
-    position: "relative",
-    zIndex: 1,
+    position: "fixed",
+    top: showUpperNav ? '0' : '-100px',
+    left: 0,
+    right: 0,
+    zIndex: 111113311,
     overflow: "hidden",
     whiteSpace: "nowrap",
     boxShadow: isMobile ? navData.shadows.mobile : navData.shadows.desktop,
     marginBottom: '0',
-    margin: '0 auto'
+    margin: '0 auto',
+    transition: 'top 0.3s ease-in-out'
   };
 
   const infoTextStyle: React.CSSProperties = {
