@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
-import { UpperNavProvider } from "./context/UpperNavContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,9 +26,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <UpperNavProvider>
-          {children}
-        </UpperNavProvider>
+        {children}
       </body>
     </html>
   );
