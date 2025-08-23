@@ -22,6 +22,11 @@ interface HeaderData {
     };
 }
 
+// Header component props
+interface HeaderProps {
+    onNavigate: (route: string) => void;
+}
+
 // Header data
 const headerData: HeaderData = {
     title: 'Moulded from oak to mimic timber, but built to outperform real wood',
@@ -43,7 +48,7 @@ const headerData: HeaderData = {
     }
 };
 
-const Header = () => {
+const Header = ({ onNavigate }: HeaderProps) => {
     const [screenWidth, setScreenWidth] = useState(1920);
 
     useEffect(() => {
@@ -56,6 +61,11 @@ const Header = () => {
     // Breakpoints
     const isSmall = screenWidth <= headerData.breakpoints.small;
     const isMedium = screenWidth > headerData.breakpoints.small && screenWidth <= headerData.breakpoints.medium;
+
+    // Handle button click to navigate to order page
+    const handleSampleButtonClick = () => {
+        onNavigate('order');
+    };
 
     return (
         <section
@@ -122,6 +132,7 @@ const Header = () => {
                             zIndex: '12121212',
                         }}
                         className="coolBeans"
+                        onClick={handleSampleButtonClick}
                     >
                         {headerData.buttonText}
                     </button>

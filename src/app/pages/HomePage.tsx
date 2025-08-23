@@ -7,7 +7,11 @@ import Section4th from '../components/Section4th';
 import Section5th from '../components/Section5th';
 import Section6th from '../components/Section6th';
 
-const HomePage = () => {
+interface HomePageProps {
+    onNavigate: (route: string) => void;
+}
+
+const HomePage = ({ onNavigate }: HomePageProps) => {
     const [screenWidth, setScreenWidth] = useState(1920);
     const isSmall = screenWidth <= 768;
 
@@ -20,7 +24,7 @@ const HomePage = () => {
 
     return (
         <div style={{ marginTop: isSmall ? '90px' : '120px' }}>
-            <Header />
+            <Header onNavigate={onNavigate} />
             <Section1st />
             <Section2nd />
             <Section3rd />

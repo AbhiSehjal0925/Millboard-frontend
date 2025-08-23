@@ -82,7 +82,7 @@ const Page = () => {
           marginTop: `${headerHeight}px`, // Add margin to account for fixed header
           minHeight: 'calc(100vh - 200px)' // Ensure minimum height
         }}>
-          {route === "home" && <HomePage />}
+          {route === "home" && <HomePage onNavigate={handleNavigate} />}
           {route === "product" && <ProductPage />}
           {route === "decor" && <DecorPage />}
           {route === "thankyou" && <ThankYouPage />}
