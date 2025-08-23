@@ -45,7 +45,7 @@ const Header = () => {
                     marginTop: screenSize === 'mobile' ? '1rem' : '0',
                 }}
             >
-                <a href="" style={{ color: 'black' }}>Home</a> / <a href="" style={{ color: 'black' }}>Order Samples</a>
+                <a href="/" style={{ color: 'black' }}>Home</a> / <a href="" style={{ color: 'black' }}>Checkout</a>
             </div>
 
             {/* Main Content */}

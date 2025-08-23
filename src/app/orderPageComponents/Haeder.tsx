@@ -200,7 +200,7 @@ const Header = () => {
     <header style={getHeaderStyle()}>
       {/* Breadcrumb */}
       <div style={getBreadcrumbStyle()}>
-        <a href="" style={{ color: "#000", textDecoration: "none" }}>
+        <a href="/" style={{ color: "#000", textDecoration: "none" }}>
           Home
         </a>
         <span>/</span>

@@ -45,7 +45,7 @@ const Header = () => {
                     fontSize: screenSize === 'mobile' ? '12px' : '18px',
                 }}
             >
-                <a href="" style={{ color: '#000' }}>Home</a>/
+                <a href="/" style={{ color: '#000' }}>Home</a>/
                 <a href="" style={{ color: '#000' }}>Why Millboard</a>/
                 <a href="" style={{ color: '#000' }}>Explore</a>/
                 <a href="" style={{ color: '#000' }}>Showrooms</a>

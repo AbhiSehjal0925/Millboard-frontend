@@ -39,7 +39,7 @@ const Header = () => {
                 }}
             >
                 <a
-                    href=""
+                    href="/"
                     style={{
                         textDecoration: 'none',
                         marginRight: '0.3rem',
@@ -55,7 +55,7 @@ const Header = () => {
                         marginLeft: '0.3rem',
                     }}
                 >
-                    Order Samples
+                    Thank You
                 </a>
             </div>
 
