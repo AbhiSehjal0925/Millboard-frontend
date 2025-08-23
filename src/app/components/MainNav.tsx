@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import UpperNav from './upperNav';
+import { useUpperNav } from '../context/UpperNavContext';
 
 // Define the navigation data structure
 interface NavItem {
@@ -90,7 +91,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current, navData = defaul
   const [screenWidth, setScreenWidth] = useState(1920);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [upperNavVisible, setUpperNavVisible] = useState(true);
+  const { isUpperNavVisible } = useUpperNav();
 
   // Ref for dropdown
   const dropdownRef = useRef<HTMLLIElement>(null);
@@ -100,20 +101,8 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current, navData = defaul
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      // Track UpperNav visibility based on scroll
-      if (currentScrollY > 100) {
-        setUpperNavVisible(false);
-      } else {
-        setUpperNavVisible(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -153,7 +142,7 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current, navData = defaul
     color: navData.colors.text,
     boxShadow: isSmall ? 'rgba(0, 0, 0, 0.1) 1px 1px 2px' : 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
     position: 'fixed',
-    top: upperNavVisible ? '47px' : '0',
+    top: isUpperNavVisible ? '47px' : '0',
     width: '100vw',
     zIndex: '111113310',
     marginTop: '0',

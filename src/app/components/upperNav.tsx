@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { useUpperNav } from "../context/UpperNavContext";
 
 // Define the section data structure
 interface UpperNavData {
@@ -132,6 +133,7 @@ const UpperNav: React.FC<UpperNavProps> = ({ navData = defaultUpperNavData }) =>
   const [showUpperNav, setShowUpperNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const { setIsUpperNavVisible } = useUpperNav();
 
   useEffect(() => {
     const handleResize = () => {
@@ -145,8 +147,10 @@ const UpperNav: React.FC<UpperNavProps> = ({ navData = defaultUpperNavData }) =>
       // Hide UpperNav when scrolling down, show when scrolling up
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setShowUpperNav(false);
+        setIsUpperNavVisible(false);
       } else if (currentScrollY < lastScrollY) {
         setShowUpperNav(true);
+        setIsUpperNavVisible(true);
       }
       setLastScrollY(currentScrollY);
     };
