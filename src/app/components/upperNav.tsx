@@ -187,10 +187,11 @@ const UpperNav: React.FC<UpperNavProps> = ({ navData = defaultUpperNavData }) =>
     zIndex: 111113311,
     overflow: "hidden",
     whiteSpace: "nowrap",
-    boxShadow: isMobile ? navData.shadows.mobile : navData.shadows.desktop,
+    boxShadow: showUpperNav ? (isMobile ? navData.shadows.mobile : navData.shadows.desktop) : 'none',
     marginBottom: '0',
-    margin: '0 auto',
-    transition: 'top 0.3s ease-in-out'
+    margin: '0',
+    transition: 'top 0.3s ease-in-out',
+    height: isMobile ? '40px' : '48px' // Fixed height to ensure consistency
   };
 
   const infoTextStyle: React.CSSProperties = {

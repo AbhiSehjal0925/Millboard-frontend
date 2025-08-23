@@ -142,10 +142,11 @@ const MainNav: React.FC<MainNavProps> = ({ onNavigate, current, navData = defaul
     color: navData.colors.text,
     boxShadow: isSmall ? 'rgba(0, 0, 0, 0.1) 1px 1px 2px' : 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
     position: 'fixed',
-    top: isUpperNavVisible ? '47px' : '0',
+    top: isUpperNavVisible ? (isSmall ? '40px' : '48px') : '0', // Use exact UpperNav heights
     width: '100vw',
     zIndex: '111113310',
     marginTop: '0',
+    marginBottom: '0',
     lineHeight: '1', // Ensure no line height gaps
     transition: 'top 0.3s ease-in-out'
   };
